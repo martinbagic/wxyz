@@ -5,6 +5,7 @@ import argparse
 
 from population import Population
 from plot import plot
+import config
 
 
 def save_pop(pop):
@@ -67,7 +68,9 @@ def parse_args():
 
 if __name__ == "__main__":
 
+
     args = parse_args()
+    config.load_config('config.yml')
 
     pop = run(cycles=args.cycles, filename=args.filename)
     if not pop.is_extinct():

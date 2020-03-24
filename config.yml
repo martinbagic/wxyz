@@ -5,11 +5,24 @@ bottleneck_size: 500
 max_lifespan: 50
 maturation_age: 5
 
+# GENOME STRUCTURE
 n_neutral_loci: 10
 mutation_loci: 5
 bits_per_locus: 10
 
-mutation_ratio: 1
+# INITIAL DISTRIBUTIONS
+genome_distribution: 1 # proportion of 1's in the genome
+# ages_distribution ... all are 0
 
-# initial genome distribution
-genome_distribution: ["uniform", 0.5]
+surv_bound_lo : 0
+surv_bound_hi : 1
+
+repr_bound_lo : 0
+repr_bound_hi : 1
+
+# MUTATION
+mutation_ratio: 1
+mutation_locus_interpreter: exp # exp or binary
+
+# OVERFLOW HANDLING
+overflow_handling: bottleneck # bottleneck, treadmill_real, treadmill_random
