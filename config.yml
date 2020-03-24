@@ -1,0 +1,15 @@
+population_size: 5000
+max_population_size: 10000
+bottleneck_size: 500
+
+max_lifespan: 50
+maturation_age: 5
+
+n_neutral_loci: 10
+mutation_loci: 5
+bits_per_locus: 10
+
+mutation_ratio: 1
+
+# initial genome distribution
+genome_distribution: ["uniform", 0.5]
