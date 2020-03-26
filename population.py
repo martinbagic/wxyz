@@ -1,9 +1,5 @@
 import numpy as np
-from config import CONFIG
-
-powers_of_2 = 2 ** np.arange(CONFIG.mutation_loci * CONFIG.bits_per_locus)
-sum_powers_of_2 = sum(powers_of_2)
-
+from record import Record
 
 # starting_genome = np.ones(
 #     shape=(CONFIG.population_size, n_total_loci, CONFIG.bits_per_locus), dtype=int
@@ -13,28 +9,48 @@ sum_powers_of_2 = sum(powers_of_2)
 
 
 class Population:
-    i0 = 0
-    i1 = CONFIG.max_lifespan
-    i2 = i1 + CONFIG.max_lifespan - CONFIG.maturation_age
-    i3 = i2 + CONFIG.n_neutral_loci
-    i4 = i3 + CONFIG.mutation_loci
-    n_total_loci = i4
+    def __init__(self, identifier, conf):
+        global CONFIG
+        CONFIG = conf
 
-    def __init__(self):
+        init_popsize = int(CONFIG.population_size_q * CONFIG.max_population_size)
+
         def set_genomes():
-            self.genomes = (
+            genomes = (
                 np.random.random(
-                    size=(CONFIG.population_size, n_total_loci, CONFIG.bits_per_locus)
+                    size=(init_popsize, self.n_total_loci, CONFIG.bits_per_locus)
                 )
                 <= CONFIG.genome_distribution
             ).astype(int)
 
-        def set_ages():
-            # self.ages = np.random.randint(0, 1, size=(CONFIG.population_size))
-            self.ages = np.zeros(CONFIG.population_size, dtype=int)
+            genomes[:, self.i3 : self.i4] = (
+                np.random.random(
+                    size=(init_popsize, self.i4 - self.i3, CONFIG.bits_per_locus)
+                )
+                <= CONFIG.mutrate_distribution
+            ).astype(int)
 
+            self.genomes = genomes
+
+        def set_ages():
+            self.ages = np.zeros(init_popsize, dtype=int)
+
+        def set_ranges():
+            self.i0 = 0
+            self.i1 = CONFIG.max_lifespan
+            self.i2 = self.i1 + CONFIG.max_lifespan - CONFIG.maturation_age
+            self.i3 = self.i2 + CONFIG.n_neutral_loci
+            self.i4 = self.i3 + CONFIG.mutation_loci
+            self.n_total_loci = self.i4
+
+        self.powers_of_2 = 2 ** np.arange(CONFIG.mutation_loci * CONFIG.bits_per_locus)
+        self.sum_powers_of_2 = sum(self.powers_of_2)
+
+        set_ranges()
         set_genomes()
         set_ages()
+
+        self.record = Record(identifier, conf._asdict())
 
     def is_extinct(self):
         return len(self.genomes) == 0
@@ -56,10 +72,25 @@ class Population:
         self.genomes = self.genomes[survived]
         self.ages = self.ages[survived]
 
+    def _get_mutation_probs(self, genomes):
+        # extract loci
+        loci = genomes[np.arange(len(genomes)), self.i3 : self.i4]
+
+        # flatten
+        loci = loci.reshape(len(genomes), (self.i4 - self.i3) * CONFIG.bits_per_locus)
+
+        # interpret
+        if CONFIG.mutation_locus_interpreter == "exp":
+            mutation_probs = 1 / 2 ** np.sum(loci == 0, axis=1)
+        elif CONFIG.mutation_locus_interpreter == "binary":
+            mutation_probs = np.dot(loci, self.powers_of_2) / self.sum_powers_of_2
+
+        return mutation_probs
+
     def reproduce(self):
         def get_success():
             loci = self.genomes[
-                self.genomelen(), self.ages - CONFIG.maturation_age + Population.i1
+                self.genomelen(), self.ages - CONFIG.maturation_age + self.i1
             ]
             reproduction_probs = (
                 loci.sum(1)
@@ -75,24 +106,15 @@ class Population:
 
         def get_new_genomes(parents):
 
-            # extract loci
-            loci = parents[np.arange(len(parents)), i3:i4]
-
-            # flatten
-            loci = loci.reshape(len(parents), (i4 - i3) * CONFIG.bits_per_locus)
-
-            # interpret
-            if CONFIG.mutation_locus_interpreter == "exp":
-                mutation_probs = 1 / 2 ** np.sum(loci, axis=1)
-            elif CONFIG.mutation_locus_interpreter == "binary":
-                mutation_probs = np.dot(loci, powers_of_2) / sum_powers_of_2
+            # get
+            mutation_probs = self._get_mutation_probs(parents)
 
             # broadcast
             mutation_probs = mutation_probs[:, None, None]
 
             # generate random
             random_probs = np.random.random(
-                size=[len(parents), n_total_loci, CONFIG.bits_per_locus]
+                size=[len(parents), self.n_total_loci, CONFIG.bits_per_locus]
             )
 
             # condlist
@@ -128,9 +150,6 @@ class Population:
         self.ages = self.ages[survived]
 
     def handle_overflow(self):
-        if len(self.genomes) <= CONFIG.max_population_size:
-            return
-
         def bottleneck():
             indices = np.random.choice(
                 len(self.genomes), CONFIG.bottleneck_size
@@ -139,37 +158,24 @@ class Population:
             self.ages = self.ages[indices]
 
         def treadmill_real():
-            pass
+            self.genomes = self.genomes[: -CONFIG.max_population_size]
+            self.ages = self.ages[: -CONFIG.max_population_size]
 
         def treadmill_random():
             pass
 
-
-    # def replenish(self):
-
-    #     # double survivors
-
-    #     self.genomes = np.append(self.genomes, self.genomes, axis=0)
-    #     self.ages = np.append(self.ages, self.ages, axis=0)
-
-    #     # -1 for the while break condition
-    #     size = int((CONFIG.max_population_size - len(self.genomes)) * 0.2)
-
-    #     # generate
-    #     new_genomes = np.random.randint(
-    #         0, 2, size=(size, n_total_loci, CONFIG.bits_per_locus)
-    #     )
-    #     # new_genomes = np.ones(
-    #     #     shape=(CONFIG.population_size, n_total_loci, CONFIG.bits_per_locus), dtype=int
-    #     # )
-    #     new_ages = np.random.randint(0, CONFIG.maturation_age, size=(size))
-
-    #     # append
-    #     self.genomes = np.append(self.genomes, new_genomes, axis=0)
-    #     self.ages = np.append(self.ages, new_ages, axis=0)
+        if len(self.genomes) > CONFIG.max_population_size:
+            {
+                "bottleneck": bottleneck,
+                "treadmill_real": treadmill_real,
+                "treadmill_random": treadmill_random,
+            }[CONFIG.overflow_handling]()
 
     def cycle(self):
-        self.survive()
-        self.age()
-        self.reproduce()
-        self.handle_overflow()
+        if len(self.genomes) > 0:
+            self.survive()
+            self.age()
+            self.reproduce()
+            self.handle_overflow()
+            if len(self.genomes) > 0:
+                self.record(self)

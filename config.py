@@ -2,8 +2,12 @@ import collections
 import yaml
 
 
-def load_config(path):
-    global CONFIG
-    with open(path, "r") as f:
+def init(config={}):
+
+    with open("config.yml", "r") as f:
         d = yaml.load(f)
-        CONFIG = collections.namedtuple("config", d.keys())(*d.values())
+
+    for k, v in config.items():
+        d[k] = v
+
+    return collections.namedtuple("Config", d.keys())(*d.values())
