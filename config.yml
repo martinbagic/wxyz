@@ -25,5 +25,20 @@ mutrate_distribution: 0.95 # proportion of 1's in the mutation loci
 mutation_locus_interpreter: exp # exp or binary
 
 # OVERFLOW HANDLING
-overflow_handling: bottleneck # bottleneck, treadmill_real, treadmill_random
+overflow_handling: treadmill_real # bottleneck, treadmill_real, treadmill_random
 bottleneck_size: 500
+
+#
+# RELEVANT:
+#
+# max_population_size
+# population_size_q
+# surv_bound_lo
+# surv_bound_hi
+# repr_bound_lo
+# repr_bound_hi
+# mutation_ratio
+# mutrate_distribution
+# overflow_handling
+# (bottleneck_size)
+#
