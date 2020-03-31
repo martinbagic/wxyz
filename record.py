@@ -3,6 +3,7 @@ import numpy as np
 import time
 import logging
 import sys
+import time
 
 # add position of parameter set (index in itertools.product) so you can trace it back later more easily
 
@@ -48,5 +49,6 @@ class Record:
 
         print(sys.getsizeof(self.d["data"]))
 
-        with open(f"records-cluster/{self.d['identifier']}.json", "w") as f:
+        # with open(f"records-cluster/{self.d['identifier']}.json", "w") as f:
+        with open(f"records-cluster/{str(time.time())}.json", "w") as f:
             json.dump(self.d, f)
