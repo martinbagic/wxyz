@@ -19,8 +19,10 @@ Cartesian = {
 }
 
 cycle_num = 3000
-
-os.mkdir('records-cluster')
+try:
+    os.mkdir('records-cluster')
+except:
+    pass
 
 carts = tuple(itertools.product(*Cartesian.values()))
 
