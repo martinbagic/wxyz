@@ -8,6 +8,7 @@ import pathlib
 path = pathlib.Path(__file__).parent.absolute()
 
 import logging
+
 logging.basicConfig(
     format="%(asctime)s | %(message)s",
     datefmt="%m/%d/%Y %I:%M:%S",
@@ -17,7 +18,7 @@ logging.basicConfig(
 
 def init_config(config={}):
 
-    with open("config.yml", "r") as f:
+    with open(path / "config.yml", "r") as f:
         d = yaml.load(f, Loader=yaml.FullLoader)
 
     for k, v in config.items():
