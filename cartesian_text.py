@@ -13,7 +13,7 @@ class CartesianText:
         self.set_yml()
 
     def set_args(self):
-        parser = argparse.ArgumentParser("AEGIS")
+        parser = argparse.ArgumentParser("CartesianText")
         parser.add_argument("dirname", type=str)
         self.args = parser.parse_args()
 

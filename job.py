@@ -15,7 +15,7 @@ class Job:
         self.set_opath()
 
     def set_args(self):
-        parser = argparse.ArgumentParser("AEGIS")
+        parser = argparse.ArgumentParser("Job")
         parser.add_argument("params", type=str)
         parser.add_argument("jobid", type=int)
         parser.add_argument("dirname", type=str)
