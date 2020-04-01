@@ -29,7 +29,7 @@ class Job:
         self.conf = funcs.init_config(d)
 
     def set_opath(self):
-        self.opath = funcs.path.parents[0] / self.args.dirname / self.args.jobid
+        self.opath = funcs.path.parents[0] / self.args.dirname / (self.args.jobid + '.sim')
 
     def run(self):
         logging.info("calculating...")
