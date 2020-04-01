@@ -24,7 +24,7 @@ class CartesianText:
 
     def set_yml(self):
         with open(self.ymlpath, "r") as f:
-            self.yml = yaml.load(f)
+            self.yml = yaml.load(f, Loader=yaml.FullLoader)
 
     def write_cartesian_txt(self):
         keys = tuple(self.yml.keys())
