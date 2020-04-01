@@ -42,13 +42,9 @@ class Record:
         for k, v in tail.items():
             self.d["data"][k].append(v)
 
-    def save(self, jobid, opath):
-        # print(vars(self))
+    def save(self, opath):
         time_difference = time.time() - self.time0
         self.d["time_run"]: time.strftime("%H:%M:%S", time.gmtime(time_difference))
 
-        print(sys.getsizeof(self.d["data"]))
-
-        # with open(f"records-cluster/{self.d['identifier']}.json", "w") as f:
-        with open(f"records-cluster/{str(time.time())}.json", "w") as f:
+        with open(opath, "w") as f:
             json.dump(self.d, f)

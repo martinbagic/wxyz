@@ -1,6 +1,9 @@
-import funcs
 import json
-import os
+import argparse
+import logging
+
+import population
+import funcs
 
 
 class Job:
@@ -17,7 +20,7 @@ class Job:
     def set_args(self):
         parser = argparse.ArgumentParser("Job")
         parser.add_argument("params", type=str)
-        parser.add_argument("jobid", type=int)
+        parser.add_argument("jobid", type=str)
         parser.add_argument("dirname", type=str)
         self.args = parser.parse_args()
 
@@ -29,9 +32,17 @@ class Job:
         self.opath = funcs.path.parents[0] / self.args.dirname / self.args.jobid
 
     def run(self):
-        pop = population.Population(i, conf)
-        pop.cycle(conf.cycle_num)
+        logging.info("calculating...")
+        pop = population.Population(self.args.jobid, self.conf)
+        for i in range(self.conf.cycle_num):
+            pop.cycle(1)
+            if not i % 100:
+                logging.info(f"...stage {i}")
+        logging.info("...done!")
+
+        logging.info("writing results...")
         pop.record.save(self.opath)
+        logging.info("...done!")
 
 
 if __name__ == "__main__":
