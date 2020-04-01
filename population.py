@@ -171,11 +171,13 @@ class Population:
                 "treadmill_random": treadmill_random,
             }[CONFIG.overflow_handling]()
 
-    def cycle(self):
-        if len(self.genomes) > 0:
-            self.survive()
-            self.age()
-            self.reproduce()
-            self.handle_overflow()
+    def cycle(self, n):
+
+        for i in range(n):
             if len(self.genomes) > 0:
-                self.record(self)
+                self.survive()
+                self.age()
+                self.reproduce()
+                self.handle_overflow()
+                if len(self.genomes) > 0:
+                    self.record(self)

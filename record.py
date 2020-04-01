@@ -42,7 +42,7 @@ class Record:
         for k, v in tail.items():
             self.d["data"][k].append(v)
 
-    def save(self):
+    def save(self, jobid, opath):
         # print(vars(self))
         time_difference = time.time() - self.time0
         self.d["time_run"]: time.strftime("%H:%M:%S", time.gmtime(time_difference))
