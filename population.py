@@ -1,21 +1,14 @@
 import numpy as np
 from record import Record
 
-# starting_genome = np.ones(
-#     shape=(CONFIG.population_size, n_total_loci, CONFIG.bits_per_locus), dtype=int
-# )
-# starting_genome[:, -5:, :] = 0
-# starting_genome[:, -1, 0] = 1
-
 
 class Population:
     def __init__(self, identifier, conf):
         global CONFIG
         CONFIG = conf
 
-        init_popsize = int(CONFIG.population_size_q * CONFIG.max_population_size)
-
         def set_genomes():
+            init_popsize = int(CONFIG.population_size_q * CONFIG.max_population_size)
             genomes = (
                 np.random.random(
                     size=(init_popsize, self.n_total_loci, CONFIG.bits_per_locus)
@@ -32,25 +25,29 @@ class Population:
 
             self.genomes = genomes
 
-        def set_ages():
-            self.ages = np.zeros(init_popsize, dtype=int)
-
-        def set_ranges():
-            self.i0 = 0
-            self.i1 = CONFIG.max_lifespan
-            self.i2 = self.i1 + CONFIG.max_lifespan - CONFIG.maturation_age
-            self.i3 = self.i2 + CONFIG.n_neutral_loci
-            self.i4 = self.i3 + CONFIG.mutation_loci
-            self.n_total_loci = self.i4
-
+        # genome cutoffs and other interpretation help
+        self.i0 = 0
+        self.i1 = CONFIG.max_lifespan
+        self.i2 = self.i1 + CONFIG.max_lifespan - CONFIG.maturation_age
+        self.i3 = self.i2 + CONFIG.n_neutral_loci
+        self.i4 = self.i3 + CONFIG.mutation_loci
+        self.n_total_loci = self.i4
         self.powers_of_2 = 2 ** np.arange(CONFIG.mutation_loci * CONFIG.bits_per_locus)
         self.sum_powers_of_2 = sum(self.powers_of_2)
 
-        set_ranges()
+        # initialize genomes and metadata
         set_genomes()
-        set_ages()
+        n = len(self.genomes)
+        self.ages = np.zeros(n, dtype=int)
+        self.origins = np.arange(n)
+        self.births = np.zeros(n, dtype=int)
+        self.birthdays = np.zeros(n, dtype=int)
 
+        # initialize record
         self.record = Record(identifier, conf._asdict())
+
+        # initialize time
+        self.stage = 0
 
     def is_extinct(self):
         return len(self.genomes) == 0
@@ -59,18 +56,20 @@ class Population:
         return np.arange(len(self.genomes))
 
     def survive(self):
-        loci = self.genomes[self.genomelen(), self.ages]
-        survival_probs = (
-            loci.sum(1)
-            / CONFIG.bits_per_locus
-            * (CONFIG.surv_bound_hi - CONFIG.surv_bound_lo)
-            + CONFIG.surv_bound_lo
-        )
-        random_probs = np.random.random(size=len(self.genomes))
-        survived = random_probs < survival_probs
+        def get_mask():
+            loci = self.genomes[self.genomelen(), self.ages]
+            survival_probs = (
+                loci.sum(1)
+                / CONFIG.bits_per_locus
+                * (CONFIG.surv_bound_hi - CONFIG.surv_bound_lo)
+                + CONFIG.surv_bound_lo
+            )
+            random_probs = np.random.random(size=len(self.genomes))
+            survived = random_probs < survival_probs
+            return survived
 
-        self.genomes = self.genomes[survived]
-        self.ages = self.ages[survived]
+        mask = get_mask()
+        self.kill(np.invert(mask))
 
     def _get_mutation_probs(self, genomes):
         # extract loci
@@ -88,7 +87,7 @@ class Population:
         return mutation_probs
 
     def reproduce(self):
-        def get_success():
+        def get_mask():
             loci = self.genomes[
                 self.genomelen(), self.ages - CONFIG.maturation_age + self.i1
             ]
@@ -129,55 +128,92 @@ class Population:
                 choicelist=[1, 0, parents], condlist=[mutate_0, mutate_1, mutate_no]
             )
 
-        success = get_success()
+        mask = get_mask()
 
-        if sum(success) == 0:
+        if sum(mask) == 0:
             return
 
         # generate
-        new_genomes = get_new_genomes(parents=self.genomes[success])
-        new_ages = np.zeros(success.sum(), dtype=int)
+        n = mask.sum()
+        new_genomes = get_new_genomes(parents=self.genomes[mask])
+        new_ages = np.zeros(n, dtype=int)
+        new_origins = self.origins[mask]
+        new_births = np.zeros(n, dtype=int)
+        new_birthdays = np.zeros(n, dtype=int) + self.stage
 
         # append
         self.genomes = np.append(self.genomes, new_genomes, axis=0)
         self.ages = np.append(self.ages, new_ages, axis=0)
+        self.origins = np.append(self.origins, new_origins, axis=0)
+        self.births = np.append(self.births, new_births, axis=0)
+        self.birthdays = np.append(self.birthdays, new_birthdays, axis=0)
 
     def age(self):
         self.ages += 1
-
-        survived = self.ages <= CONFIG.max_lifespan
-        self.genomes = self.genomes[survived]
-        self.ages = self.ages[survived]
+        mask = self.ages <= CONFIG.max_lifespan
+        self.kill(np.invert(mask))
 
     def handle_overflow(self):
         def bottleneck():
-            indices = np.random.choice(
-                len(self.genomes), CONFIG.bottleneck_size
-            )  # bottleneck
-            self.genomes = self.genomes[indices]
-            self.ages = self.ages[indices]
+            boolmask = np.random.choice(len(self.genomes), CONFIG.bottleneck_size)
+            return boolmask
 
         def treadmill_real():
-            self.genomes = self.genomes[: -CONFIG.max_population_size]
-            self.ages = self.ages[: -CONFIG.max_population_size]
-
-        def treadmill_random():
-            pass
+            boolmask = np.zeros(shape=len(self.genomes), dtype=bool)
+            boolmask[: -CONFIG.max_population_size] = True
+            return boolmask
 
         if len(self.genomes) > CONFIG.max_population_size:
-            {
+            funcs = {
                 "bottleneck": bottleneck,
                 "treadmill_real": treadmill_real,
-                "treadmill_random": treadmill_random,
-            }[CONFIG.overflow_handling]()
+            }
+            func = funcs[CONFIG.overflow_handling]
+            boolmask = func()
+            self.kill(np.invert(boolmask))
 
-    def cycle(self, n):
+    def kill(self, boolmask, dying=True):
+        # print(boolmask.shape)
 
-        for i in range(n):
-            if len(self.genomes) > 0:
-                self.survive()
-                self.age()
-                self.reproduce()
-                self.handle_overflow()
-                if len(self.genomes) > 0:
-                    self.record(self)
+        attrs = {"genomes", "ages", "births", "birthdays", "origins"}
+
+        # record killed
+        for attr in attrs - {"genomes", "ages"}:
+            vals = getattr(self, attr)[boolmask]
+            self.record.__dict__[attr].extend(vals.tolist())
+
+        if dying:
+            vals = self.ages[boolmask]
+            self.record.ages.extend(vals)
+        else:
+            self.record.ages.extend([-1] * sum(boolmask))
+
+        # split and record genomes
+        genomes = self.genomes[boolmask]
+        d = {
+            "mutrates": self._get_mutation_probs(genomes),
+            "survloci": genomes[:, : self.i1].sum(2),
+            "reprloci": genomes[:, self.i1 : self.i2].sum(2),
+            "neutloci": genomes[:, self.i2 : self.i3].sum(2),
+        }
+        for k, v in d.items():
+            self.record.genomes[k].append(v)
+
+        # remove killed
+        for attr in attrs:
+            new = getattr(self, attr)[np.invert(boolmask)]
+            setattr(self, attr, new)
+
+    def killall(self):
+        boolmask = np.ones(shape=len(self.genomes), dtype=bool)
+        self.kill(boolmask, dying=False)
+
+    def cycle(self):
+        self.stage += 1
+        if len(self.genomes) > 0:
+            self.survive()
+            self.age()
+            self.reproduce()
+            self.handle_overflow()
+            # if len(self.genomes) > 0:
+            #     self.record(self)

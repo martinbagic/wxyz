@@ -2,6 +2,7 @@ import yaml
 import json
 import itertools
 import collections
+import functools
 
 import pathlib
 
@@ -25,3 +26,30 @@ def init_config(config={}):
         d[k] = v
 
     return collections.namedtuple("Config", d.keys())(*d.values())
+
+
+def calc_survX(loci, x):
+    p = 1
+
+    iloc = 0
+    for locus in loci:
+        p *= locus / 10
+        if p < x:
+            return iloc
+        iloc += 1
+
+    return iloc
+
+
+def calc_reprX(loci, x):
+    if x < 0:
+        x = 0
+    return sum(loci[:x]) / 10
+
+
+def survXfunc(x):
+    return functools.partial(calc_survX, x=x)
+
+
+def reprXfunc(x):
+    return functools.partial(calc_reprX, x=x)

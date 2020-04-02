@@ -35,9 +35,10 @@ class Job:
         logging.info("calculating...")
         pop = population.Population(self.args.jobid, self.conf)
         for i in range(self.conf.cycle_num):
-            pop.cycle(1)
+            pop.cycle()
             if not i % 100:
                 logging.info(f"...stage {i}")
+        pop.killall()
         logging.info("...done!")
 
         logging.info("writing results...")
