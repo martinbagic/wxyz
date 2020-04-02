@@ -163,10 +163,17 @@ class Population:
             boolmask[: -CONFIG.max_population_size] = True
             return boolmask
 
+        def treadmill_random():
+            boolmask = np.random.choice(
+                len(self.genomes), len(self.genomes) - CONFIG.max_population_size
+            )
+            return boolmask
+
         if len(self.genomes) > CONFIG.max_population_size:
             funcs = {
                 "bottleneck": bottleneck,
                 "treadmill_real": treadmill_real,
+                "treadmill_random": treadmill_random,
             }
             func = funcs[CONFIG.overflow_handling]
             boolmask = func()
