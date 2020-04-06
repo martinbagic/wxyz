@@ -4,6 +4,7 @@ import time
 import logging
 import sys
 import time
+import pandas
 
 import funcs
 
@@ -81,5 +82,8 @@ class Record:
             mutrate for mutrates in self.genomes["mutrates"] for mutrate in mutrates
         ]
 
-        with open(opath, "w") as f:
-            json.dump(self.d, f)
+        # with open(opath, "w") as f:
+        #     json.dump(self.d, f)
+
+        df = pandas.DataFrame(self.d["data"])
+        df.to_csv(opath, index=False)

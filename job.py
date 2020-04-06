@@ -29,7 +29,7 @@ class Job:
         self.conf = funcs.init_config(d)
 
     def set_opath(self):
-        self.opath = funcs.path.parents[0] / self.args.dirname / (self.args.jobid + '.sim')
+        self.opath = funcs.path.parents[0] / self.args.dirname / (self.args.jobid + '.csv')
 
     def run(self):
         logging.info("calculating...")
@@ -37,7 +37,7 @@ class Job:
         for i in range(self.conf.cycle_num):
             pop.cycle()
             if not i % 100:
-                logging.info(f"...stage {i}")
+                logging.info(f"...stage {i:<5} | n {len(pop.genomes)}")
         pop.killall()
         logging.info("...done!")
 

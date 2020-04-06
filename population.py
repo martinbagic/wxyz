@@ -129,6 +129,7 @@ class Population:
             )
 
         mask = get_mask()
+        self.births += mask
 
         if sum(mask) == 0:
             return
