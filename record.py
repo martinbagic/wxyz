@@ -27,6 +27,7 @@ class Record:
         self.births = []
         self.origins = []
         self.birthdays = []
+        self.uids = []
 
         self.time0 = time.time()
 
@@ -57,7 +58,7 @@ class Record:
 
         self.d["data"] = {
             attr: [x for x in getattr(self, attr)]
-            for attr in ("ages", "births", "birthdays", "origins")
+            for attr in ("ages", "births", "birthdays", "origins", "uids")
         }
 
         self.d["data"]["ages"] = [int(x) for x in self.d["data"]["ages"]]

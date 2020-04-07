@@ -39,9 +39,12 @@ class Population:
         set_genomes()
         n = len(self.genomes)
         self.ages = np.zeros(n, dtype=int)
-        self.origins = np.arange(n)
+        self.origins = np.zeros(n,dtype=int) - 1
+        self.uids = np.arange(n)
         self.births = np.zeros(n, dtype=int)
         self.birthdays = np.zeros(n, dtype=int)
+
+        self.max_uid = n
 
         # initialize record
         self.record = Record(identifier, conf._asdict())
@@ -138,14 +141,18 @@ class Population:
         n = mask.sum()
         new_genomes = get_new_genomes(parents=self.genomes[mask])
         new_ages = np.zeros(n, dtype=int)
-        new_origins = self.origins[mask]
+        new_origins = self.uids[mask]
+        new_uids = np.arange(n) + self.max_uid
         new_births = np.zeros(n, dtype=int)
         new_birthdays = np.zeros(n, dtype=int) + self.stage
+
+        self.max_uid += n
 
         # append
         self.genomes = np.append(self.genomes, new_genomes, axis=0)
         self.ages = np.append(self.ages, new_ages, axis=0)
         self.origins = np.append(self.origins, new_origins, axis=0)
+        self.uids = np.append(self.uids, new_uids, axis=0)
         self.births = np.append(self.births, new_births, axis=0)
         self.birthdays = np.append(self.birthdays, new_birthdays, axis=0)
 
@@ -183,7 +190,7 @@ class Population:
     def kill(self, boolmask, dying=True):
         # print(boolmask.shape)
 
-        attrs = {"genomes", "ages", "births", "birthdays", "origins"}
+        attrs = {"genomes", "ages", "births", "birthdays", "origins", "uids"}
 
         # record killed
         for attr in attrs - {"genomes", "ages"}:

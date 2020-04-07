@@ -5,6 +5,10 @@ import pickle
 import yaml
 import numpy
 
+import functools
+
+import tqdm
+
 
 class Measurer:
     def extinction_time(df):
@@ -13,13 +17,23 @@ class Measurer:
         else:
             return max(df.ages + df.birthdays)
 
-    
+    def quantile(df, attr, q):
+        return df[df.birthdays > 2000][attr].quantile(q)
+
+    def surv05_05(df):
+        return df[df.birthdays > 2000]["surv0.5"].quantile(0.5)
+
+    def repr05_05(df):
+        return df[df.birthdays > 2000]["repr0.5"].quantile(0.5)
+
+    def mutrates_05(df):
+        return df[df.birthdays > 2000]["mutrates"].quantile(0.5)
 
 
 class Analyzer:
     def __init__(self, exp_name):
         self.dir = funcs.path.parents[0] / exp_name
-        self.mnames = ("extinction_time",)
+        self.mnames = ("extinction_time", "surv05_05", "repr05_05", "mutrates_05")
         self.config = self.load_config()
 
     def run(self):
@@ -42,12 +56,10 @@ class Analyzer:
         paths = [x for x in self.dir.iterdir() if x.suffix == ".csv"]
         paths.sort(key=lambda x: int(x.name.split(".")[0]))
 
-        print(paths)
-
         # initialize measure dict
         mdict = {mname: [] for mname in self.mnames}
 
-        for path in paths:
+        for path in tqdm.tqdm(paths):
 
             # read file
             df = pandas.read_csv(path)
