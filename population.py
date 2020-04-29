@@ -1,5 +1,6 @@
 import numpy as np
 from record import Record
+from collections import Counter
 
 
 class Population:
@@ -38,13 +39,13 @@ class Population:
         # initialize genomes and metadata
         set_genomes()
         n = len(self.genomes)
+        self.max_uid = 0
+
         self.ages = np.zeros(n, dtype=int)
-        self.origins = np.zeros(n,dtype=int) - 1
-        self.uids = np.arange(n)
+        self.origins = np.zeros(n, dtype=int) - 1
+        self.uids = self.get_uids(n)
         self.births = np.zeros(n, dtype=int)
         self.birthdays = np.zeros(n, dtype=int)
-
-        self.max_uid = n
 
         # initialize record
         self.record = Record(identifier, conf._asdict())
@@ -57,6 +58,11 @@ class Population:
 
     def genomelen(self):
         return np.arange(len(self.genomes))
+
+    def get_uids(self, n):
+        uids = np.arange(n) + self.max_uid
+        self.max_uid += n
+        return uids
 
     def survive(self):
         def get_mask():
@@ -141,12 +147,10 @@ class Population:
         n = mask.sum()
         new_genomes = get_new_genomes(parents=self.genomes[mask])
         new_ages = np.zeros(n, dtype=int)
-        new_origins = self.uids[mask]
-        new_uids = np.arange(n) + self.max_uid
+        new_origins = self.uids[mask].copy()
+        new_uids = self.get_uids(n)
         new_births = np.zeros(n, dtype=int)
         new_birthdays = np.zeros(n, dtype=int) + self.stage
-
-        self.max_uid += n
 
         # append
         self.genomes = np.append(self.genomes, new_genomes, axis=0)
@@ -163,18 +167,25 @@ class Population:
 
     def handle_overflow(self):
         def bottleneck():
-            boolmask = np.random.choice(len(self.genomes), CONFIG.bottleneck_size)
+            # kill all but chosen few
+            indices = np.random.choice(len(self.genomes), CONFIG.bottleneck_size)
+            boolmask = np.ones(shape=len(self.genomes), dtype=bool)
+            boolmask[indices] = False
             return boolmask
 
         def treadmill_real():
+            # kill the population tail
             boolmask = np.zeros(shape=len(self.genomes), dtype=bool)
             boolmask[: -CONFIG.max_population_size] = True
             return boolmask
 
         def treadmill_random():
-            boolmask = np.random.choice(
+            # kill chosen few
+            indices = np.random.choice(
                 len(self.genomes), len(self.genomes) - CONFIG.max_population_size
             )
+            boolmask = np.zeros(shape=len(self.genomes), dtype=bool)
+            boolmask[indices] = True
             return boolmask
 
         if len(self.genomes) > CONFIG.max_population_size:
@@ -185,15 +196,15 @@ class Population:
             }
             func = funcs[CONFIG.overflow_handling]
             boolmask = func()
-            self.kill(np.invert(boolmask))
+            self.kill(boolmask)
 
     def kill(self, boolmask, dying=True):
         # print(boolmask.shape)
 
-        attrs = {"genomes", "ages", "births", "birthdays", "origins", "uids"}
+        attrs = ["genomes", "ages", "births", "birthdays", "origins", "uids"]
 
         # record killed
-        for attr in attrs - {"genomes", "ages"}:
+        for attr in attrs[2:]:
             vals = getattr(self, attr)[boolmask]
             self.record.__dict__[attr].extend(vals.tolist())
 

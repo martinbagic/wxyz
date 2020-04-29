@@ -58,7 +58,7 @@ class Record:
 
         self.d["data"] = {
             attr: [x for x in getattr(self, attr)]
-            for attr in ("ages", "births", "birthdays", "origins", "uids")
+            for attr in ("ages", "births", "birthdays", "origins", "uids",)
         }
 
         self.d["data"]["ages"] = [int(x) for x in self.d["data"]["ages"]]
