@@ -83,6 +83,10 @@ class Record:
             mutrate for mutrates in self.genomes["mutrates"] for mutrate in mutrates
         ]
 
+        self.d["data"]["neutloci"] = [
+            np.mean(neutloci) for neutloci in self.genomes["neutloci"]
+        ]
+
         # with open(opath, "w") as f:
         #     json.dump(self.d, f)
 

@@ -3,6 +3,16 @@ from record import Record
 from collections import Counter
 
 
+class Nextgen:
+    def __init__(self, genomes_shape):
+        self.genomes = np.empty((0, genomes_shape[1], genomes_shape[2]), dtype=int)
+        self.ages = np.empty(0, dtype=int)
+        self.origins = np.empty(0, dtype=int)
+        self.uids = np.empty(0, dtype=int)
+        self.births = np.empty(0, dtype=int)
+        self.birthdays = np.empty(0, dtype=int)
+
+
 class Population:
     def __init__(self, identifier, conf):
         global CONFIG
@@ -10,11 +20,9 @@ class Population:
 
         def set_genomes():
             init_popsize = int(CONFIG.population_size_q * CONFIG.max_population_size)
+            self.genome_shape = (init_popsize, self.n_total_loci, CONFIG.bits_per_locus)
             genomes = (
-                np.random.random(
-                    size=(init_popsize, self.n_total_loci, CONFIG.bits_per_locus)
-                )
-                <= CONFIG.genome_distribution
+                np.random.random(size=self.genome_shape) <= CONFIG.genome_distribution
             ).astype(int)
 
             genomes[:, self.i3 : self.i4] = (
@@ -52,6 +60,10 @@ class Population:
 
         # initialize time
         self.stage = 0
+
+        # initialize nextgen if generations are not overlapping
+        if CONFIG.split_generations:
+            self.nextgen = Nextgen(self.genome_shape)
 
     def is_extinct(self):
         return len(self.genomes) == 0
@@ -153,12 +165,15 @@ class Population:
         new_birthdays = np.zeros(n, dtype=int) + self.stage
 
         # append
-        self.genomes = np.append(self.genomes, new_genomes, axis=0)
-        self.ages = np.append(self.ages, new_ages, axis=0)
-        self.origins = np.append(self.origins, new_origins, axis=0)
-        self.uids = np.append(self.uids, new_uids, axis=0)
-        self.births = np.append(self.births, new_births, axis=0)
-        self.birthdays = np.append(self.birthdays, new_birthdays, axis=0)
+
+        obj = self.nextgen if CONFIG.split_generations else self
+
+        obj.genomes = np.append(obj.genomes, new_genomes, axis=0)
+        obj.ages = np.append(obj.ages, new_ages, axis=0)
+        obj.origins = np.append(obj.origins, new_origins, axis=0)
+        obj.uids = np.append(obj.uids, new_uids, axis=0)
+        obj.births = np.append(obj.births, new_births, axis=0)
+        obj.birthdays = np.append(obj.birthdays, new_birthdays, axis=0)
 
     def age(self):
         self.ages += 1
@@ -168,7 +183,9 @@ class Population:
     def handle_overflow(self):
         def bottleneck():
             # kill all but chosen few
-            indices = np.random.choice(len(self.genomes), CONFIG.bottleneck_size)
+            indices = np.random.choice(
+                len(self.genomes), CONFIG.bottleneck_size, replace=False
+            )
             boolmask = np.ones(shape=len(self.genomes), dtype=bool)
             boolmask[indices] = False
             return boolmask
@@ -182,7 +199,9 @@ class Population:
         def treadmill_random():
             # kill chosen few
             indices = np.random.choice(
-                len(self.genomes), len(self.genomes) - CONFIG.max_population_size
+                len(self.genomes),
+                len(self.genomes) - CONFIG.max_population_size,
+                replace=False,
             )
             boolmask = np.zeros(shape=len(self.genomes), dtype=bool)
             boolmask[indices] = True
@@ -208,7 +227,7 @@ class Population:
             vals = getattr(self, attr)[boolmask]
             self.record.__dict__[attr].extend(vals.tolist())
 
-        if dying:
+        if dying: # (I think) True if died, False if simulation ended
             vals = self.ages[boolmask]
             self.record.ages.extend(vals)
         else:
@@ -235,11 +254,27 @@ class Population:
         self.kill(boolmask, dying=False)
 
     def cycle(self):
+        print(self.stage,len(self.genomes),len(self.nextgen.genomes))
         self.stage += 1
         if len(self.genomes) > 0:
             self.survive()
             self.age()
             self.reproduce()
+            # print(self.stage, len(self.genomes),end=" ")
             self.handle_overflow()
-            # if len(self.genomes) > 0:
-            #     self.record(self)
+            # print(len(self.genomes))
+
+            if CONFIG.split_generations and self.stage % 25 == 0 and self.stage > 0:
+                self.killall()
+                self.bring_nextgen()
+        else:
+            if CONFIG.split_generations and len(self.nextgen.genomes) > 0:
+                self.bring_nextgen()
+
+    def bring_nextgen(self):
+        print(self.stage)
+        for attr in ("genomes", "ages", "origins", "uids", "births", "birthdays"):
+            val = getattr(self.nextgen, attr)
+            setattr(self, attr, val)
+
+        self.nextgen = Nextgen(self.genome_shape)

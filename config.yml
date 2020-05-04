@@ -30,6 +30,7 @@ bottleneck_size: 500
 
 # MISC
 cycle_num: 4000
+split_generations: True
 
 #
 # RELEVANT:
