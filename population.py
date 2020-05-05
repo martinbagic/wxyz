@@ -196,6 +196,12 @@ class Population:
             boolmask[: -CONFIG.max_population_size] = True
             return boolmask
 
+        def treadmill_boomer():
+            # kill the population head
+            boolmask = np.zeros(shape=len(self.genomes),dtype=bool)
+            boolmask[:CONFIG.max_population_size] = True
+            return boolmask
+
         def treadmill_random():
             # kill chosen few
             indices = np.random.choice(
@@ -212,6 +218,7 @@ class Population:
                 "bottleneck": bottleneck,
                 "treadmill_real": treadmill_real,
                 "treadmill_random": treadmill_random,
+                "treadmill_boomer": treadmill_boomer,
             }
             func = funcs[CONFIG.overflow_handling]
             boolmask = func()
