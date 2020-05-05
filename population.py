@@ -261,7 +261,7 @@ class Population:
         self.kill(boolmask, dying=False)
 
     def cycle(self):
-        print(self.stage,len(self.genomes),len(self.nextgen.genomes))
+        # print(self.stage,len(self.genomes),len(self.nextgen.genomes))
         self.stage += 1
         if len(self.genomes) > 0:
             self.survive()

@@ -25,12 +25,12 @@ mutrate_distribution: 0.95 # proportion of 1's in the mutation loci
 mutation_locus_interpreter: exp # exp or binary
 
 # OVERFLOW HANDLING
-overflow_handling: treadmill_real # bottleneck, treadmill_real, treadmill_random
+overflow_handling: treadmill_random # bottleneck, treadmill_real, treadmill_random
 bottleneck_size: 500
 
 # MISC
 cycle_num: 4000
-split_generations: True
+split_generations: False
 
 #
 # RELEVANT:
