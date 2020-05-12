@@ -33,17 +33,18 @@ class Job:
 
     def run(self):
         logging.info("calculating...")
-        pop = population.Population(self.args.jobid, self.conf)
+        logging.info(f"{self.conf.cycle_num} stages...")
+        pop = population.Population(self.args.jobid, self.conf, self.opath)
         for i in range(self.conf.cycle_num):
             pop.cycle()
-            if not i % 100:
+            if not i % 50:
                 logging.info(f"...stage {i:<5} | n {len(pop.genomes)}")
         pop.killall()
         logging.info("...done!")
 
-        logging.info("writing results...")
-        pop.record.save(self.opath)
-        logging.info("...done!")
+        # logging.info("writing results...")
+        # pop.record.save(self.opath)
+        # logging.info("...done!")
 
 
 if __name__ == "__main__":

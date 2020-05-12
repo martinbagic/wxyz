@@ -14,9 +14,11 @@ class Nextgen:
 
 
 class Population:
-    def __init__(self, identifier, conf):
+    def __init__(self, identifier, conf, opath):
         global CONFIG
         CONFIG = conf
+
+        self.opath = opath
 
         def set_genomes():
             init_popsize = int(CONFIG.population_size_q * CONFIG.max_population_size)
@@ -282,6 +284,8 @@ class Population:
         }
         for k, v in d.items():
             self.record.genomes[k].append(v)
+
+        self.record.flush(self.opath)
 
         # remove killed
         for attr in attrs:
