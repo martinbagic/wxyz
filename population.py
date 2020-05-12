@@ -170,7 +170,10 @@ class Population:
 
         # append
 
-        obj = self.nextgen if CONFIG.split_generations else self
+        if CONFIG.split_generations:
+            obj = self.nextgen
+        else:
+            obj = self
 
         obj.genomes = np.append(obj.genomes, new_genomes, axis=0)
         obj.ages = np.append(obj.ages, new_ages, axis=0)
@@ -290,7 +293,6 @@ class Population:
         self.kill(boolmask, "sim_end")
 
     def cycle(self):
-        print(self.stage, len(self.genomes), len(self.nextgen.genomes))
         self.stage += 1
         if len(self.genomes) > 0:
             self.survive()
