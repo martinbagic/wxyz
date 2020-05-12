@@ -5,12 +5,12 @@ max_lifespan: 50
 maturation_age: 5
 
 # GENOME STRUCTURE
-n_neutral_loci: 10
+n_neutral_loci: 20
 mutation_loci: 5
 bits_per_locus: 10
 
 # INITIAL DISTRIBUTIONS
-genome_distribution: 1 # proportion of 1's in the genome
+genome_distribution: 0.8 # proportion of 1's in the genome
 # ages_distribution ... all are 0
 
 surv_bound_lo: 0
@@ -20,9 +20,10 @@ repr_bound_lo: 0
 repr_bound_hi: 1
 
 # MUTATION
-mutation_ratio: 1
+mutation_ratio: 0.1
 mutrate_distribution: 0.95 # proportion of 1's in the mutation loci
 mutation_locus_interpreter: exp # exp or binary
+mutation_probability: 0.001 # if -1, then mutation rate is evolvable
 
 # OVERFLOW HANDLING
 overflow_handling: treadmill_random # bottleneck, treadmill_real, treadmill_random
@@ -31,6 +32,7 @@ bottleneck_size: 500
 # MISC
 cycle_num: 4000
 split_generations: False
+record_immature: False
 
 #
 # RELEVANT:

@@ -28,29 +28,9 @@ class Record:
         self.origins = []
         self.birthdays = []
         self.uids = []
+        self.causeofdeath = []
 
         self.time0 = time.time()
-
-    # def __call__(self, pop):
-    #     quantiles = [0.25, 0.5, 0.75]
-
-    #     def get_qs(values):
-    #         return [np.quantile(values / 10, q) for q in quantiles]
-
-    #     mutrates = pop._get_mutation_probs(pop.genomes)
-    #     ages = pop.ages
-
-    #     tail = {
-    #         "genomes": [
-    #             list(np.quantile(pop.genomes.sum(2), q, axis=1)) for q in quantiles
-    #         ],
-    #         "ages": get_qs(ages),
-    #         "mutrates": get_qs(mutrates),
-    #         "popsize": len(pop.genomes),
-    #     }
-
-    #     for k, v in tail.items():
-    #         self.d["data"][k].append(v)
 
     def save(self, opath):
         time_difference = time.time() - self.time0
@@ -58,7 +38,14 @@ class Record:
 
         self.d["data"] = {
             attr: [x for x in getattr(self, attr)]
-            for attr in ("ages", "births", "birthdays", "origins", "uids",)
+            for attr in (
+                "ages",
+                "births",
+                "birthdays",
+                "origins",
+                "uids",
+                "causeofdeath",
+            )
         }
 
         self.d["data"]["ages"] = [int(x) for x in self.d["data"]["ages"]]

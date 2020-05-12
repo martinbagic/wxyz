@@ -90,9 +90,13 @@ class Population:
             return survived
 
         mask = get_mask()
-        self.kill(np.invert(mask))
+        self.kill(np.invert(mask), "genetic")
 
     def _get_mutation_probs(self, genomes):
+
+        if CONFIG.mutation_probability != -1:
+            return np.ones(len(genomes)) * CONFIG.mutation_probability
+
         # extract loci
         loci = genomes[np.arange(len(genomes)), self.i3 : self.i4]
 
@@ -178,7 +182,7 @@ class Population:
     def age(self):
         self.ages += 1
         mask = self.ages <= CONFIG.max_lifespan
-        self.kill(np.invert(mask))
+        self.kill(np.invert(mask), "max_lifespan")
 
     def handle_overflow(self):
         def bottleneck():
@@ -190,16 +194,32 @@ class Population:
             boolmask[indices] = False
             return boolmask
 
-        def treadmill_real():
+        def treadmill_ageist():
             # kill the population tail
-            boolmask = np.zeros(shape=len(self.genomes), dtype=bool)
-            boolmask[: -CONFIG.max_population_size] = True
+            boolmask = np.ones(shape=len(self.genomes), dtype=bool)
+            boolmask[: CONFIG.max_population_size] = False
             return boolmask
 
         def treadmill_boomer():
             # kill the population head
-            boolmask = np.zeros(shape=len(self.genomes),dtype=bool)
-            boolmask[:CONFIG.max_population_size] = True
+            boolmask = np.ones(shape=len(self.genomes), dtype=bool)
+            boolmask[-CONFIG.max_population_size :] = False
+            return boolmask
+
+        def treadmill_youngandold():
+            # kill the population head and tail
+            boolmask = np.zeros(shape=len(self.genomes), dtype=bool)
+            killn = (len(self.genomes) - CONFIG.max_population_size) // 2 + 1
+            boolmask[-killn:] = True
+            boolmask[:killn] = True
+            return boolmask
+
+        def treadmill_adults():
+            # kill the population middle
+            boolmask = np.ones(shape=len(self.genomes), dtype=bool)
+            killn = CONFIG.max_population_size // 2
+            boolmask[-killn:] = False
+            boolmask[:killn] = False
             return boolmask
 
         def treadmill_random():
@@ -216,29 +236,38 @@ class Population:
         if len(self.genomes) > CONFIG.max_population_size:
             funcs = {
                 "bottleneck": bottleneck,
-                "treadmill_real": treadmill_real,
+                "treadmill_ageist": treadmill_ageist,
                 "treadmill_random": treadmill_random,
                 "treadmill_boomer": treadmill_boomer,
+                "treadmill_adults": treadmill_adults,
+                "treadmill_youngandold": treadmill_youngandold,
             }
             func = funcs[CONFIG.overflow_handling]
             boolmask = func()
-            self.kill(boolmask)
+            self.kill(boolmask, "overflow")
 
-    def kill(self, boolmask, dying=True):
+    def kill(self, boolmask, causeofdeath):
         # print(boolmask.shape)
 
         attrs = ["genomes", "ages", "births", "birthdays", "origins", "uids"]
+
+        killmask = np.copy(boolmask)
+
+        if not CONFIG.record_immature:
+            boolmask = (boolmask) & (self.ages >= CONFIG.maturation_age)
 
         # record killed
         for attr in attrs[2:]:
             vals = getattr(self, attr)[boolmask]
             self.record.__dict__[attr].extend(vals.tolist())
 
-        if dying: # (I think) True if died, False if simulation ended
+        if causeofdeath == "sim_end":
+            self.record.ages.extend([-1] * sum(boolmask))
+        else:
             vals = self.ages[boolmask]
             self.record.ages.extend(vals)
-        else:
-            self.record.ages.extend([-1] * sum(boolmask))
+
+        self.record.causeofdeath.extend([causeofdeath] * sum(boolmask))
 
         # split and record genomes
         genomes = self.genomes[boolmask]
@@ -253,15 +282,15 @@ class Population:
 
         # remove killed
         for attr in attrs:
-            new = getattr(self, attr)[np.invert(boolmask)]
+            new = getattr(self, attr)[np.invert(killmask)]
             setattr(self, attr, new)
 
     def killall(self):
         boolmask = np.ones(shape=len(self.genomes), dtype=bool)
-        self.kill(boolmask, dying=False)
+        self.kill(boolmask, "sim_end")
 
     def cycle(self):
-        # print(self.stage,len(self.genomes),len(self.nextgen.genomes))
+        print(self.stage, len(self.genomes), len(self.nextgen.genomes))
         self.stage += 1
         if len(self.genomes) > 0:
             self.survive()
@@ -279,7 +308,7 @@ class Population:
                 self.bring_nextgen()
 
     def bring_nextgen(self):
-        print(self.stage)
+        # print(self.stage)
         for attr in ("genomes", "ages", "origins", "uids", "births", "birthdays"):
             val = getattr(self.nextgen, attr)
             setattr(self, attr, val)
