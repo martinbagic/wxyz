@@ -37,7 +37,7 @@ class Job:
         pop = population.Population(self.args.jobid, self.conf, self.opath)
         for i in range(self.conf.cycle_num):
             pop.cycle()
-            if not i % 50:
+            if i % 100 == 0:
                 logging.info(f"...stage {i:<5} | n {len(pop.genomes)}")
         pop.killall()
         logging.info("...done!")

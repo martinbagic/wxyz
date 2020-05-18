@@ -18,8 +18,6 @@ class Population:
         global CONFIG
         CONFIG = conf
 
-        self.opath = opath
-
         def set_genomes():
             init_popsize = int(CONFIG.population_size_q * CONFIG.max_population_size)
             self.genome_shape = (init_popsize, self.n_total_loci, CONFIG.bits_per_locus)
@@ -58,7 +56,7 @@ class Population:
         self.birthdays = np.zeros(n, dtype=int)
 
         # initialize record
-        self.record = Record(identifier, conf._asdict())
+        self.record = Record(identifier, conf._asdict(), opath)
 
         # initialize time
         self.stage = 0
@@ -66,6 +64,9 @@ class Population:
         # initialize nextgen if generations are not overlapping
         if CONFIG.split_generations:
             self.nextgen = Nextgen(self.genome_shape)
+            self.split_in = CONFIG.split_generations
+        else:
+            self.split_in = float("inf")
 
     def is_extinct(self):
         return len(self.genomes) == 0
@@ -285,7 +286,7 @@ class Population:
         for k, v in d.items():
             self.record.genomes[k].append(v)
 
-        self.record.flush(self.opath)
+        self.record.flush()
 
         # remove killed
         for attr in attrs:
@@ -297,18 +298,30 @@ class Population:
         self.kill(boolmask, "sim_end")
 
     def cycle(self):
+        def renew_split_in():
+            """Renews split generations counter."""
+            if CONFIG.split_generations_soft:
+                rand = np.random.normal(
+                    loc=CONFIG.split_generations, scale=CONFIG.split_generations_soft,
+                )
+                self.split_in = int(abs(rand) + 1)
+            else:
+                self.split_in = CONFIG.split_generations
+
         self.stage += 1
+        self.split_in -= 1
+        # print(self.stage, self.split_in, len(self.genomes),len(self.nextgen.genomes))
         if len(self.genomes) > 0:
             self.survive()
             self.age()
             self.reproduce()
-            # print(self.stage, len(self.genomes),end=" ")
             self.handle_overflow()
-            # print(len(self.genomes))
 
-            if CONFIG.split_generations and self.stage % 25 == 0 and self.stage > 0:
+            if CONFIG.split_generations and self.split_in <= 0:
+                print(self.stage, "split",len(self.nextgen.genomes))
                 self.killall()
                 self.bring_nextgen()
+                renew_split_in()
         else:
             if CONFIG.split_generations and len(self.nextgen.genomes) > 0:
                 self.bring_nextgen()
