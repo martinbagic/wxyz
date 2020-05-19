@@ -35,6 +35,10 @@ split_generations: False
 split_generations_soft: False 
 record_immature: False
 
+# REPRODUCTIVE MODE
+repr_mode: asexual
+recombination_rate: 0.01
+
 #
 # RELEVANT:
 #

@@ -131,48 +131,121 @@ class Population:
             )
             return success
 
-        def get_new_genomes(parents):
+        def mutate_genomes(genomes):
 
             # get
-            mutation_probs = self._get_mutation_probs(parents)
+            mutation_probs = self._get_mutation_probs(genomes)
 
             # broadcast
             mutation_probs = mutation_probs[:, None, None]
 
             # generate random
             random_probs = np.random.random(
-                size=[len(parents), self.n_total_loci, CONFIG.bits_per_locus]
+                size=[len(genomes), self.n_total_loci, CONFIG.bits_per_locus]
             )
 
             # condlist
-            mutate_0 = (parents == 0) & (
+            mutate_0 = (genomes == 0) & (
                 random_probs < mutation_probs * CONFIG.mutation_ratio
             )
-            mutate_1 = (parents == 1) & (random_probs < mutation_probs)
+            mutate_1 = (genomes == 1) & (random_probs < mutation_probs)
             mutate_no = (~mutate_0) & (~mutate_1)
 
             # select
             return np.select(
-                choicelist=[1, 0, parents], condlist=[mutate_0, mutate_1, mutate_no]
+                choicelist=[1, 0, genomes], condlist=[mutate_0, mutate_1, mutate_no]
             )
 
-        mask = get_mask()
-        self.births += mask
+        def recombine_genomes(genomes):
+            # make recombined genomes
+            rgs = np.zeros(genomes.shape, dtype=int)
+            rgs[:, :, ::2] = genomes[:, :, 1::2]
+            rgs[:, :, 1::2] = genomes[:, :, ::2]
 
-        if sum(mask) == 0:
+            # make choice array: when to take recombined and when to take original loci
+            reco_fwd = (
+                np.random.random(size=genomes.shape[:-1])
+                < CONFIG.recombination_rate / 2
+            ) * (-2) + 1
+            reco_bkd = (
+                np.random.random(size=genomes.shape[:-1])
+                < CONFIG.recombination_rate / 2
+            ) * (-2) + 1
+            reco_bkd = reco_bkd[:, ::-1]
+
+            reco_fwd_cum = np.cumprod(reco_fwd, axis=1)
+            reco_bkd_cum = np.cumprod(reco_bkd, axis=1)
+            reco_bkd_cum = reco_bkd_cum[::-1]
+
+            reco_final = reco_fwd_cum * reco_bkd_cum
+            reco_final = (reco_final * (-1) + 1) // 2
+
+            # choose from original and recombined
+
+            recombined = [
+                [
+                    [genomes[i], rgs[i]][if_reco][locus]
+                    for locus, if_reco in enumerate(reco_finali)
+                ]
+                for i, reco_finali in enumerate(reco_final)
+            ]
+
+            return np.array(recombined)
+
+        def assort_genomes(genomes):
+            # shuffle parents
+            np.random.shuffle(genomes)
+
+            # pair chromosomes
+            # also makes sure that no odd parent
+            pairs = zip(genomes[::2], genomes[1::2])
+            assorted = []
+
+            # a contributes 1st chromosome, b contributes 2nd chromosome
+            for a, b in pairs:
+                a[:, 1::2] = b[:, 1::2]
+                assorted.append(a)
+
+            return np.array(assorted)
+
+        mask = get_mask()
+        self.births += mask  # wrong! it can happen that one parent won't find a pair
+
+        if mask.sum() == 0:
             return
 
-        # generate
-        n = mask.sum()
-        new_genomes = get_new_genomes(parents=self.genomes[mask])
+        # generate children genomes
+        new_genomes = self.genomes[mask]
+
+        # if reproduction mode is sexual
+        if CONFIG.repr_mode == "sexual" and mask.sum() >= 2:
+            # recombination
+            # z = np.copy(new_genomes)
+            new_genomes = recombine_genomes(new_genomes)
+            # print(len(np.where(z != new_genomes)[0]))
+
+            # assortment
+            new_genomes = assort_genomes(new_genomes)
+
+        # mutation
+        new_genomes = mutate_genomes(new_genomes)
+
+        # calc number of new individuals
+        n = len(new_genomes)
+
+        # generate data
         new_ages = np.zeros(n, dtype=int)
-        new_origins = self.uids[mask].copy()
         new_uids = self.get_uids(n)
         new_births = np.zeros(n, dtype=int)
         new_birthdays = np.zeros(n, dtype=int) + self.stage
 
-        # append
+        # calculate origins
+        if CONFIG.repr_mode == "asexual":
+            new_origins = self.uids[mask].copy()
+        else:
+            new_origins = np.zeros(n, dtype=int)
 
+        # append
         if CONFIG.split_generations:
             obj = self.nextgen
         else:
@@ -318,7 +391,7 @@ class Population:
             self.handle_overflow()
 
             if CONFIG.split_generations and self.split_in <= 0:
-                print(self.stage, "split",len(self.nextgen.genomes))
+                print(self.stage, "split", len(self.nextgen.genomes))
                 self.killall()
                 self.bring_nextgen()
                 renew_split_in()

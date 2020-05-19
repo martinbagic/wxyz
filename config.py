@@ -10,4 +10,6 @@ def init(config={}):
     for k, v in config.items():
         d[k] = v
 
+    assert d["bits_per_locus"] % 2 == 0 # check that you have 2 conceptual chromosomes
+
     return collections.namedtuple("Config", d.keys())(*d.values())
