@@ -37,7 +37,7 @@ class Measurer:
 
 class Analyzer:
     def __init__(self, exp_name):
-        self.dir = funcs.path.parents[0] / exp_name
+        self.dir = funcs.path.parents[0] / "experiments" / exp_name
         # self.mnames = ("extinction_time", "surv05_05", "repr05_05", "mutrates_05")
         self.config = self.load_config()
 

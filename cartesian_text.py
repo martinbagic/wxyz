@@ -18,7 +18,7 @@ class CartesianText:
         self.args = parser.parse_args()
 
     def set_paths(self):
-        dirpath = funcs.path.parents[0] / self.args.dirname
+        dirpath = funcs.path.parents[0] / "experiments" / self.args.dirname
         self.ymlpath = dirpath / "cartesian.yml"
         self.txtpath = dirpath / "cartesian.txt"
 
