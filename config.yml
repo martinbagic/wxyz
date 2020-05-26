@@ -28,7 +28,7 @@ mutation_probability: -1 # if -1, then mutation rate is evolvable
 # OVERFLOW HANDLING
 overflow_handling: treadmill_random # bottleneck, treadmill_real, treadmill_random
 bottleneck_size: 500
-cyclicity: False # False or {stage}_{amount}
+cyclicity: False # False or {stage}|{amount}
 
 # MISC
 cycle_num: 4000
