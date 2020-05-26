@@ -276,19 +276,19 @@ class Population:
         def treadmill_ageist():
             # kill the population tail
             boolmask = np.ones(shape=len(self.genomes), dtype=bool)
-            boolmask[: CONFIG.max_population_size] = False
+            boolmask[:capacity] = False
             return boolmask
 
         def treadmill_boomer():
             # kill the population head
             boolmask = np.ones(shape=len(self.genomes), dtype=bool)
-            boolmask[-CONFIG.max_population_size :] = False
+            boolmask[-capacity:] = False
             return boolmask
 
         def treadmill_youngandold():
             # kill the population head and tail
             boolmask = np.zeros(shape=len(self.genomes), dtype=bool)
-            killn = (len(self.genomes) - CONFIG.max_population_size) // 2 + 1
+            killn = (len(self.genomes) - capacity) // 2 + 1
             boolmask[-killn:] = True
             boolmask[:killn] = True
             return boolmask
@@ -296,7 +296,7 @@ class Population:
         def treadmill_adults():
             # kill the population middle
             boolmask = np.ones(shape=len(self.genomes), dtype=bool)
-            killn = CONFIG.max_population_size // 2
+            killn = capacity // 2
             boolmask[-killn:] = False
             boolmask[:killn] = False
             return boolmask
@@ -304,15 +304,21 @@ class Population:
         def treadmill_random():
             # kill chosen few
             indices = np.random.choice(
-                len(self.genomes),
-                len(self.genomes) - CONFIG.max_population_size,
-                replace=False,
+                len(self.genomes), len(self.genomes) - capacity, replace=False,
             )
             boolmask = np.zeros(shape=len(self.genomes), dtype=bool)
             boolmask[indices] = True
             return boolmask
 
-        if len(self.genomes) > CONFIG.max_population_size:
+        capacity = CONFIG.max_population_size
+        if CONFIG.cyclicity:
+            cyclic_stages, cyclic_size = CONFIG.cyclicity.split("_")
+            capacity += np.sin(2 * np.pi / int(cyclic_stages) * self.stage) * int(
+                cyclic_size
+            )
+            capacity = int(capacity)
+
+        if len(self.genomes) > capacity:
             funcs = {
                 "bottleneck": bottleneck,
                 "treadmill_ageist": treadmill_ageist,
@@ -326,7 +332,6 @@ class Population:
             self.kill(boolmask, "overflow")
 
     def kill(self, boolmask, causeofdeath):
-        # print(boolmask.shape)
 
         attrs = ["genomes", "ages", "births", "birthdays", "origins", "uids"]
 
