@@ -391,7 +391,7 @@ class Population:
             self.handle_overflow()
 
             if CONFIG.split_generations and self.split_in <= 0:
-                print(self.stage, "split", len(self.nextgen.genomes))
+                # print(self.stage, "split", len(self.nextgen.genomes))
                 self.killall()
                 self.bring_nextgen()
                 renew_split_in()

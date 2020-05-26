@@ -43,6 +43,13 @@ class Record:
             )
             f.write(",".join(headers) + "\n")
 
+    def write_genomes(self, genomes, uids):
+        d = {"genomes": genomes.tolist(), "uids": uids.tolist()}
+        # print(d)
+        path = self.opath.with_suffix(".genomes")
+        with open(path, "w") as f:
+            json.dump(d, f)
+
     def flush(self):
         def record():
 
