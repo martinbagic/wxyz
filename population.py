@@ -311,7 +311,7 @@ class Population:
             return boolmask
 
         capacity = CONFIG.max_population_size
-        if CONFIG.cyclicity:
+        if CONFIG.cyclicity != False and CONFIG.cyclicity != "False":
             cyclic_stages, cyclic_size = CONFIG.cyclicity.split("_")
             capacity += np.sin(2 * np.pi / int(cyclic_stages) * self.stage) * int(
                 cyclic_size
