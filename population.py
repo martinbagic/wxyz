@@ -364,6 +364,13 @@ class Population:
         for k, v in d.items():
             self.record.genomes[k].append(v)
 
+        if CONFIG.record_fullgenomes:
+            fullgenomes = [
+                "".join( [str(xi) for xi in genome.flatten()] )
+                for genome in genomes
+            ]
+            self.record.fullgenomes.extend(fullgenomes)
+
         self.record.flush()
 
         # remove killed

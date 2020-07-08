@@ -29,6 +29,7 @@ class Record:
         self.birthdays = []
         self.uids = []
         self.causeofdeath = []
+        self.fullgenomes = []
 
         self.time0 = time.time()
         self.opath = opath
@@ -36,7 +37,15 @@ class Record:
         with open(self.opath, "w") as f:
             self.quantiles = (0.1, 0.25, 0.5, 0.75, 0.9)
             headers = (
-                ["ages", "births", "birthdays", "origins", "uids", "causeofdeath"]
+                [
+                    "ages",
+                    "births",
+                    "birthdays",
+                    "origins",
+                    "uids",
+                    "causeofdeath",
+                    "fullgenomes",
+                ]
                 + [f"repr{q}" for q in self.quantiles]
                 + [f"surv{q}" for q in self.quantiles]
                 + ["mutrates", "neutloci"]
@@ -62,8 +71,12 @@ class Record:
                     "origins",
                     "uids",
                     "causeofdeath",
+                    "fullgenomes",
                 )
             }
+
+            if self.d["data"]["fullgenomes"] == []:
+                del self.d["data"]["fullgenomes"]
 
             self.d["data"]["ages"] = [int(x) for x in self.d["data"]["ages"]]
 
@@ -91,6 +104,8 @@ class Record:
                 np.mean(neutloci) for neutloci in self.genomes["neutloci"]
             ]
 
+#             print(self.d["data"])
+
             df = pandas.DataFrame(self.d["data"])
 
             df.to_csv(self.opath, mode="a", index=False, header=False)  # different
@@ -108,6 +123,7 @@ class Record:
             self.birthdays = []
             self.uids = []
             self.causeofdeath = []
+            self.fullgenomes = []
 
         record()
         clean()

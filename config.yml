@@ -35,6 +35,7 @@ cycle_num: 4000
 split_generations: False
 split_generations_soft: False 
 record_immature: False
+record_fullgenomes: False
 
 # REPRODUCTIVE MODE
 repr_mode: asexual
