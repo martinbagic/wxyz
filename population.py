@@ -345,7 +345,7 @@ class Population:
             vals = getattr(self, attr)[boolmask]
             self.record.__dict__[attr].extend(vals.tolist())
 
-        if causeofdeath == "sim_end":
+        if causeofdeath == "killall":
             self.record.ages.extend([-1] * sum(boolmask))
         else:
             vals = self.ages[boolmask]
@@ -380,7 +380,7 @@ class Population:
 
     def killall(self):
         boolmask = np.ones(shape=len(self.genomes), dtype=bool)
-        self.kill(boolmask, "sim_end")
+        self.kill(boolmask, "killall")
 
     def cycle(self):
         def renew_split_in():
