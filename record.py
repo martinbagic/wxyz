@@ -56,6 +56,7 @@ class Record:
         hdf_path = self.opath.with_suffix(".hdf")
         df = pandas.read_csv(self.opath)
         df.to_hdf(hdf_path, key="df", mode="w")
+        self.opath.unlink()  # delete csv file
 
     def write_genomes(self, genomes, uids):
         d = {"genomes": genomes.tolist(), "uids": uids.tolist()}
