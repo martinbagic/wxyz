@@ -44,8 +44,15 @@ class Job:
             pop.cycle()
             if i % 100 == 0 and len(pop.genomes) > 0:
                 logging.info(f"...stage {i:<6} | n {len(pop.genomes)}")
-        pop.record.write_genomes(pop.genomes, pop.uids)
+
         pop.killall()
+
+        if self.conf.record_finalgenomes:
+            pop.record.write_genomes(pop.genomes, pop.uids)
+
+        if self.conf.write_hdf:
+            pop.record.write_hdf()
+
         logging.info("...done!")
 
         # logging.info("writing results...")

@@ -36,6 +36,8 @@ split_generations: False
 split_generations_soft: False 
 record_immature: False
 record_fullgenomes: False
+record_finalgenomes: False
+write_hdf: False
 
 # REPRODUCTIVE MODE
 repr_mode: asexual

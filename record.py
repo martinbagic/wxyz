@@ -52,6 +52,11 @@ class Record:
             )
             f.write(",".join(headers) + "\n")
 
+    def write_hdf(self):
+        hdf_path = self.opath.with_suffix(".hdf")
+        df = pandas.read_csv(self.opath)
+        df.to_hdf(hdf_path, key="df", mode="w")
+
     def write_genomes(self, genomes, uids):
         d = {"genomes": genomes.tolist(), "uids": uids.tolist()}
         # print(d)
@@ -104,7 +109,7 @@ class Record:
                 np.mean(neutloci) for neutloci in self.genomes["neutloci"]
             ]
 
-#             print(self.d["data"])
+            #             print(self.d["data"])
 
             df = pandas.DataFrame(self.d["data"])
 
