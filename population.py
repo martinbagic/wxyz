@@ -331,51 +331,39 @@ class Population:
             boolmask = func()
             self.kill(boolmask, "overflow")
 
-    def kill(self, boolmask, causeofdeath):
+    def kill(self, mask_kill, causeofdeath):
 
-        attrs = ["genomes", "ages", "births", "birthdays", "origins", "uids"]
+        mask_record = (
+            mask_kill
+            if CONFIG.record_immature
+            else (mask_kill) & (self.ages >= CONFIG.maturation_age)
+        )
 
-        killmask = np.copy(boolmask)
+        # ("sid", "pid", "bday", "age", "causeofdeath")
 
-        if not CONFIG.record_immature:
-            boolmask = (boolmask) & (self.ages >= CONFIG.maturation_age)
-
-        # record killed
-        for attr in attrs[2:]:
-            vals = getattr(self, attr)[boolmask]
-            self.record.__dict__[attr].extend(vals.tolist())
-
-        if causeofdeath == "killall":
-            self.record.ages.extend([-1] * sum(boolmask))
-        else:
-            vals = self.ages[boolmask]
-            self.record.ages.extend(vals)
-
-        self.record.causeofdeath.extend([causeofdeath] * sum(boolmask))
+        self.record.sid.extend(self.uids[mask_record])  # self id
+        self.record.pid.extend(self.origins[mask_record])  # parental id
+        self.record.bday.extend(self.birthdays[mask_record])
+        self.record.age.extend(self.ages[mask_record])
+        self.record.causeofdeath.extend([causeofdeath] * sum(mask_record))
 
         # split and record genomes
         genomes = self.genomes[boolmask]
-        d = {
-            "mutrates": self._get_mutation_probs(genomes),
-            "survloci": genomes[:, : self.i1].sum(2),
-            "reprloci": genomes[:, self.i1 : self.i2].sum(2),
-            "neutloci": genomes[:, self.i2 : self.i3].sum(2),
-        }
-        for k, v in d.items():
-            self.record.genomes[k].append(v)
-
-        if CONFIG.record_fullgenomes:
-            fullgenomes = [
-                "".join( [str(xi) for xi in genome.flatten()] )
-                for genome in genomes
-            ]
-            self.record.fullgenomes.extend(fullgenomes)
+        self.record.genomes.extend(genomes)
+        # d = {
+        #     "mutrates": self._get_mutation_probs(genomes),
+        #     "survloci": genomes[:, : self.i1].sum(2),
+        #     "reprloci": genomes[:, self.i1 : self.i2].sum(2),
+        #     "neutloci": genomes[:, self.i2 : self.i3].sum(2),
+        # }
+        # for k, v in d.items():
+        #     self.record.genomes[k].append(v)
 
         self.record.flush()
 
-        # remove killed
-        for attr in attrs:
-            new = getattr(self, attr)[np.invert(killmask)]
+        # take over all those that are not killed
+        for attr in ["genomes", "ages", "births", "birthdays", "origins", "uids"]:
+            new = getattr(self, attr)[np.invert(mask_kill)]
             setattr(self, attr, new)
 
     def killall(self):

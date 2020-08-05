@@ -32,89 +32,107 @@ class Record:
         self.fullgenomes = []
 
         self.time0 = time.time()
-        self.opath = opath
+        self.opath_demography = opath
+        self.opath_genomes = opath.with_suffix(".genomes")
 
-        with open(self.opath, "w") as f:
-            self.quantiles = (0.1, 0.25, 0.5, 0.75, 0.9)
-            headers = (
-                [
-                    "ages",
-                    "births",
-                    "birthdays",
-                    "origins",
-                    "uids",
-                    "causeofdeath",
-                    "fullgenomes",
-                ]
-                + [f"repr{q}" for q in self.quantiles]
-                + [f"surv{q}" for q in self.quantiles]
-                + ["mutrates", "neutloci"]
-            )
-            f.write(",".join(headers) + "\n")
+        self.demography_attrs = ("sid", "pid", "bday", "age", "causeofdeath")
 
-    def write_hdf(self):
-        hdf_path = self.opath.with_suffix(".hdf")
-        df = pandas.read_csv(self.opath)
-        df.to_hdf(hdf_path, key="df", mode="w")
-        self.opath.unlink()  # delete csv file
+        # with open(self.opath, "w") as f:
+        #     self.quantiles = (0.1, 0.25, 0.5, 0.75, 0.9)
+        #     headers = (
+        #         [
+        #             "ages",
+        #             "births",
+        #             "birthdays",
+        #             "origins",
+        #             "uids",
+        #             "causeofdeath",
+        #             "fullgenomes",
+        #         ]
+        #         + [f"repr{q}" for q in self.quantiles]
+        #         + [f"surv{q}" for q in self.quantiles]
+        #         + ["mutrates", "neutloci"]
+        #     )
+        #     f.write(",".join(headers) + "\n")
 
-    def write_genomes(self, genomes, uids):
-        d = {"genomes": genomes.tolist(), "uids": uids.tolist()}
-        # print(d)
-        path = self.opath.with_suffix(".genomes")
-        with open(path, "w") as f:
-            json.dump(d, f)
+        with open(self.opath_demography, "w") as f:
+            f.write(",".join(self.demography_attrs) + "\n")
+        with open(self.opath_genomes, "w") as f:
+            f.write("genome\n")
+
+    # def write_hdf(self):
+    #     hdf_path = self.opath.with_suffix(".hdf")
+    #     df = pandas.read_csv(self.opath)
+    #     df.to_hdf(hdf_path, key="df", mode="w")
+    #     self.opath.unlink()  # delete csv file
+
+    # def write_genomes(self, genomes, uids):
+    #     d = {"genomes": genomes.tolist(), "uids": uids.tolist()}
+    #     # print(d)
+    #     path = self.opath.with_suffix(".genomes")
+    #     with open(path, "w") as f:
+    #         json.dump(d, f)
 
     def flush(self):
+        def record_demography():
+            data = {attr: getattr(self, attr) for attr in self.demography_attrs}
+            df = pandas.DataFrame(data)
+            df.to_csv(self.opath_demography, mode="a", index=False, header=False)
+
         def record():
+            print(self.genomes)
+            # df = pandas.DataFrame(self.genomes)
 
-            self.d["data"] = {
-                attr: [x for x in getattr(self, attr)]
-                for attr in (
-                    "ages",
-                    "births",
-                    "birthdays",
-                    "origins",
-                    "uids",
-                    "causeofdeath",
-                    "fullgenomes",
-                )
-            }
 
-            if self.d["data"]["fullgenomes"] == []:
-                del self.d["data"]["fullgenomes"]
+        # def record():
 
-            self.d["data"]["ages"] = [int(x) for x in self.d["data"]["ages"]]
+        #     self.d["data"] = {
+        #         attr: [x for x in getattr(self, attr)]
+        #         for attr in (
+        #             "ages",
+        #             "births",
+        #             "birthdays",
+        #             "origins",
+        #             "uids",
+        #             "causeofdeath",
+        #             "fullgenomes",
+        #         )
+        #     }
 
-            # flatten
-            for attr in ("neutloci", "survloci", "reprloci"):
-                self.genomes[attr] = [x for l in self.genomes[attr] for x in l]
-            for q in self.quantiles:
-                self.d["data"][f"surv{q}"] = [
-                    funcs.calc_survX(loci, q) for loci in self.genomes["survloci"]
-                ]
+        #     if self.d["data"]["fullgenomes"] == []:
+        #         del self.d["data"]["fullgenomes"]
 
-            for q in self.quantiles:
-                self.d["data"][f"repr{q}"] = [
-                    funcs.calc_reprX(loci, age - self.d["config"]["maturation_age"])
-                    for loci, age in zip(
-                        self.genomes["reprloci"], self.d["data"][f"surv{q}"]
-                    )
-                ]
+        #     self.d["data"]["ages"] = [int(x) for x in self.d["data"]["ages"]]
 
-            self.d["data"]["mutrates"] = [
-                mutrate for mutrates in self.genomes["mutrates"] for mutrate in mutrates
-            ]
+        #     # flatten
+        #     for attr in ("neutloci", "survloci", "reprloci"):
+        #         self.genomes[attr] = [x for l in self.genomes[attr] for x in l]
+        #     for q in self.quantiles:
+        #         self.d["data"][f"surv{q}"] = [
+        #             funcs.calc_survX(loci, q) for loci in self.genomes["survloci"]
+        #         ]
 
-            self.d["data"]["neutloci"] = [
-                np.mean(neutloci) for neutloci in self.genomes["neutloci"]
-            ]
+        #     for q in self.quantiles:
+        #         self.d["data"][f"repr{q}"] = [
+        #             funcs.calc_reprX(loci, age - self.d["config"]["maturation_age"])
+        #             for loci, age in zip(
+        #                 self.genomes["reprloci"], self.d["data"][f"surv{q}"]
+        #             )
+        #         ]
 
-            #             print(self.d["data"])
+        #     self.d["data"]["mutrates"] = [
+        #         mutrate for mutrates in self.genomes["mutrates"] for mutrate in mutrates
+        #     ]
 
-            df = pandas.DataFrame(self.d["data"])
+        #     self.d["data"]["neutloci"] = [
+        #         np.mean(neutloci) for neutloci in self.genomes["neutloci"]
+        #     ]
 
-            df.to_csv(self.opath, mode="a", index=False, header=False)  # different
+        #     #             print(self.d["data"])
+
+        #     df = pandas.DataFrame(self.d["data"])
+
+        #     df.to_csv(self.opath, mode="a", index=False, header=False)  # different
 
         def clean():
             self.genomes = {
