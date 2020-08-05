@@ -34,10 +34,8 @@ cyclicity: False # False or {stage}|{amount}
 cycle_num: 4000
 split_generations: False
 split_generations_soft: False 
-record_immature: False
-record_fullgenomes: False
-record_finalgenomes: False
-write_hdf: False
+record_immature: True
+compress_output: True
 
 # REPRODUCTIVE MODE
 repr_mode: asexual

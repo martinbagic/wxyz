@@ -1,6 +1,5 @@
 import numpy as np
 from record import Record
-from collections import Counter
 
 
 class Nextgen:
@@ -14,7 +13,8 @@ class Nextgen:
 
 
 class Population:
-    def __init__(self, identifier, conf, opath):
+
+    def __init__(self, conf, opath):
         global CONFIG
         CONFIG = conf
 
@@ -56,7 +56,7 @@ class Population:
         self.birthdays = np.zeros(n, dtype=int)
 
         # initialize record
-        self.record = Record(identifier, conf._asdict(), opath)
+        self.record = Record(opath)
 
         # initialize time
         self.stage = 0
@@ -332,39 +332,40 @@ class Population:
             self.kill(boolmask, "overflow")
 
     def kill(self, mask_kill, causeofdeath):
+        def record_killed():
+            # record data of all individuals that are killed
 
-        mask_record = (
-            mask_kill
-            if CONFIG.record_immature
-            else (mask_kill) & (self.ages >= CONFIG.maturation_age)
-        )
+            mask_record = (
+                mask_kill
+                if CONFIG.record_immature
+                else (mask_kill) & (self.ages >= CONFIG.maturation_age)
+            )
 
-        # ("sid", "pid", "bday", "age", "causeofdeath")
+            # add demography data to record instance
+            self.record.sid.extend(self.uids[mask_record])  # self id
+            self.record.pid.extend(self.origins[mask_record])  # parental id
+            self.record.bday.extend(self.birthdays[mask_record])
+            self.record.age.extend(self.ages[mask_record])
+            self.record.causeofdeath.extend([causeofdeath] * sum(mask_record))
 
-        self.record.sid.extend(self.uids[mask_record])  # self id
-        self.record.pid.extend(self.origins[mask_record])  # parental id
-        self.record.bday.extend(self.birthdays[mask_record])
-        self.record.age.extend(self.ages[mask_record])
-        self.record.causeofdeath.extend([causeofdeath] * sum(mask_record))
+            # add genomes data to record instance
+            self.record.genomes.extend(self.genomes[mask_record])
 
-        # split and record genomes
-        genomes = self.genomes[boolmask]
-        self.record.genomes.extend(genomes)
-        # d = {
-        #     "mutrates": self._get_mutation_probs(genomes),
-        #     "survloci": genomes[:, : self.i1].sum(2),
-        #     "reprloci": genomes[:, self.i1 : self.i2].sum(2),
-        #     "neutloci": genomes[:, self.i2 : self.i3].sum(2),
-        # }
-        # for k, v in d.items():
-        #     self.record.genomes[k].append(v)
+            # write data
+            self.record.record_demography()
+            self.record.record_genomes()
+            self.record.init_containers()  # remove added data
 
-        self.record.flush()
+        def retain_survivors():
+            # retain data of all individuals that are not killed
 
-        # take over all those that are not killed
-        for attr in ["genomes", "ages", "births", "birthdays", "origins", "uids"]:
-            new = getattr(self, attr)[np.invert(mask_kill)]
-            setattr(self, attr, new)
+            mask_alive = np.invert(mask_kill)
+            for attr in ["genomes", "ages", "births", "birthdays", "origins", "uids"]:
+                data_alive = getattr(self, attr)[mask_alive]
+                setattr(self, attr, data_alive)
+
+        record_killed()
+        retain_survivors()
 
     def killall(self):
         boolmask = np.ones(shape=len(self.genomes), dtype=bool)
@@ -400,7 +401,6 @@ class Population:
                 self.bring_nextgen()
 
     def bring_nextgen(self):
-        # print(self.stage)
         for attr in ("genomes", "ages", "origins", "uids", "births", "birthdays"):
             val = getattr(self.nextgen, attr)
             setattr(self, attr, val)

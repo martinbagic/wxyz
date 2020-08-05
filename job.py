@@ -1,7 +1,6 @@
-import json
 import argparse
 import logging
-
+import json
 import population
 import funcs
 
@@ -30,16 +29,13 @@ class Job:
 
     def set_opath(self):
         self.opath = (
-            funcs.path.parents[0]
-            / "experiments"
-            / self.args.dirname
-            / (self.args.jobid + ".csv")
+            funcs.path.parents[0] / "experiments" / self.args.dirname / self.args.jobid
         )
 
     def run(self):
         logging.info("calculating...")
         logging.info(f"{self.conf.cycle_num} stages...")
-        pop = population.Population(self.args.jobid, self.conf, self.opath)
+        pop = population.Population(self.conf, self.opath)
         for i in range(self.conf.cycle_num):
             pop.cycle()
             if i % 100 == 0 and len(pop.genomes) > 0:
@@ -47,11 +43,8 @@ class Job:
 
         pop.killall()
 
-        if self.conf.record_finalgenomes:
-            pop.record.write_genomes(pop.genomes, pop.uids)
-
-        if self.conf.write_hdf:
-            pop.record.write_hdf()
+        if self.conf.compress_output:
+            pop.record.compress_output()
 
         logging.info("...done!")
 
