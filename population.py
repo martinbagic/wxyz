@@ -13,7 +13,6 @@ class Nextgen:
 
 
 class Population:
-
     def __init__(self, conf, opath):
         global CONFIG
         CONFIG = conf
@@ -349,7 +348,14 @@ class Population:
             self.record.causeofdeath.extend([causeofdeath] * sum(mask_record))
 
             # add genomes data to record instance
-            self.record.genomes.extend(self.genomes[mask_record])
+            # genomes = [
+            #     "".join(str(xi) for xi in genome.flatten())
+            #     for genome in self.genomes[mask_record]
+            # ]
+            genomes = self.genomes[mask_record]
+            genomes = np.array(genomes, dtype=str).reshape(-1,self.i4 * CONFIG.bits_per_locus)
+            genomes = np.apply_along_axis(lambda g: "".join(g), arr=genomes, axis=1)
+            self.record.genomes.extend(genomes)
 
             # write data
             self.record.record_demography()
@@ -364,8 +370,9 @@ class Population:
                 data_alive = getattr(self, attr)[mask_alive]
                 setattr(self, attr, data_alive)
 
-        record_killed()
-        retain_survivors()
+        if mask_kill.sum():
+            record_killed()
+            retain_survivors()
 
     def killall(self):
         boolmask = np.ones(shape=len(self.genomes), dtype=bool)

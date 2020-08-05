@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 
 class Record:
@@ -29,19 +30,10 @@ class Record:
         df_demo.to_csv(self.opath_demo, mode="a", index=False, header=False)
 
     def record_genomes(self):
-        # data = [
-        #     ["".join(locus) for locus in genome.astype(str)]
-        #     for genome in self.genomes
-        # ]
-        data = [
-            "".join("".join(locus) for locus in genome.astype(str))
-            for genome in self.genomes
-        ]
-        df_geno = pd.DataFrame(data, dtype=str)
+        df_geno = pd.DataFrame(self.genomes, columns=["genome"])
         df_geno.to_csv(self.opath_geno, mode="a", index=False, header=False)
 
     def compress_output(self):
-
         # get a list of unique genomes and a list of genome positions
         df = pd.read_csv(self.opath_geno)
         genomes = list(set(df.genome)) # get unique genomes
