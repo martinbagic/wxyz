@@ -35,7 +35,7 @@ cycle_num: 4000
 split_generations: False
 split_generations_soft: False 
 record_immature: True
-compress_output: True
+# compress_output: True
 
 # REPRODUCTIVE MODE
 repr_mode: asexual
