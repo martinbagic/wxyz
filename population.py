@@ -358,9 +358,7 @@ class Population:
             self.record.genomes.extend(genomes)
 
             # write data
-            self.record.record_demography()
-            self.record.record_genomes()
-            self.record.init_containers()  # remove added data
+            self.record.record()
 
         def retain_survivors():
             # retain data of all individuals that are not killed
