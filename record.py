@@ -16,7 +16,7 @@ class Record:
 
         self.batch_number = 0
 
-        self.entry_limit = 10 ** 6
+        self.entry_limit = 10 ** 5
         self.entry_count = 0
 
         self.demography_attrs = ("sid", "pid", "bday", "age", "causeofdeath")
@@ -51,7 +51,7 @@ class Record:
             self.entry_count = 0
 
         # remove added data
-        self.record.init_containers() 
+        self.init_containers() 
 
     def compress_batch(self):
         # geno
