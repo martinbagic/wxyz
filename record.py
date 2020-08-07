@@ -4,112 +4,123 @@ import pathlib
 
 
 class Record:
-    def __init__(self, opath):
+    def __init__(self, dpath):
 
         self.init_containers()
 
-        self.opath = opath
-        self.opath_demo = opath.with_suffix(".demo.csv")  # demography
-        self.opath_geno = opath.with_suffix(".geno.csv")  # genomes
-        self.opath_demo_compressed = opath.with_suffix(".demo.feather")
-        self.opath_geno_compressed = opath.with_suffix(".geno.feather")
+        dpath.mkdir(exist_ok=True)
+        self.opath = dpath
+
+        # self.opath_demo = opath.with_suffix(".demo.csv")  # demography
+        # self.opath_geno = opath.with_suffix(".geno.csv")  # genomes
+        # self.opath_demo_compressed = opath.with_suffix(".demo.feather")
+        # self.opath_geno_compressed = opath.with_suffix(".geno.feather")
 
         self.batch_number = 0
 
-        self.entry_limit = 10 ** 6
-        self.entry_count = 0
+        self.entry_limit = 10 ** 4
 
         self.demography_attrs = ("sid", "pid", "bday", "age", "causeofdeath")
 
-        self.init_files()
+        # self.init_files()
 
-    def init_files(self):
-        with open(self.opath_demo, "w") as f:
-            f.write(",".join(self.demography_attrs) + "\n")
-        with open(self.opath_geno, "w") as f:
-            f.write("genome\n")  # overwrite old
+    # def init_files(self):
+    #     with open(self.opath_demo, "w") as f:
+    #         f.write(",".join(self.demography_attrs) + "\n")
+    #     with open(self.opath_geno, "w") as f:
+    #         f.write("genome\n")  # overwrite old
+    #         # f.write("")
 
     def init_containers(self):
         self.sid, self.pid, self.bday, self.age, self.causeofdeath = [], [], [], [], []
-        self.genomes = []
+        self.genomes = pd.DataFrame()
+
+    def add_genomes(self, genomes):
+        df = pd.DataFrame(genomes.sum(2))
+        self.genomes = self.genomes.append(df)
 
     def record(self):
-        # demo
-        data = {attr: getattr(self, attr) for attr in self.demography_attrs}
-        df_demo = pd.DataFrame(data)
-        df_demo.to_csv(self.opath_demo, mode="a", index=False, header=False)
 
-        # geno
-        df_geno = pd.DataFrame(self.genomes, columns=["genome"])
-        df_geno.to_csv(self.opath_geno, mode="a", index=False, header=False)
+        df_geno = self.genomes
 
-        # check if batch needs to be compressed
-        self.entry_count += len(df_geno)
-        if self.entry_count > self.entry_limit:
-            self.compress_batch()
-            self.init_files()
-            self.entry_count = 0
+        if len(df_geno) > self.entry_limit:
 
-        # remove added data
-        self.init_containers() 
+            path = self.opath / str(self.batch_number)
 
-    def compress_batch(self):
-        # geno
-        df = pd.read_csv(self.opath_geno)
-        df = df.reset_index(drop=True)
-        opath = self.opath.with_suffix(f".geno.feather.{self.batch_number}")
-        df.to_feather(opath)
-        self.opath_geno.unlink()
+            df_geno.reset_index(drop=True, inplace=True)
+            df_geno.columns = [str(c) for c in df_geno.columns]
+            df_geno.to_feather(path.with_suffix(".gen"))
 
-        # demo
-        df = pd.read_csv(self.opath_demo)
-        df = df.reset_index(drop=True)
-        opath = self.opath.with_suffix(f".demo.feather.{self.batch_number}")
-        df.to_feather(opath)
-        self.opath_demo.unlink()
+            data = {attr: getattr(self, attr) for attr in self.demography_attrs}
+            df_demo = pd.DataFrame(data, columns=self.demography_attrs)
+            df_demo.reset_index(drop=True, inplace=True)
+            df_demo.to_feather(path.with_suffix(".dem"))
 
-        self.batch_number += 1
+            self.init_containers()
 
-    def compress_output(self):
-        # get a list of unique genomes and a list of genome positions
+            self.batch_number += 1
 
-        genomes = list()
-        for i in range(self.batch_number):
-            path = self.opath.with_suffix(f".geno.feather.{i}")
-            df = pd.read_feather(path)
-            genomes.extend(df.genome.values)
-        gnmsset = list(set(genomes))
-        gnmsdict = {g: gid for gid, g in enumerate(gnmsset)}
-        gid = [gnmsdict[g] for g in genomes]  # genome => genome id
+    # def compress_output(self):
+    #     # get a list of unique genomes and a list of genome positions
 
-        # compress genome data
-        try:
-            pd.DataFrame(gnmsset, columns=["genome"]).to_feather(
-                self.opath_geno_compressed
-            )
-            for i in range(self.batch_number):
-                path = self.opath.with_suffix(f".geno.feather.{i}")
-                path.unlink()
+    #     genomes = list()
+    #     for i in range(self.batch_number):
+    #         path = self.opath.with_suffix(f".geno.feather.{i}")
+    #         df = pd.read_feather(path)
+    #         genomes.extend(df.genome.values)
+    #     gnmsset = list(set(genomes))
+    #     gnmsdict = {g: gid for gid, g in enumerate(gnmsset)}
+    #     gid = [gnmsdict[g] for g in genomes]  # genome => genome id
 
-        except:
-            print(f"Writing to '{self.opath_geno_compressed}' failed.")
+    #     # compress genome data
+    #     try:
+    #         pd.DataFrame(gnmsset, columns=["genome"]).to_feather(
+    #             self.opath_geno_compressed
+    #         )
+    #         for i in range(self.batch_number):
+    #             path = self.opath.with_suffix(f".geno.feather.{i}")
+    #             path.unlink()
 
-        # compress demography data
-        df = pd.read_feather(self.opath.with_suffix(".demo.feather.0"))
+    #     except:
+    #         print(f"Writing to '{self.opath_geno_compressed}' failed.")
 
-        for i in range(1, self.batch_number):
-            path = self.opath.with_suffix(f".demo.feather.{i}")
-            dfi = pd.read_feather(path)
-            df = pd.concat([df, dfi])
+    #     # compress demography data
+    #     df = pd.read_feather(self.opath.with_suffix(".demo.feather.0"))
 
-        df["gid"] = gid  # add genome id's to demography data
-        df = df.reset_index(drop=True)
+    #     for i in range(1, self.batch_number):
+    #         path = self.opath.with_suffix(f".demo.feather.{i}")
+    #         dfi = pd.read_feather(path)
+    #         df = pd.concat([df, dfi])
 
-        try:
-            df.to_feather(self.opath_demo_compressed)
-            for i in range(self.batch_number):
-                path = self.opath.with_suffix(f".demo.feather.{i}")
-                path.unlink()
-        except:
-            print(f"Writing to '{self.opath_demo_compressed}' failed.")
+    #     df["gid"] = gid  # add genome id's to demography data
+    #     df = df.reset_index(drop=True)
 
+    #     try:
+    #         df.to_feather(self.opath_demo_compressed)
+    #         for i in range(self.batch_number):
+    #             path = self.opath.with_suffix(f".demo.feather.{i}")
+    #             path.unlink()
+    #     except:
+    #         print(f"Writing to '{self.opath_demo_compressed}' failed.")
+
+
+class Contracter:
+    def __init__(self, dpath):
+
+        file_i = lambda s: int(s.stem)
+        dems = sorted(dpath.glob("*.dem"), key=file_i)
+        gens = sorted(dpath.glob("*.gen"), key=file_i)
+
+        def agg_feathers(paths):
+            main_df = pd.read_feather(paths[0])
+            for path in paths[1:]:
+                df = pd.read_feather(path)
+                main_df = main_df.append(df)
+            main_df.reset_index(drop=True, inplace=True)
+            return main_df
+
+        dem_df = agg_feathers(dems)
+        gen_df = agg_feathers(gens)
+
+        dem_df.to_feather(dpath / "dem")
+        gen_df.to_feather(dpath / "gen")        

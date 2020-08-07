@@ -43,8 +43,8 @@ class Job:
 
         pop.killall()
 
-        pop.record.compress_batch()
-        pop.record.compress_output()
+        # pop.record.compress_batch()
+        # pop.record.compress_output()
 
         logging.info("...done!")
 

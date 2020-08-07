@@ -340,6 +340,9 @@ class Population:
                 else (mask_kill) & (self.ages >= CONFIG.maturation_age)
             )
 
+            if not mask_record.sum():
+                return
+
             # add demography data to record instance
             self.record.sid.extend(self.uids[mask_record])  # self id
             self.record.pid.extend(self.origins[mask_record])  # parental id
@@ -348,14 +351,8 @@ class Population:
             self.record.causeofdeath.extend([causeofdeath] * sum(mask_record))
 
             # add genomes data to record instance
-            # genomes = [
-            #     "".join(str(xi) for xi in genome.flatten())
-            #     for genome in self.genomes[mask_record]
-            # ]
             genomes = self.genomes[mask_record]
-            genomes = np.array(genomes, dtype=str).reshape(-1,self.i4 * CONFIG.bits_per_locus)
-            genomes = np.apply_along_axis(lambda g: "".join(g), arr=genomes, axis=1)
-            self.record.genomes.extend(genomes)
+            self.record.add_genomes(genomes)
 
             # write data
             self.record.record()
