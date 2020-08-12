@@ -41,6 +41,9 @@ record_immature: True
 repr_mode: asexual
 recombination_rate: 0.01
 
+# RECORDING
+rec_every_nth: 10
+
 #
 # RELEVANT:
 #
