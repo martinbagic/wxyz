@@ -341,10 +341,10 @@ class Population:
             )
 
             ### record every nth individual
-            # if CONFIG.rec_every_nth > 1:
-            #     indices = mask_record.nonzero()[0][::CONFIG.rec_every_nth]
-            #     mask_record = np.zeros(mask_record.shape, dtype=bool)
-            #     mask_record[indices] = True
+            if CONFIG.rec_every_nth > 1:
+                indices = mask_record.nonzero()[0][::CONFIG.rec_every_nth]
+                mask_record = np.zeros(mask_record.shape, dtype=bool)
+                mask_record[indices] = True
 
             if not mask_record.sum():
                 return
