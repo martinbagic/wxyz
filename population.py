@@ -20,16 +20,25 @@ class Population:
         def set_genomes():
             init_popsize = int(CONFIG.population_size_q * CONFIG.max_population_size)
             self.genome_shape = (init_popsize, self.n_total_loci, CONFIG.bits_per_locus)
-            genomes = (
-                np.random.random(size=self.genome_shape) <= CONFIG.genome_distribution
-            ).astype(int)
 
-            genomes[:, self.i3 : self.i4] = (
-                np.random.random(
-                    size=(init_popsize, self.i4 - self.i3, CONFIG.bits_per_locus)
+            if isinstance(CONFIG.genome_distribution, (int, float)):
+                genomes = (
+                    np.random.random(size=self.genome_shape)
+                    <= CONFIG.genome_distribution
+                ).astype(int)
+
+                genomes[:, self.i3 : self.i4] = (
+                    np.random.random(
+                        size=(init_popsize, self.i4 - self.i3, CONFIG.bits_per_locus)
+                    )
+                    <= CONFIG.mutrate_distribution
+                ).astype(int)
+            else:
+                genomes = np.array(
+                    [CONFIG.genome_distribution for _ in range(init_popsize)]
                 )
-                <= CONFIG.mutrate_distribution
-            ).astype(int)
+
+            assert genomes.shape == self.genome_shape
 
             self.genomes = genomes
 
@@ -342,7 +351,7 @@ class Population:
 
             ### record every nth individual
             if CONFIG.rec_every_nth > 1:
-                indices = mask_record.nonzero()[0][::CONFIG.rec_every_nth]
+                indices = mask_record.nonzero()[0][:: CONFIG.rec_every_nth]
                 mask_record = np.zeros(mask_record.shape, dtype=bool)
                 mask_record[indices] = True
 

@@ -39,11 +39,11 @@ class Record:
         df = pd.DataFrame(genomes.sum(2))
         self.genomes = self.genomes.append(df)
 
-    def record(self):
+    def record(self, force=False):
 
         df_geno = self.genomes
 
-        if len(df_geno) > self.entry_limit:
+        if (len(df_geno) > self.entry_limit) or force:
 
             path = self.opath / str(self.batch_number)
 
@@ -123,4 +123,5 @@ class Contracter:
         gen_df = agg_feathers(gens)
 
         dem_df.to_feather(dpath / "dem")
-        gen_df.to_feather(dpath / "gen")        
+        gen_df.to_feather(dpath / "gen")
+
