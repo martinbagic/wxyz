@@ -38,8 +38,12 @@ class Job:
         pop = population.Population(self.conf, self.opath)
         for i in range(self.conf.cycle_num):
             pop.cycle()
-            if i % 100 == 0 and len(pop.genomes) + len(pop.nextgen.genomes) > 0:
-                logging.info(f"...stage {i:<6} | n {len(pop.genomes):6} | n {len(pop.nextgen.genomes):6}")
+
+            n0 = len(pop.genomes)
+            n1 = len(pop.nextgen.genomes) if hasattr(pop,"nextgen") else 0
+
+            if i % 100 == 0 and n0+n1 > 0:
+                logging.info(f"...stage {i:<6} | indivs {n0:6} | eggs {n1:6}")
 
         pop.killall()
 
