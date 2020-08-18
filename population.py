@@ -408,14 +408,12 @@ class Population:
             self.reproduce()
             self.handle_overflow()
 
-            if CONFIG.split_generations and self.split_in <= 0:
-                # print(self.stage, "split", len(self.nextgen.genomes))
+        if CONFIG.split_generations:
+            if self.split_in == 0:
+                print("killall", self.split_in, len(self.genomes), self.stage)
                 self.killall()
                 self.bring_nextgen()
                 renew_split_in()
-        else:
-            if CONFIG.split_generations and len(self.nextgen.genomes) > 0:
-                self.bring_nextgen()
 
     def bring_nextgen(self):
         for attr in ("genomes", "ages", "origins", "uids", "births", "birthdays"):
