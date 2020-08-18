@@ -410,7 +410,7 @@ class Population:
 
         if CONFIG.split_generations:
             if self.split_in == 0:
-                print("killall", self.split_in, len(self.genomes), self.stage)
+                # print("killall", self.split_in, len(self.genomes), self.stage)
                 self.killall()
                 self.bring_nextgen()
                 renew_split_in()
