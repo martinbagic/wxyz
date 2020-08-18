@@ -339,15 +339,17 @@ class Population:
             boolmask = func()
             self.kill(boolmask, "overflow")
 
-    def kill(self, mask_kill, causeofdeath):
+    def kill(self, mask_kill, causeofdeath, do_record=True):
         def record_killed():
             # record data of all individuals that are killed
 
-            mask_record = (
-                mask_kill
-                if CONFIG.record_immature
-                else (mask_kill) & (self.ages >= CONFIG.maturation_age)
-            )
+            mask_record = mask_kill.copy()
+
+            # mask_record = (
+            #     mask_kill
+            #     if CONFIG.record_immature
+            #     else (mask_kill) & (self.ages >= CONFIG.maturation_age)
+            # )
 
             ### record every nth individual
             if CONFIG.rec_every_nth > 1:
@@ -381,12 +383,13 @@ class Population:
                 setattr(self, attr, data_alive)
 
         if mask_kill.sum():
-            record_killed()
+            if do_record:
+                record_killed()
             retain_survivors()
 
     def killall(self):
         boolmask = np.ones(shape=len(self.genomes), dtype=bool)
-        self.kill(boolmask, "killall")
+        self.kill(boolmask, "killall", do_record=False)
 
     def cycle(self):
         def renew_split_in():
