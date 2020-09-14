@@ -1,170 +1,108 @@
 import numpy as np
-from record import Record
-
-
-class Nextgen:
-    def __init__(self, genomes_shape):
-        self.genomes = np.empty((0, genomes_shape[1], genomes_shape[2]), dtype=int)
-        self.ages = np.empty(0, dtype=int)
-        self.origins = np.empty(0, dtype=int)
-        self.uids = np.empty(0, dtype=int)
-        self.births = np.empty(0, dtype=int)
-        self.birthdays = np.empty(0, dtype=int)
+from funcs import aux
 
 
 class Population:
-    def __init__(self, conf, opath):
-        global CONFIG
-        CONFIG = conf
 
-        def set_genomes():
-            init_popsize = int(CONFIG.population_size_q * CONFIG.max_population_size)
-            self.genome_shape = (init_popsize, self.n_total_loci, CONFIG.bits_per_locus)
+    attrs = ("genomes", "ages", "origins", "uids", "births", "birthdays")
 
-            if isinstance(CONFIG.genome_distribution, (int, float)):
-                genomes = (
-                    np.random.random(size=self.genome_shape)
-                    <= CONFIG.genome_distribution
-                ).astype(int)
+    def __init__(
+        self,
+        genomes=None,
+        ages=None,
+        origins=None,
+        uids=None,
+        births=None,
+        birthdays=None,
+    ):
+        def _get_genomes():
 
-                genomes[:, self.i3 : self.i4] = (
-                    np.random.random(
-                        size=(init_popsize, self.i4 - self.i3, CONFIG.bits_per_locus)
+            # set values throughout genome
+            genomes = (
+                np.random.random(size=aux.genome_shape) <= aux.genome_distribution
+            ).astype(int)
+
+            # set values for mutation loci separately
+            genomes[:, -aux.n_mutation_loci :] = (
+                np.random.random(
+                    size=(
+                        aux.max_population_size,
+                        aux.n_mutation_loci,
+                        aux.bits_per_locus,
                     )
-                    <= CONFIG.mutrate_distribution
-                ).astype(int)
-            else:
-                genomes = np.array(
-                    [CONFIG.genome_distribution for _ in range(init_popsize)]
                 )
+                <= aux.mutrate_distribution
+            ).astype(int)
 
-            assert genomes.shape == self.genome_shape
+            return genomes
 
-            self.genomes = genomes
+        # pop attributes
+        self.genomes = genomes
+        self.ages = ages
+        self.origins = origins
+        self.uids = uids
+        self.births = births
+        self.birthdays = birthdays
 
-        # genome cutoffs and other interpretation help
-        self.i0 = 0
-        self.i1 = CONFIG.max_lifespan
-        self.i2 = self.i1 + CONFIG.max_lifespan - CONFIG.maturation_age
-        self.i3 = self.i2 + CONFIG.n_neutral_loci
-        self.i4 = self.i3 + CONFIG.mutation_loci
-        self.n_total_loci = self.i4
-        self.powers_of_2 = 2 ** np.arange(CONFIG.mutation_loci * CONFIG.bits_per_locus)
-        self.sum_powers_of_2 = sum(self.powers_of_2)
+        # split generations
+        self.eggs = None
 
-        # initialize genomes and metadata
-        set_genomes()
-        n = len(self.genomes)
-        self.max_uid = 0
+        if any(getattr(self, attr) is None for attr in self.attrs):
+            num = aux.max_population_size
+            self.genomes = _get_genomes()
+            self.ages = np.zeros(num, int)
+            self.origins = np.zeros(num, int) - 1
+            self.uids = self._get_uids(num)
+            self.births = np.zeros(num, int)
+            self.birthdays = np.zeros(num, int)
 
-        self.ages = np.zeros(n, dtype=int)
-        self.origins = np.zeros(n, dtype=int) - 1
-        self.uids = self.get_uids(n)
-        self.births = np.zeros(n, dtype=int)
-        self.birthdays = np.zeros(n, dtype=int)
+    ###############
+    # CYCLE FUNCS #
+    ###############
 
-        # initialize record
-        self.record = Record(opath)
+    def age(self):
+        """Increase age of all by one and kill those that surpass max lifespan."""
+        self.ages += 1
+        mask_kill = self.ages >= aux.max_lifespan
+        self._kill(mask_kill=mask_kill, causeofdeath="max_lifespan")
 
-        # initialize time
-        self.stage = 0
+    def eco_survival(self):
+        # TODO: implement cyclicity
+        # TODO: implement starvation
 
-        # initialize nextgen if generations are not overlapping
-        if CONFIG.split_generations:
-            self.nextgen = Nextgen(self.genome_shape)
-            self.split_in = CONFIG.split_generations
-        else:
-            self.split_in = float("inf")
+        # resources updated if overshoot is starvation
+        mask_kill = aux.overshoot(n=len(self))
+        self._kill(mask_kill=mask_kill, causeofdeath="overshoot")
 
-    def is_extinct(self):
-        return len(self.genomes) == 0
+    def gen_survival(self):
+        def _get_mask():
+            indices = self.ages
+            loci = self.genomes[np.arange(len(self)), indices]
+            if not aux.envmap is None:
+                envloci = aux.envmap[indices]
+                loci = np.logical_xor(envloci, loci)
+            survival_probabilities = self._get_survival_probabilities(loci)
+            random_probabilities = np.random.random(len(self))
+            return random_probabilities < survival_probabilities
 
-    def genomelen(self):
-        return np.arange(len(self.genomes))
+        mask_surv = _get_mask()
+        self._kill(mask_kill=np.invert(mask_surv), causeofdeath="genetic")
 
-    def get_uids(self, n):
-        uids = np.arange(n) + self.max_uid
-        self.max_uid += n
-        return uids
-
-    def survive(self):
-        def get_mask():
-            loci = self.genomes[self.genomelen(), self.ages]
-            survival_probs = (
-                loci.sum(1)
-                / CONFIG.bits_per_locus
-                * (CONFIG.surv_bound_hi - CONFIG.surv_bound_lo)
-                + CONFIG.surv_bound_lo
-            )
-            random_probs = np.random.random(size=len(self.genomes))
-            survived = random_probs < survival_probs
-            return survived
-
-        mask = get_mask()
-        self.kill(np.invert(mask), "genetic")
-
-    def _get_mutation_probs(self, genomes):
-
-        if CONFIG.mutation_probability != -1:
-            return np.ones(len(genomes)) * CONFIG.mutation_probability
-
-        # extract loci
-        loci = genomes[np.arange(len(genomes)), self.i3 : self.i4]
-
-        # flatten
-        loci = loci.reshape(len(genomes), (self.i4 - self.i3) * CONFIG.bits_per_locus)
-
-        # interpret
-        if CONFIG.mutation_locus_interpreter == "exp":
-            mutation_probs = 1 / 2 ** np.sum(loci == 0, axis=1)
-        elif CONFIG.mutation_locus_interpreter == "binary":
-            mutation_probs = np.dot(loci, self.powers_of_2) / self.sum_powers_of_2
-
-        return mutation_probs
-
-    def reproduce(self):
-        def get_mask():
-            loci = self.genomes[
-                self.genomelen(), self.ages - CONFIG.maturation_age + self.i1
-            ]
-            reproduction_probs = (
-                loci.sum(1)
-                / CONFIG.bits_per_locus
-                * (CONFIG.repr_bound_hi - CONFIG.repr_bound_lo)
-                + CONFIG.repr_bound_lo
-            )
-            random_probs = np.random.random(size=len(self.genomes))
-            success = (random_probs < reproduction_probs) & (
-                self.ages >= CONFIG.maturation_age
-            )
-            return success
-
-        def mutate_genomes(genomes):
-
-            # get
-            mutation_probs = self._get_mutation_probs(genomes)
-
-            # broadcast
-            mutation_probs = mutation_probs[:, None, None]
-
-            # generate random
-            random_probs = np.random.random(
-                size=[len(genomes), self.n_total_loci, CONFIG.bits_per_locus]
+    def reproduction(self):
+        def _get_mask():
+            indices = self.ages - aux.maturation_age + aux.max_lifespan
+            # in some cases the loci will be wrong because the individuals are immature but they will be filtered after
+            loci = self.genomes[np.arange(len(self)), indices]
+            if not aux.envmap is None:
+                envloci = aux.envmap[indices]
+                loci = np.logical_xor(envloci, loci)
+            reproduction_probabilities = self._get_reproduction_probabilities(loci)
+            random_probabilities = np.random.random(len(self))
+            return (random_probabilities < reproduction_probabilities) & (
+                self.ages >= aux.maturation_age  # filtering; reproduce only if mature
             )
 
-            # condlist
-            mutate_0 = (genomes == 0) & (
-                random_probs < mutation_probs * CONFIG.mutation_ratio
-            )
-            mutate_1 = (genomes == 1) & (random_probs < mutation_probs)
-            mutate_no = (~mutate_0) & (~mutate_1)
-
-            # select
-            return np.select(
-                choicelist=[1, 0, genomes], condlist=[mutate_0, mutate_1, mutate_no]
-            )
-
-        def recombine_genomes(genomes):
+        def _recombine(genomes):
             # make recombined genomes
             rgs = np.zeros(genomes.shape, dtype=int)
             rgs[:, :, ::2] = genomes[:, :, 1::2]
@@ -172,12 +110,10 @@ class Population:
 
             # make choice array: when to take recombined and when to take original loci
             reco_fwd = (
-                np.random.random(size=genomes.shape[:-1])
-                < CONFIG.recombination_rate / 2
+                np.random.random(size=genomes.shape[:-1]) < aux.recombination_rate / 2
             ) * (-2) + 1
             reco_bkd = (
-                np.random.random(size=genomes.shape[:-1])
-                < CONFIG.recombination_rate / 2
+                np.random.random(size=genomes.shape[:-1]) < aux.recombination_rate / 2
             ) * (-2) + 1
             reco_bkd = reco_bkd[:, ::-1]
 
@@ -200,7 +136,7 @@ class Population:
 
             return np.array(recombined)
 
-        def assort_genomes(genomes):
+        def _assort(genomes):
             # shuffle parents
             np.random.shuffle(genomes)
 
@@ -216,211 +152,180 @@ class Population:
 
             return np.array(assorted)
 
-        mask = get_mask()
-        self.births += mask  # wrong! it can happen that one parent won't find a pair
+        def _mutate(genomes):
 
-        if mask.sum() == 0:
-            return
+            if aux.mutation_probability == -1:  # if mutation evolvable
+                loci = genomes[np.arange(len(genomes)), aux.pos_muta :]
+                loci = (loci == 0).sum(1) / aux.n_mutation_loci
+                mutation_probabilities = self._get_mutation_probabilities(loci)
+            else:
+                mutation_probabilities = (
+                    np.ones(len(genomes)) * aux.mutation_probability
+                )
 
-        # generate children genomes
-        new_genomes = self.genomes[mask]
+            # random
+            random_probabilities = np.random.random(genomes.shape)
 
-        # if reproduction mode is sexual
-        if CONFIG.repr_mode == "sexual" and mask.sum() >= 2:
-            # recombination
-            # z = np.copy(new_genomes)
-            new_genomes = recombine_genomes(new_genomes)
-            # print(len(np.where(z != new_genomes)[0]))
+            # broadcast
+            mutation_probabilities = mutation_probabilities[:, None, None]
 
-            # assortment
-            new_genomes = assort_genomes(new_genomes)
-
-        # mutation
-        new_genomes = mutate_genomes(new_genomes)
-
-        # calc number of new individuals
-        n = len(new_genomes)
-
-        # generate data
-        new_ages = np.zeros(n, dtype=int)
-        new_uids = self.get_uids(n)
-        new_births = np.zeros(n, dtype=int)
-        new_birthdays = np.zeros(n, dtype=int) + self.stage
-
-        # calculate origins
-        if CONFIG.repr_mode == "asexual":
-            new_origins = self.uids[mask].copy()
-        else:
-            new_origins = np.zeros(n, dtype=int)
-
-        # append
-        if CONFIG.split_generations:
-            obj = self.nextgen
-        else:
-            obj = self
-
-        obj.genomes = np.append(obj.genomes, new_genomes, axis=0)
-        obj.ages = np.append(obj.ages, new_ages, axis=0)
-        obj.origins = np.append(obj.origins, new_origins, axis=0)
-        obj.uids = np.append(obj.uids, new_uids, axis=0)
-        obj.births = np.append(obj.births, new_births, axis=0)
-        obj.birthdays = np.append(obj.birthdays, new_birthdays, axis=0)
-
-    def age(self):
-        self.ages += 1
-        mask = self.ages <= CONFIG.max_lifespan
-        self.kill(np.invert(mask), "max_lifespan")
-
-    def handle_overflow(self):
-        def bottleneck():
-            # kill all but chosen few
-            indices = np.random.choice(
-                len(self.genomes), CONFIG.bottleneck_size, replace=False
+            # create new
+            mutate_0to1 = (genomes == 0) & (
+                random_probabilities < (mutation_probabilities * aux.mutation_ratio)
             )
-            boolmask = np.ones(shape=len(self.genomes), dtype=bool)
-            boolmask[indices] = False
-            return boolmask
-
-        def treadmill_ageist():
-            # kill the population tail
-            boolmask = np.ones(shape=len(self.genomes), dtype=bool)
-            boolmask[:capacity] = False
-            return boolmask
-
-        def treadmill_boomer():
-            # kill the population head
-            boolmask = np.ones(shape=len(self.genomes), dtype=bool)
-            boolmask[-capacity:] = False
-            return boolmask
-
-        def treadmill_youngandold():
-            # kill the population head and tail
-            boolmask = np.zeros(shape=len(self.genomes), dtype=bool)
-            killn = (len(self.genomes) - capacity) // 2 + 1
-            boolmask[-killn:] = True
-            boolmask[:killn] = True
-            return boolmask
-
-        def treadmill_adults():
-            # kill the population middle
-            boolmask = np.ones(shape=len(self.genomes), dtype=bool)
-            killn = capacity // 2
-            boolmask[-killn:] = False
-            boolmask[:killn] = False
-            return boolmask
-
-        def treadmill_random():
-            # kill chosen few
-            indices = np.random.choice(
-                len(self.genomes), len(self.genomes) - capacity, replace=False,
+            mutate_1to0 = (genomes == 1) & (
+                random_probabilities < mutation_probabilities
             )
-            boolmask = np.zeros(shape=len(self.genomes), dtype=bool)
-            boolmask[indices] = True
-            return boolmask
 
-        capacity = CONFIG.max_population_size
-        if CONFIG.cyclicity != False and CONFIG.cyclicity != "False":
-            cyclic_stages, cyclic_size = CONFIG.cyclicity.split("|")
-            capacity += np.sin(2 * np.pi / int(cyclic_stages) * self.stage) * int(
-                cyclic_size
-            )
-            capacity = int(capacity)
+            mutate = mutate_0to1 + mutate_1to0
 
-        if len(self.genomes) > capacity:
-            funcs = {
-                "bottleneck": bottleneck,
-                "treadmill_ageist": treadmill_ageist,
-                "treadmill_random": treadmill_random,
-                "treadmill_boomer": treadmill_boomer,
-                "treadmill_adults": treadmill_adults,
-                "treadmill_youngandold": treadmill_youngandold,
-            }
-            func = funcs[CONFIG.overflow_handling]
-            boolmask = func()
-            self.kill(boolmask, "overflow")
+            return np.logical_xor(genomes, mutate)
 
-    def kill(self, mask_kill, causeofdeath, do_record=True):
-        def record_killed():
-            # record data of all individuals that are killed
+            # mutate_no = (~mutate_0to1) & (~mutate_1to0)
 
-            mask_record = mask_kill.copy()
-
-            # mask_record = (
-            #     mask_kill
-            #     if CONFIG.record_immature
-            #     else (mask_kill) & (self.ages >= CONFIG.maturation_age)
+            # return np.select(
+            #     choicelist=[1, 0, genomes],
+            #     condlist=[mutate_0to1, mutate_1to0, mutate_no],
             # )
 
-            ### record every nth individual
-            if CONFIG.rec_every_nth > 1:
-                indices = mask_record.nonzero()[0][:: CONFIG.rec_every_nth]
-                mask_record = np.zeros(mask_record.shape, dtype=bool)
-                mask_record[indices] = True
+        mask_repr = _get_mask()
+        n = mask_repr.sum()
 
-            if not mask_record.sum():
-                return
+        if not n:  # if nobody reproduces
+            return
 
-            # add demography data to record instance
-            self.record.sid.extend(self.uids[mask_record])  # self id
-            self.record.pid.extend(self.origins[mask_record])  # parental id
-            self.record.bday.extend(self.birthdays[mask_record])
-            self.record.age.extend(self.ages[mask_record])
-            self.record.causeofdeath.extend([causeofdeath] * sum(mask_record))
+        # TODO: it can happen that one parent won't find a pair
+        self.births += mask_repr
 
-            # add genomes data to record instance
-            genomes = self.genomes[mask_record]
-            self.record.add_genomes(genomes)
+        # get genomes
+        genomes = self.genomes[mask_repr]
+        if aux.repr_mode == "sexual":
+            genomes = _recombine(genomes)
+            genomes = _assort(genomes)
+        genomes = _mutate(genomes)
 
-            # write data
-            self.record.record()
+        # get origins
+        if aux.repr_mode == "asexual":
+            origins = self.uids[mask_repr]
+        elif aux.repr_mode == "sexual":
+            # TODO: set dual origin
+            origins = np.zeros(n, int)
 
-        def retain_survivors():
-            # retain data of all individuals that are not killed
+        # get eggs
+        eggs = Population(
+            genomes=genomes,
+            ages=np.zeros(n, int),
+            origins=origins,
+            uids=self._get_uids(n),
+            births=np.zeros(n, int),
+            birthdays=np.zeros(n, int) + aux.stage,
+        )
 
-            mask_alive = np.invert(mask_kill)
-            for attr in ["genomes", "ages", "births", "birthdays", "origins", "uids"]:
-                data_alive = getattr(self, attr)[mask_alive]
-                setattr(self, attr, data_alive)
-
-        if mask_kill.sum():
-            if do_record:
-                record_killed()
-            retain_survivors()
-
-    def killall(self):
-        boolmask = np.ones(shape=len(self.genomes), dtype=bool)
-        self.kill(boolmask, "killall", do_record=False)
-
-    def cycle(self):
-        def renew_split_in():
-            """Renews split generations counter."""
-            if CONFIG.split_generations_soft:
-                rand = np.random.normal(
-                    loc=CONFIG.split_generations, scale=CONFIG.split_generations_soft,
-                )
-                self.split_in = int(abs(rand) + 1)
+        # save as eggs if generations are nonoverlapping
+        if aux.discrete_generations:
+            if self.eggs is None:
+                self.eggs = eggs
             else:
-                self.split_in = CONFIG.split_generations
+                self.eggs += eggs
+        else:
+            self += eggs
 
-        self.stage += 1
-        self.split_in -= 1
-        # print(self.stage, self.split_in, len(self.genomes),len(self.nextgen.genomes))
-        if len(self.genomes) > 0:
-            self.survive()
+    def __call__(self):
+
+        if len(self):
+            # TODO rethink ordering
+            self.gen_survival()
+            self.eco_survival()
+            self.reproduction()
             self.age()
-            self.reproduce()
-            self.handle_overflow()
 
-        if CONFIG.split_generations:
-            if self.split_in == 0:
-                # print("killall", self.split_in, len(self.genomes), self.stage)
-                self.killall()
-                self.bring_nextgen()
-                renew_split_in()
+        if aux.season_countdown == 0:
+            self._season_shift()
+            aux.reset_season_countdown()
 
-    def bring_nextgen(self):
-        for attr in ("genomes", "ages", "origins", "uids", "births", "birthdays"):
-            val = getattr(self.nextgen, attr)
+    ################
+    # HELPER FUNCS #
+    ################
+
+    # def _apply_envmap(self, )
+
+    def _get_survival_probabilities(self, loci):
+        return (
+            aux.phenotype(loci, "surv") * (aux.repr_bound_hi - aux.repr_bound_lo)
+            + aux.repr_bound_lo
+        )
+
+    def _get_reproduction_probabilities(self, loci):
+        return (
+            aux.phenotype(loci, "repr") * (aux.repr_bound_hi - aux.repr_bound_lo)
+            + aux.repr_bound_lo
+        )
+
+    def _get_mutation_probabilities(self, loci):
+        return (
+            aux.phenotype(loci, "muta") * (aux.muta_bound_hi - aux.muta_bound_lo)
+            + aux.muta_bound_lo
+        )
+
+    def _kill(self, mask_kill, causeofdeath):
+
+        if not any(mask_kill):
+            return
+
+        # record (some or all) of killed individuals
+        mask_record = (
+            mask_kill.nonzero()[0][:: aux.rec_every_nth]
+            if aux.rec_every_nth > 1
+            else mask_kill
+        )
+        # TODO recorder
+        aux.recorder.rec(self[mask_record], causeofdeath)
+
+        # retain survivors
+        mask_survive = np.invert(mask_kill)
+        self *= mask_survive
+
+    def _get_uids(self, n):
+        uids = np.arange(n) + aux.max_uid
+        aux.max_uid += n
+        return uids
+
+    def _season_shift(self):
+        # kill all living
+        mask_kill = np.ones(len(self), bool)
+        self._kill(mask_kill, "season_shift")
+
+        # hatch eggs
+        if not self.eggs is None:  # if there are eggs
+            self += self.eggs
+            self.eggs = None
+
+    ###############
+    # MAGIC FUNCS #
+    ###############
+
+    def __len__(self):
+        n = len(self.genomes)
+        assert all(len(getattr(self, attr)) == n for attr in self.attrs)
+        return n
+
+    def __getitem__(self, index):
+        return Population(
+            genomes=self.genomes[index],
+            ages=self.ages[index],
+            origins=self.origins[index],
+            uids=self.uids[index],
+            births=self.births[index],
+            birthdays=self.birthdays[index],
+        )
+
+    def __imul__(self, index):
+        for attr in self.attrs:
+            setattr(self, attr, getattr(self, attr)[index])
+        return self
+
+    def __iadd__(self, pop):
+        for attr in self.attrs:
+            val = np.concatenate([getattr(self, attr), getattr(pop, attr)])
             setattr(self, attr, val)
-
-        self.nextgen = Nextgen(self.genome_shape)
+        return self
