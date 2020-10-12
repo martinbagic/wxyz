@@ -37,7 +37,7 @@ LOGGING_RATE: 100 # log every ? stages
 
 # RECORDING
 REC_EVERY_NTH: 100 # record every ?-th individual
-ENTRY_LIMIT: 50000 # flush once ? individuals have been saved
+FLUSH_RATE: 50000 # flush once ? individuals have been saved
 RECORD_PHENOTYPE: True # transform genotype before writing
 PICKLE_RATE: 20000 # pickle population every ? stages
 
