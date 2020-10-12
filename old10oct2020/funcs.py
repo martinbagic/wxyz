@@ -1,11 +1,14 @@
 """."""
 import yaml
+import pathlib
+import logging
 import numpy as np
 import collections
 
 from xhelp.recorder import Recorder
 from xhelp.config import Config
 
+project_path = pathlib.Path(__file__).absolute().parent
 
 
 class Aux:
@@ -26,7 +29,7 @@ class Aux:
         self.CYCLE_NUM = params["CYCLE_NUM"]
         self.LOGGING_RATE = params["LOGGING_RATE"]
         self.REC_EVERY_NTH = params["REC_EVERY_NTH"]
-        self.FLUSH_RATE = params["FLUSH_RATE"]
+        self.ENTRY_LIMIT = params["ENTRY_LIMIT"]
         self.RECORD_PHENOTYPE = params["RECORD_PHENOTYPE"]
         self.PICKLE_RATE = params["PICKLE_RATE"]
 
@@ -35,7 +38,7 @@ class Aux:
         self.max_popid = 0
 
         # recorder
-        self.recorder = Recorder(recpath, self.FLUSH_RATE, params["MAX_LIFESPAN"])
+        self.recorder = Recorder(recpath, self.ENTRY_LIMIT)
 
         # configs
         self.configs = [Config(params)]

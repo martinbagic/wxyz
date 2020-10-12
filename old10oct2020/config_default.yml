@@ -1,0 +1,50 @@
+# ECOLOGY
+MAX_POPULATION_SIZE: 1000
+OVERSHOOT_HANDLING: treadmill_random # bottleneck, treadmill_real, treadmill_random
+BOTTLENECK_SIZE: 500
+DISCRETE_GENERATIONS: False
+# discrete_generations_soft: False
+
+# GENOTYPE
+MAX_LIFESPAN: 50
+MATURATION_AGE: 5
+BITS_PER_LOCUS: 10
+AGE_GUARANTEE: -1 # -1 if no preevolution, 0 for maturity guarantee, +x for headsup
+
+# GENOME STRUCTURE
+# agespecific, interpreter, bound low, bound high, initial value
+GENOME_STRUCT:
+  surv: [true, decimal, 0, 1, 0.5]
+  repr: [true, binary, 0, 0.5, 0]
+  # muta: [false, binary_exp, 0.0001, 0.01, 0]
+
+GENOME_CONST:
+  neut: 1
+  muta: 0.001
+
+# REPRODUCTION
+REPR_MODE: asexual # sexual, asexual
+RECOMBINATION_RATE: 0.01
+
+# MUTATION
+MUTATION_RATIO: 0.1
+# mutation_rate: 0.0001 # mutation rate; if -1, then evolvable
+
+# RUNTIME
+CYCLE_NUM: 10000 # run ? cycles
+LOGGING_RATE: 100 # log every ? stages
+
+# RECORDING
+REC_EVERY_NTH: 100 # record every ?-th individual
+ENTRY_LIMIT: 20000 # flush once ? individuals have been saved
+RECORD_PHENOTYPE: True # transform genotype before writing
+PICKLE_RATE: 10000 # pickle population every ? stages
+
+# RECOGNIZED CONFIGS THAT SHOULD NOT BE DEFAULT
+# reload_population: absolute path to pkl file
+
+# BETA
+PHENOMAP_PLUS: [[0, 1, 0.11], [1, 2, 0.01]] # [geno index, pheno index, weight]
+# population_num: 1
+ENVMAP_RATE: 20 # change a bit of environmental map every ? stages
+

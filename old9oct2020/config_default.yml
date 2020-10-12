@@ -1,7 +1,7 @@
 # ECOLOGY
 max_population_size: 1000
 overshoot_handling: treadmill_random # bottleneck, treadmill_real, treadmill_random
-# bottleneck_size: 500
+bottleneck_size: 500
 discrete_generations: False
 # discrete_generations_soft: False
 
@@ -9,11 +9,12 @@ discrete_generations: False
 max_lifespan: 50
 maturation_age: 5
 n_neutral_loci: 10
-n_mutation_loci: 5
+n_mutation_loci: 1
 bits_per_locus: 10
 
 # INITIAL DISTRIBUTIONS
-genome_distribution: 1 # proportion of 1's in the genome or a genome
+age_guarantee: 3 # -1 if no preevolution, 0 for maturity guarantee, +x for headsup
+genome_distribution: 0 # proportion of 1's in the genome or a genome
 mutrate_distribution: 1 # proportion of 1's in the mutation loci
 
 # PHENOTYPE
@@ -35,7 +36,7 @@ recombination_rate: 0.01
 
 # MUTATION
 mutation_ratio: 0.1
-mutation_probability: -1 # mutation rate; if -1, then evolvable
+mutation_probability: 0.0001 # mutation rate; if -1, then evolvable
 
 # RUNTIME
 cycle_num: 100000 # run ? cycles
@@ -43,9 +44,13 @@ logging_rate: 100 # log every ? stages
 
 # RECORDING
 rec_every_nth: 1 # record every ?-th individual
-entry_limit: 100000 # flush once ? individuals have been saved
+entry_limit: 10000 # flush once ? individuals have been saved
 record_phenotype: True # transform genotype before writing
-pickle_rate: 100000 # pickle population every ? stages
+pickle_rate: 10000 # pickle population every ? stages
 
 # RECOGNIZED CONFIGS THAT SHOULD NOT BE DEFAULT
 # reload_population: absolute path to pkl file
+
+# BETA
+phenomap_plus: [[1, 0, 0.5], [2, 1, 0.5]]
+# population_num: 1

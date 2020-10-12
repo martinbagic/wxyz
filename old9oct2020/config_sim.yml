@@ -1,0 +1,9 @@
+# # RUNTIME
+# cycle_num: 100000 # run ? cycles
+# logging_rate: 100 # log every ? stages
+
+# # RECORDING
+# rec_every_nth: 1 # record every ?-th individual
+# entry_limit: 100000 # flush once ? individuals have been saved
+# record_phenotype: True # transform genotype before writing
+# pickle_rate: 100000 # pickle population every ? stages

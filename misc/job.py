@@ -18,9 +18,9 @@ def main():
 
     # init params
     aux.init_on_start(
-        path_default=aux.PATH / "config_default.yml",
+        path_default=aux.project_path / "config_default.yml",
         params_extra=json.loads(args.params_extra),
-        recpath=aux.PATH.parent / "experiments" / args.dirname / args.jobid
+        recpath=aux.project_path.parent / "experiments" / args.dirname / args.jobid
     )
 
     # init population
@@ -78,9 +78,9 @@ class Job:
 
         # init params
         aux.init_on_start(
-            path_default=aux.PATH / "config_default.yml",
+            path_default=aux.project_path / "config_default.yml",
             params_extra=json.loads(args.params_extra),
-            recpath=aux.PATH.parent / "experiments" / args.dirname / args.jobid
+            recpath=aux.project_path.parent / "experiments" / args.dirname / args.jobid
         )
 
         # init population
