@@ -120,7 +120,6 @@ def main():
     mask_kill = np.ones(len(biosys.pop), bool)
     biosys._kill(mask_kill, "end_of_sim")
     aux.recorder.flush()
-    aux.recorder.vizport.close()
     logging.info("Simulation finished")
 
 
