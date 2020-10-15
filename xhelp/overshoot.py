@@ -2,15 +2,15 @@ import numpy as np
 
 
 class Overshoot:
-    def __init__(self, OVERSHOOT_HANDLING, MAX_POPULATION_SIZE, BOTTLENECK_SIZE):
+    def __init__(self, OVERSHOOT_HANDLING, MAX_POPULATION_SIZE, CLIFF_SURVIVABILITY):
         self.MAX_POPULATION_SIZE = MAX_POPULATION_SIZE
-        self.BOTTLENECK_SIZE = BOTTLENECK_SIZE
+        self.CLIFF_SURVIVABILITY = CLIFF_SURVIVABILITY
         self.func = {
             "treadmill_random": self.treadmill_random,
-            "bottleneck": self.bottleneck,
-            "treadmill_ageist": self.treadmill_ageist,
             "treadmill_boomer": self.treadmill_boomer,
-            "limitless": self.limitless,
+            "treadmill_zoomer": self.treadmill_zoomer,
+            "cliff": self.cliff,
+            # "limitless": self.limitless,
             "starvation": self.starvation,
         }[OVERSHOOT_HANDLING]
 
@@ -44,22 +44,21 @@ class Overshoot:
         mask[indices] = True
         return mask
 
-    def bottleneck(self, n):
-        # TODO: reduce to treadmill_random by passing CONF.BOTTLENECK_SIZE to aux function
+    def cliff(self, n):
         """Kill all but random few."""
-        indices = np.random.choice(n, self.BOTTLENECK_SIZE, replace=False)
+        indices = np.random.choice(n, int(self.MAX_POPULATION_SIZE*self.CLIFF_SURVIVABILITY), replace=False)
         mask = np.ones(n, bool)
         mask[indices] = False
         return mask
 
-    def treadmill_ageist(self, n):
-        """Kill the oldest."""
-        mask = np.ones(n, bool)
-        mask[: self.MAX_POPULATION_SIZE] = False
-        return mask
-
     def treadmill_boomer(self, n):
-        "Kill the youngest."
+        """Kill the oldest. Let youngest live."""
         mask = np.ones(n, bool)
         mask[-self.MAX_POPULATION_SIZE :] = False
+        return mask
+
+    def treadmill_zoomer(self, n):
+        """Kill the youngest. Let oldest live."""
+        mask = np.ones(n, bool)
+        mask[: self.MAX_POPULATION_SIZE] = False
         return mask

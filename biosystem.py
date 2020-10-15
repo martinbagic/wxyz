@@ -56,8 +56,8 @@ class Biosystem:
                 uids = self.conf.get_uids(num)
                 births = np.zeros(num, int)
                 birthdays = np.zeros(num, int)
-                evalomes = self._get_evalome(genomes)
-                return Pop(genomes, ages, origins, uids, births, birthdays, evalomes)
+                evaluomes = self._get_evaluome(genomes)
+                return Pop(genomes, ages, origins, uids, births, birthdays, evaluomes)
             else:
                 return pop
 
@@ -73,14 +73,9 @@ class Biosystem:
         if len(self.pop) + (0 if self.eggs is None else len(self.eggs)) == 0:
             return
 
-        def _season_shift():
-            # kill all living
-            mask_kill = np.ones(len(self.pop), bool)
-            self._kill(mask_kill, "season_shift")
-
-            # hatch eggs
-            if not self.eggs is None:
-                self += self.eggs
+        def _hatch_eggs(self):
+            if self.eggs is not None:
+                self.pop += self.eggs
                 self.eggs = None
 
         if len(self.pop):
@@ -92,10 +87,18 @@ class Biosystem:
 
         self.conf.season_countdown -= 1
 
-        # if season over, kill pop and hatch eggs
         if self.conf.season_countdown == 0:
-            _season_shift()
+            # kill all living
+            mask_kill = np.ones(len(self.pop), bool)
+            self._kill(mask_kill, "season_shift")
+            # hatch eggs
+            _hatch_eggs(self)
+            # restart season
             self.conf.reset_season_countdown()
+
+        elif self.conf.season_countdown == float("inf"):
+            # add newborns to population
+            _hatch_eggs(self)
 
         # evolve envmap if necessary
         self.conf.envmap.evolve(stage=self.aux.stage)
@@ -247,24 +250,28 @@ class Biosystem:
             uids=self.conf.get_uids(n),
             births=np.zeros(n, int),
             birthdays=np.zeros(n, int) + self.aux.stage,
-            evalomes=self._get_evalome(genomes),
+            evaluomes=self._get_evaluome(genomes),
         )
 
         # save as eggs if generations are nonoverlapping/discrete
         # otherwise add directly to population
-        if self.conf.DISCRETE_GENERATIONS:
-            if self.eggs is None:
-                self.eggs = eggs
-            else:
-                self.eggs += eggs
+        # if self.conf.DISCRETE_GENERATIONS:
+        #     if self.eggs is None:
+        #         self.eggs = eggs
+        #     else:
+        #         self.eggs += eggs
+        # else:
+        #     self.pop += eggs
+        if self.eggs is None:
+            self.eggs = eggs
         else:
-            self.pop += eggs
+            self.eggs += eggs
 
     ################
     # HELPER FUNCS #
     ################
 
-    def _get_evalome(self, genomes):
+    def _get_evaluome(self, genomes):
         def _get_interpretome(omes):
             interpretome = np.zeros(shape=omes.shape[:2])
 
@@ -290,15 +297,15 @@ class Biosystem:
 
         envgenomes = self.conf.envmap(genomes)
         interpretome = _get_interpretome(envgenomes)
-        evalomes = self.conf.phenomap(interpretome)
-        bounded_evalome = _bound(evalomes)
+        evaluomes = self.conf.phenomap(interpretome)
+        bounded_evaluome = _bound(evaluomes)
 
         # if not self.aux.stage % 100:
         #     print(
-        #         np.round(interpretome[0][:10], 2), np.round(bounded_evalome[0][:10], 2)
+        #         np.round(interpretome[0][:10], 2), np.round(bounded_evaluome[0][:10], 2)
         #     )
 
-        return bounded_evalome
+        return bounded_evaluome
 
     def _get_evaluation(self, attr, part=None):
 
@@ -318,7 +325,7 @@ class Biosystem:
             if agespec:
                 which_loci += self.pop.ages[which_individuals]
 
-            probs = self.pop.evalomes[which_individuals, which_loci]
+            probs = self.pop.evaluomes[which_individuals, which_loci]
 
             # envgenomes = self.conf.envmap(self.pop.genomes)
             # loci = envgenomes[which_individuals, which_loci]
@@ -330,7 +337,7 @@ class Biosystem:
 
         return final_probs
 
-    # def _get_locus_evalome(self, attr, part=None):
+    # def _get_locus_evaluome(self, attr, part=None):
     #     """
     #     Fetch probability values of certain genes at a certain loci.
     #     Three scenarios:
@@ -392,3 +399,6 @@ class Biosystem:
         # retain survivors
         self.pop *= ~mask_kill
 
+
+    def __len__(self):
+        return len(self.pop) + len(self.eggs) if self.eggs is not None else len(self.pop)

@@ -23,6 +23,7 @@ time_start = time.time()
 
 project_path = pathlib.Path(__file__).absolute().parent
 
+
 def get_memory_usage(stage, path):
     total_memory_usage = (
         sum(f.stat().st_size for f in path.glob("*") if f.is_file())
@@ -63,8 +64,8 @@ def main():
     parser.add_argument("params_extra", type=str)
     parser.add_argument("jobid", type=str)
     parser.add_argument("dirname", type=str)
-    parser.add_argument("-r","--reload_biosystem", type=str)
-    parser.add_argument("-c","--config_file", type=str, default="config_default.yml")
+    parser.add_argument("-r", "--reload_biosystem", type=str)
+    parser.add_argument("-c", "--config_file", type=str, default="config_default.yml")
     args = parser.parse_args()
 
     # init params
@@ -78,7 +79,9 @@ def main():
     # init population
     if args.reload_biosystem:
         logging.info(f"Reloading biosystem from: {args.reload_biosystem}")
-        with open(project_path.parent / "experiments" / args.reload_biosystem, "rb") as ifile:
+        with open(
+            project_path.parent / "experiments" / args.reload_biosystem, "rb"
+        ) as ifile:
             pop = pickle.load(ifile).pop
             biosys = biosystem.Biosystem(pop=pop, aux=aux)
     else:
@@ -99,6 +102,10 @@ def main():
         aux.stage += 1
 
         biosys.cycle()
+
+        if len(biosys) == 0:
+            logging.info("Biosystem went extinct")
+            break
 
         if aux.stage % (aux.LOGGING_RATE * 10) == 0:
             logging.info(logging_headers[0])

@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 import pickle
 import logging
+import shutil
+import json
 
 # from functools import wraps
 # from time import time
@@ -30,7 +32,7 @@ class Recorder:
         "causeofdeath",
         "genomes",
         "popid",
-        "evalomes",
+        "evaluomes",
     }
 
     def __init__(self, opath, FLUSH_RATE, MAX_LIFESPAN):
@@ -40,7 +42,7 @@ class Recorder:
         self.age = []
         self.causeofdeath = []
         self.genomes = []
-        self.evalomes = []
+        self.evaluomes = []
         self.popid = []
 
         self.batch_number = 0
@@ -53,6 +55,7 @@ class Recorder:
 
         self.path_vizport = self.opath / "vizport.csv"
         self.vizport_header_recorded = False
+        # self.vizport_data = {"data": []}
 
     # @measure
     def rec(self, pop, causeofdeath, popid):
@@ -65,7 +68,7 @@ class Recorder:
         self.genomes.extend(pop.genomes.reshape(len(pop), -1))  # flatten each genome
         self.causeofdeath.extend([causeofdeath] * len(pop))
         self.popid.extend([popid] * len(pop))
-        self.evalomes.extend(pop.evalomes)
+        self.evaluomes.extend(pop.evaluomes)
 
         # if record limit reached, flush
         if len(self) > self.FLUSH_RATE:
@@ -85,7 +88,9 @@ class Recorder:
             header = ",".join(
                 [f"gen_{i}" for i in range(gen.shape[1])]
                 + [f"eva_{i}" for i in range(eva.shape[1])]
-                + [f"age_{i}" for i in range(-1, self.MAX_LIFESPAN + 1)]
+                + [
+                    f"age_{i}" for i in range(self.MAX_LIFESPAN + 1)
+                ]  # ignoring deaths "at age -1", when simulation end comes
                 + ["cod_max_lifespan", "cod_overshoot", "cod_genetic"]
                 + ["max_sid"]
             )
@@ -96,23 +101,48 @@ class Recorder:
 
         agecounts = dem.age.value_counts()
         codcounts = dem.causeofdeath.value_counts()
-        s = ",".join(
-            str(x)
-            for x in gen.median(0).tolist()
+        lis = (
+            gen.mean(0).tolist()
             + eva.median(0).tolist()
-            + [agecounts.get(i, 0) for i in range(-1, self.MAX_LIFESPAN + 1)]
+            + [agecounts.get(i, 0) for i in range(self.MAX_LIFESPAN + 1)]
             + [codcounts.get(i, 0) for i in ["max_lifespan", "overshoot", "genetic"]]
             + [dem.sid.max()]
         )
+        s = ",".join(str(x) for x in lis)
 
         with open(self.path_vizport, "a") as ofile:
             ofile.write(s + "\n")
 
+        # self.vizport_data["data"].append([float(x) for x in lis])
+
+        # with open(self.path_vizport.with_suffix(".json"), "w") as ofile:
+        #     json.dump(self.vizport_data, ofile)
+
+        shutil.copy(
+            self.path_vizport,
+            str(
+                self.opath.parent.parent.parent
+                / "wxyz"
+                / "vizport"
+                / "csvs"
+                / self.opath.stem
+            )
+            + ".csv",
+        )
+
+        shutil.copy(
+            self.path_vizport,
+            self.opath.parent.parent.parent
+            / "wxyz"
+            / "vizport"
+            / "csvs"
+            / "vizport.csv",
+        )
 
     # @measure
     def flush(self):
         """Write data to *.gen and *.dem files and erase all data from self."""
-        logging.info(f"Flushing {len(self.genomes)} records")
+        # logging.info(f"Flushing {len(self.genomes)} records")
 
         # write .gen and .dem
         path = self.opath / str(self.batch_number)
@@ -122,7 +152,7 @@ class Recorder:
         df_gen.columns = [str(c) for c in df_gen.columns]
         df_gen.to_feather(path.with_suffix(".gen"))
 
-        df_eva = pd.DataFrame(np.array(self.evalomes))
+        df_eva = pd.DataFrame(np.array(self.evaluomes))
         df_eva.reset_index(drop=True, inplace=True)
         df_eva.columns = [str(c) for c in df_eva.columns]
         df_eva.to_feather(path.with_suffix(".eva"))

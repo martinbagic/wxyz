@@ -27,7 +27,7 @@ class Config:
         self.DISCRETE_GENERATIONS = params["DISCRETE_GENERATIONS"]
         self.ENVMAP_RATE = params["ENVMAP_RATE"]
         self.PHENOMAP_PLUS = params["PHENOMAP_PLUS"]
-        self.BOTTLENECK_SIZE = params["BOTTLENECK_SIZE"]
+        self.CLIFF_SURVIVABILITY = params["CLIFF_SURVIVABILITY"]
 
         self.loci_n = {
             attr: [1, self.MAX_LIFESPAN][vals[0]]
@@ -59,7 +59,7 @@ class Config:
         self.overshoot = Overshoot(
             OVERSHOOT_HANDLING=self.OVERSHOOT_HANDLING,
             MAX_POPULATION_SIZE=self.MAX_POPULATION_SIZE,
-            BOTTLENECK_SIZE=self.BOTTLENECK_SIZE,
+            CLIFF_SURVIVABILITY=self.CLIFF_SURVIVABILITY,
         )
 
         # envmap: genotype -> genotype contextualized in a changing environment

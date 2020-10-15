@@ -9,17 +9,17 @@ class Pop:
         "uids",
         "births",
         "birthdays",
-        "evalomes",
+        "evaluomes",
     )
 
-    def __init__(self, genomes, ages, origins, uids, births, birthdays, evalomes):
+    def __init__(self, genomes, ages, origins, uids, births, birthdays, evaluomes):
         self.genomes = genomes
         self.ages = ages
         self.origins = origins
         self.uids = uids
         self.births = births
         self.birthdays = birthdays
-        self.evalomes = evalomes
+        self.evaluomes = evaluomes
 
     def __len__(self):
         """Return the number of living individuals."""
@@ -38,7 +38,7 @@ class Pop:
             uids=self.uids[index],
             births=self.births[index],
             birthdays=self.birthdays[index],
-            evalomes=self.evalomes[index],
+            evaluomes=self.evaluomes[index],
         )
 
     def __imul__(self, index):

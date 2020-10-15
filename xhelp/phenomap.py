@@ -3,15 +3,15 @@ import numpy as np
 
 class Phenomap:
     def __init__(self, PHENOMAP_PLUS, pos_end):
-        self.m = np.diag([1.0] * pos_end)
+        self.map_ = np.diag([1.0] * pos_end)
         for geno_i, pheno_i, weight in PHENOMAP_PLUS:
-            self.m[geno_i, pheno_i] = weight
+            self.map_[geno_i, pheno_i] = weight
 
     def __call__(self, probs):
         # NOTE: I am not clipping values because probabilities
         #       greater than 1 are guaranteed (as is 1) and
         #       probabilities lesser than 1 are impossible (as is 0)
-        return probs.dot(self.m)
+        return probs.dot(self.map_)
 
     # def __call__(self, genomes):
     #     # values = genomes.dot(self.m)

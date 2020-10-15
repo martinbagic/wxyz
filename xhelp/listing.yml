@@ -1,0 +1,10 @@
+- experiment_name: name
+  config_file: test.yml
+  extra_params:
+    - [MAX_POPULATION_SIZE, 2000]
+    - [BIATCH, 100]
+- experiment_name: name
+  config_file: test.yml
+  extra_params:
+    - [MAX_POPULATION_SIZE, 2000]
+    - [GENOME_STRUCT, "{surv:[True, 'switch', 0, 1, 0]}"]

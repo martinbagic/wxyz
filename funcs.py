@@ -7,7 +7,6 @@ from xhelp.recorder import Recorder
 from xhelp.config import Config
 
 
-
 class Aux:
     def __init__(self, path_default, params_extra, recpath):
         # def initialize(self, path_default, params_extra, recpath):
@@ -27,7 +26,6 @@ class Aux:
         self.LOGGING_RATE = params["LOGGING_RATE"]
         self.REC_EVERY_NTH = params["REC_EVERY_NTH"]
         self.FLUSH_RATE = params["FLUSH_RATE"]
-        self.RECORD_PHENOTYPE = params["RECORD_PHENOTYPE"]
         self.PICKLE_RATE = params["PICKLE_RATE"]
 
         # simulation variables
