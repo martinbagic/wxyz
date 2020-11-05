@@ -10,7 +10,7 @@ parser.add_argument("filename", type=str)
 filename = parser.parse_args().filename
 
 # read yml
-path = pathlib.Path("").absolute() / "summoner" / filename
+path = pathlib.Path(__file__).absolute().parent / filename
 with open(path, "r") as f:
     yml = yaml.safe_load(f)
 
