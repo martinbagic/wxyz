@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 
 <head>
-    <script src="https://d3js.org/d3.v6.min.js"></script>
-    <style>
-        div.tooltip, div.locuser {
-            text-align: center;
-            /* width: 50px; */
-            padding-left:3px;
-            padding-right:3px;
-            line-height: 30px;
-            height: 20px;
-            font: 16px sans-serif;
-            font-weight:bold;
-            position: absolute;
-            /* background: rgba(255, 255, 255, 0.9); */
-            background:#333;
-            border: 1px #666 solid;
-            border-radius: 4px;
-            pointer-events: none;
-        }
-    </style>
-    <title>AEGIS VizPort</title>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <style>
+    div.tooltip,
+    div.locuser {
+      text-align: center;
+      /* width: 50px; */
+      padding-left: 3px;
+      padding-right: 3px;
+      line-height: 30px;
+      height: 20px;
+      font: 16px sans-serif;
+      font-weight: bold;
+      position: absolute;
+      /* background: rgba(255, 255, 255, 0.9); */
+      background: #333;
+      border: 1px #666 solid;
+      border-radius: 4px;
+      pointer-events: none;
+    }
+  </style>
+  <title>AEGIS VizPort</title>
 </head>
 
 <body>
-    <!-- <div class="reload">reload</div> -->
-    <div class="tooltip" style="opacity:0"></div>
-    <div class="locuser" style="opacity:0"></div>
-    <svg></svg>
-    <script src="main.js"></script>
+  <!-- <div class="reload">reload</div> -->
+  <div style="margin-left: 50px">
+    <input type="text" id="filename" value="vizport.json" />
+    <a id="refreshme">load me</a>
+  </div>
+  <div class="tooltip" style="opacity: 0"></div>
+  <div class="locuser" style="opacity: 0"></div>
+  <svg></svg>
+  <script src="main.js"></script>
 </body>

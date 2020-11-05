@@ -392,11 +392,18 @@ function plotKM(frame, i) {
   // path.exit().remove();
 }
 
-load("vizport.json");
-
-refresher = setInterval(function () {
+d3.select("#refreshme").on("click", function () {
   let removem = svg.selectAll("g");
-  load("vizport.json");
+  console.log(d3.select("input#filename").node().value)
+  load(d3.select("input#filename").node().value);
   removem.remove();
-}, 1000 * 10);
+});
+
+// load("vizport.json");
+
+// refresher = setInterval(function () {
+//   let removem = svg.selectAll("g");
+//   load("vizport.json");
+//   removem.remove();
+// }, 1000 * 10);
 // clearInterval(refresher)
