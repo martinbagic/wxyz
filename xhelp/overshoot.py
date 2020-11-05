@@ -2,9 +2,9 @@ import numpy as np
 
 
 class Overshoot:
-    def __init__(self, OVERSHOOT_HANDLING, MAX_POPULATION_SIZE, CLIFF_SURVIVABILITY):
+    def __init__(self, OVERSHOOT_EVENT, MAX_POPULATION_SIZE, CLIFF_SURVIVORSHIP):
         self.MAX_POPULATION_SIZE = MAX_POPULATION_SIZE
-        self.CLIFF_SURVIVABILITY = CLIFF_SURVIVABILITY
+        self.CLIFF_SURVIVORSHIP = CLIFF_SURVIVORSHIP
         self.func = {
             "treadmill_random": self.treadmill_random,
             "treadmill_boomer": self.treadmill_boomer,
@@ -12,7 +12,7 @@ class Overshoot:
             "cliff": self.cliff,
             # "limitless": self.limitless,
             "starvation": self.starvation,
-        }[OVERSHOOT_HANDLING]
+        }[OVERSHOOT_EVENT]
 
         self.consecutive_overshoot_n = 0  # for starvation mode
 
@@ -46,7 +46,7 @@ class Overshoot:
 
     def cliff(self, n):
         """Kill all but random few."""
-        indices = np.random.choice(n, int(self.MAX_POPULATION_SIZE*self.CLIFF_SURVIVABILITY), replace=False)
+        indices = np.random.choice(n, int(self.MAX_POPULATION_SIZE*self.CLIFF_SURVIVORSHIP), replace=False)
         mask = np.ones(n, bool)
         mask[indices] = False
         return mask

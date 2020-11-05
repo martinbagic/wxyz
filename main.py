@@ -5,10 +5,11 @@ import json
 import pickle
 import time
 import numpy as np
-import biosystem
-import funcs as Aux
 import os
 import pathlib
+
+from biosystem import Biosystem
+from aux import Aux
 
 
 # logging settings
@@ -65,31 +66,32 @@ def main():
     parser.add_argument("jobid", type=str)
     parser.add_argument("dirname", type=str)
     parser.add_argument("-r", "--reload_biosystem", type=str)
-    parser.add_argument("-c", "--config_file", type=str, default="config_default.yml")
+    parser.add_argument("-c", "--config_files", nargs="*", type=str, default=[])
     args = parser.parse_args()
 
     # init params
-    aux = Aux.Aux(
-        # aux.initialize(
-        path_default=project_path / "configs" / args.config_file,
-        params_extra=json.loads(args.params_extra),
-        recpath=project_path.parent / "experiments" / args.dirname / args.jobid,
+    recpath = project_path / "experiments" / args.dirname / args.jobid
+    recpath.mkdir(parents=True, exist_ok=True)  # make folder for experiment
+    aux = Aux(
+        paths_config=[
+            project_path / "configs" / cfile
+            for cfile in args.config_files + ["config_default.yml"]
+        ],
+        cmd_params=json.loads(args.params_extra),
+        recpath=recpath,
     )
 
     # init population
     if args.reload_biosystem:
         logging.info(f"Reloading biosystem from: {args.reload_biosystem}")
-        with open(
-            project_path.parent / "experiments" / args.reload_biosystem, "rb"
-        ) as ifile:
+        with open(project_path / "experiments" / args.reload_biosystem, "rb") as ifile:
             pop = pickle.load(ifile).pop
-            biosys = biosystem.Biosystem(pop=pop, aux=aux)
+            biosys = Biosystem(pop=pop, aux=aux)
     else:
         logging.info("Initializing biosystem afresh")
-        biosys = biosystem.Biosystem(aux=aux)
+        biosys = Biosystem(aux=aux)
 
     # run simulation
-    logging.info(f"Extra parameters: {repr(args.params_extra)}")
     logging.info("Simulation started")
     logging_headers = [
         "|         " * 8 + "|",

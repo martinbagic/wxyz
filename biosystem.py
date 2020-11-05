@@ -5,7 +5,7 @@ Main method that is called from the outside is the cycle() method.
 import numpy as np
 import logging
 
-from xhelp.pop import Pop
+from pop import Pop
 
 
 class Biosystem:
@@ -36,8 +36,8 @@ class Biosystem:
             genomes = genomes.astype(bool)
 
             # guarantee survival and reproduction values up to first few mature ages
-            if self.conf.AGE_GUARANTEE > -1:
-                headsup = self.conf.MATURATION_AGE + self.conf.AGE_GUARANTEE
+            if self.conf.HEADSUP > -1:
+                headsup = self.conf.MATURATION_AGE + self.conf.HEADSUP
                 surv_start = self.conf.loci_pos["surv"][0]
                 repr_start = self.conf.loci_pos["repr"][0]
                 genomes[:, surv_start : surv_start + headsup,] = True
@@ -52,12 +52,13 @@ class Biosystem:
 
                 genomes = _initialize_genomes()
                 ages = np.zeros(num, int)
+                # ages = np.random.randint(0, self.conf.MAX_LIFESPAN, size=num)
                 origins = np.zeros(num, int) - 1
                 uids = self.conf.get_uids(num)
                 births = np.zeros(num, int)
                 birthdays = np.zeros(num, int)
-                evaluomes = self._get_evaluome(genomes)
-                return Pop(genomes, ages, origins, uids, births, birthdays, evaluomes)
+                phenomes = self._get_phenome(genomes)
+                return Pop(genomes, ages, origins, uids, births, birthdays, phenomes)
             else:
                 return pop
 
@@ -79,24 +80,27 @@ class Biosystem:
                 self.eggs = None
 
         if len(self.pop):
-            # TODO rethink ordering
-            self.gen_survival()
             self.eco_survival()
+            self.gen_survival()
             self.reproduction()
             self.age()
 
-        self.conf.season_countdown -= 1
+        # self.conf.season_countdown -= 1
+        self.conf.season.countdown -= 1
 
-        if self.conf.season_countdown == 0:
+        # if self.conf.season_countdown == 0:
+        if self.conf.season.countdown == 0:
             # kill all living
             mask_kill = np.ones(len(self.pop), bool)
             self._kill(mask_kill, "season_shift")
             # hatch eggs
             _hatch_eggs(self)
             # restart season
-            self.conf.reset_season_countdown()
+            # self.conf.reset_season_countdown()
+            self.conf.season.reset()
 
-        elif self.conf.season_countdown == float("inf"):
+        # elif self.conf.season_countdown == float("inf"):
+        elif self.conf.season.countdown == float("inf"):
             # add newborns to population
             _hatch_eggs(self)
 
@@ -169,19 +173,38 @@ class Biosystem:
             return recombined
 
         def _assort(genomes):
+            # locus structure on an example with 8 bits
+            # [1 2 1 2 1 2 1 2]
+            # [x   x   x   x  ] => 1st chromosome
+            # [  x   x   x   x] => 2nd chromosome
+
             # extract parent indices twice, and shuffle
-            # TODO: make sure no selfing
-            # TODO: redefine interpreters so they consider chromosomes
-            order = list(range(len(genomes))) * 2  # every parent has 2 children
+            order = np.repeat(
+                np.arange(len(genomes)), 2
+            )  # every parent sends off two chromosomes into two children
             np.random.shuffle(order)
 
-            # locus structure on an example with 10 bits
-            # [1 2 1 2 1 2 1 2 1 2]
-            # [x   x   x   x   x  ] => 1st chromosome
-            # [  x   x   x   x   x] => 2nd chromosome
+            # check for selfing
+            selfed = np.where(order[::2] == order[1::2])[0] * 2
+            if len(selfed) == 1:
+                # switch first selfed chromosome with the first chromosome of the previous or next pair
+                offset = -2 if selfed[0] > 0 else 2
+                order[selfed], order[selfed + offset] = (
+                    order[selfed + offset],
+                    order[selfed],
+                )
+            elif len(selfed) > 1:
+                # shift first chromosomes of selfed pairs
+                order[selfed] = order[np.roll(selfed, 1)]
+
             assorted = genomes[order]
+
+            # take first chromosomes of first parents and second chromosomes of second parents
             assorted[::2, :, 1::2] = assorted[1::2, :, 1::2]
+
+            # children have chromosomes at positions [::2]
             assorted = assorted[::2]
+
             return assorted, order
 
         def _mutate(genomes):
@@ -215,7 +238,7 @@ class Biosystem:
         # check if reproducing
         probs_repr = self._get_evaluation("repr", part=mask_mature)
         mask_repr = np.random.random(len(probs_repr)) < probs_repr
-        if not any(mask_repr):
+        if sum(mask_repr) < 2:  # forgo if not at least two available parents
             return
 
         # increase births statistics
@@ -230,10 +253,9 @@ class Biosystem:
         # assert not genomes is self.pop.genomes[mask_repr]
 
         # get origins
-        if self.conf.REPR_MODE == "asexual":
+        if self.conf.REPR_MODE in ("asexual", "diasexual"):
             origins = self.pop.uids[mask_repr]
         elif self.conf.REPR_MODE == "sexual":
-            # TODO: think about the best way to encode double origination
             origins = np.array(
                 [
                     f"{self.pop.uids[order[2*i]]}.{self.pop.uids[order[2*i+1]]}"
@@ -250,7 +272,7 @@ class Biosystem:
             uids=self.conf.get_uids(n),
             births=np.zeros(n, int),
             birthdays=np.zeros(n, int) + self.aux.stage,
-            evaluomes=self._get_evaluome(genomes),
+            phenomes=self._get_phenome(genomes),
         )
 
         # save as eggs if generations are nonoverlapping/discrete
@@ -271,7 +293,7 @@ class Biosystem:
     # HELPER FUNCS #
     ################
 
-    def _get_evaluome(self, genomes):
+    def _get_phenome(self, genomes):
         def _get_interpretome(omes):
             interpretome = np.zeros(shape=omes.shape[:2])
 
@@ -297,15 +319,15 @@ class Biosystem:
 
         envgenomes = self.conf.envmap(genomes)
         interpretome = _get_interpretome(envgenomes)
-        evaluomes = self.conf.phenomap(interpretome)
-        bounded_evaluome = _bound(evaluomes)
+        phenomes = self.conf.phenomap(interpretome)
+        bounded_phenome = _bound(phenomes)
 
         # if not self.aux.stage % 100:
         #     print(
-        #         np.round(interpretome[0][:10], 2), np.round(bounded_evaluome[0][:10], 2)
+        #         np.round(interpretome[0][:10], 2), np.round(bounded_phenome[0][:10], 2)
         #     )
 
-        return bounded_evaluome
+        return bounded_phenome
 
     def _get_evaluation(self, attr, part=None):
 
@@ -325,7 +347,7 @@ class Biosystem:
             if agespec:
                 which_loci += self.pop.ages[which_individuals]
 
-            probs = self.pop.evaluomes[which_individuals, which_loci]
+            probs = self.pop.phenomes[which_individuals, which_loci]
 
             # envgenomes = self.conf.envmap(self.pop.genomes)
             # loci = envgenomes[which_individuals, which_loci]
@@ -337,7 +359,7 @@ class Biosystem:
 
         return final_probs
 
-    # def _get_locus_evaluome(self, attr, part=None):
+    # def _get_locus_phenome(self, attr, part=None):
     #     """
     #     Fetch probability values of certain genes at a certain loci.
     #     Three scenarios:
@@ -393,12 +415,13 @@ class Biosystem:
             if self.aux.REC_EVERY_NTH > 1
             else mask_kill
         )
-        # TODO recorder
         self.aux.recorder.rec(self.pop[mask_record], causeofdeath, self.popid)
 
         # retain survivors
         self.pop *= ~mask_kill
 
-
     def __len__(self):
-        return len(self.pop) + len(self.eggs) if self.eggs is not None else len(self.pop)
+        return (
+            len(self.pop) + len(self.eggs) if self.eggs is not None else len(self.pop)
+        )
+

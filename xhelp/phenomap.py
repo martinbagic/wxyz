@@ -8,10 +8,7 @@ class Phenomap:
             self.map_[geno_i, pheno_i] = weight
 
     def __call__(self, probs):
-        # NOTE: I am not clipping values because probabilities
-        #       greater than 1 are guaranteed (as is 1) and
-        #       probabilities lesser than 1 are impossible (as is 0)
-        return probs.dot(self.map_)
+        return np.clip(probs.dot(self.map_), 0, 1)
 
     # def __call__(self, genomes):
     #     # values = genomes.dot(self.m)

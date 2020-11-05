@@ -32,30 +32,59 @@ class Recorder:
         "causeofdeath",
         "genomes",
         "popid",
-        "evaluomes",
+        "phenomes",
+        "births",
     }
 
-    def __init__(self, opath, FLUSH_RATE, MAX_LIFESPAN):
+    def __init__(
+        self,
+        opath,
+        params,
+        FLUSH_RATE,
+        MAX_LIFESPAN,
+        LOCI_POS,
+        BITS_PER_LOCUS,
+        MATURATION_AGE,
+    ):
         self.sid = []
         self.pid = []
         self.bday = []
         self.age = []
         self.causeofdeath = []
         self.genomes = []
-        self.evaluomes = []
+        self.phenomes = []
+        self.births = []
         self.popid = []
 
         self.batch_number = 0
         self.FLUSH_RATE = FLUSH_RATE
         self.MAX_LIFESPAN = MAX_LIFESPAN
-
+        self.LOCI_POS = LOCI_POS
+        self.BITS_PER_LOCUS = BITS_PER_LOCUS
         self.opath = opath
 
-        self.opath.mkdir(exist_ok=True)  # make folder in which data will be saved
+        self.vizport_paths = [
+            self.opath / f"{self.opath.stem}.json",
+            self.opath.parents[2] / "vizport" / "csvs" / f"{self.opath.stem}.json",
+        ]
+        # self.vizport_paths.append(self.vizport_paths[-1].parent / "vizport.json")
 
-        self.path_vizport = self.opath / "vizport.csv"
-        self.vizport_header_recorded = False
-        # self.vizport_data = {"data": []}
+        self.vizport_data = {
+            "bitsperlocus": self.BITS_PER_LOCUS,
+            "survloc": self.LOCI_POS["surv"],
+            "reprloc": self.LOCI_POS["repr"],
+            "lifespan": self.MAX_LIFESPAN,
+            "maturationage": MATURATION_AGE,
+            "gensurv": [],
+            "genrepr": [],
+            "phesurv": [],
+            "pherepr": [],
+            "death_eco": [],
+            "death_gen": [],
+            "death_end": [],
+            # "births": [],
+            "params": params,
+        }
 
     # @measure
     def rec(self, pop, causeofdeath, popid):
@@ -68,7 +97,8 @@ class Recorder:
         self.genomes.extend(pop.genomes.reshape(len(pop), -1))  # flatten each genome
         self.causeofdeath.extend([causeofdeath] * len(pop))
         self.popid.extend([popid] * len(pop))
-        self.evaluomes.extend(pop.evaluomes)
+        self.phenomes.extend(pop.phenomes)
+        self.births.extend(pop.births)
 
         # if record limit reached, flush
         if len(self) > self.FLUSH_RATE:
@@ -82,62 +112,36 @@ class Recorder:
         with open(path, "wb") as ofile:
             pickle.dump(obj, ofile)
 
-    def record_for_vizport(self, gen, eva, dem):
+    def record_for_vizport(self, gen, phe, dem):
+        def get_deaths(death_kind):
+            deaths = dem[dem.causeofdeath == death_kind].age.value_counts()
+            return [int(deaths.get(age, 0)) for age in range(self.MAX_LIFESPAN + 1)]
 
-        if not self.vizport_header_recorded:
-            header = ",".join(
-                [f"gen_{i}" for i in range(gen.shape[1])]
-                + [f"eva_{i}" for i in range(eva.shape[1])]
-                + [
-                    f"age_{i}" for i in range(self.MAX_LIFESPAN + 1)
-                ]  # ignoring deaths "at age -1", when simulation end comes
-                + ["cod_max_lifespan", "cod_overshoot", "cod_genetic"]
-                + ["max_sid"]
-            )
+        # def get_births():
+        #     births = dem.births
+        #     return [int(births.get(age, 0)) for age in range(self.MAX_LIFESPAN + 1)]
 
-            with open(self.path_vizport, "w") as ofile:
-                ofile.write(header + "\n")
-            self.vizport_header_recorded = True
+        def get_bits(loci_kind, array, bitsperlocus=self.BITS_PER_LOCUS):
+            pos = self.LOCI_POS[loci_kind]
+            return array.iloc[:, pos[0] * bitsperlocus : pos[1] * bitsperlocus]
 
-        agecounts = dem.age.value_counts()
-        codcounts = dem.causeofdeath.value_counts()
-        lis = (
-            gen.mean(0).tolist()
-            + eva.median(0).tolist()
-            + [agecounts.get(i, 0) for i in range(self.MAX_LIFESPAN + 1)]
-            + [codcounts.get(i, 0) for i in ["max_lifespan", "overshoot", "genetic"]]
-            + [dem.sid.max()]
-        )
-        s = ",".join(str(x) for x in lis)
+        data = {
+            "gensurv": get_bits("surv", gen).mean(0).astype(float).tolist(),
+            "genrepr": get_bits("repr", gen).mean(0).astype(float).tolist(),
+            "phesurv": get_bits("surv", phe, 1).median(0).astype(float).tolist(),
+            "pherepr": get_bits("repr", phe, 1).median(0).astype(float).tolist(),
+            "death_eco": get_deaths("overshoot"),
+            "death_gen": get_deaths("genetic"),
+            "death_end": get_deaths("max_lifespan"),
+            # "births": get_births(),
+        }
 
-        with open(self.path_vizport, "a") as ofile:
-            ofile.write(s + "\n")
+        for k, v in data.items():
+            self.vizport_data[k].append(v)
 
-        # self.vizport_data["data"].append([float(x) for x in lis])
-
-        # with open(self.path_vizport.with_suffix(".json"), "w") as ofile:
-        #     json.dump(self.vizport_data, ofile)
-
-        shutil.copy(
-            self.path_vizport,
-            str(
-                self.opath.parent.parent.parent
-                / "wxyz"
-                / "vizport"
-                / "csvs"
-                / self.opath.stem
-            )
-            + ".csv",
-        )
-
-        shutil.copy(
-            self.path_vizport,
-            self.opath.parent.parent.parent
-            / "wxyz"
-            / "vizport"
-            / "csvs"
-            / "vizport.csv",
-        )
+        for path in self.vizport_paths:
+            with open(path, "w") as ofile:
+                json.dump(self.vizport_data, ofile)
 
     # @measure
     def flush(self):
@@ -152,21 +156,19 @@ class Recorder:
         df_gen.columns = [str(c) for c in df_gen.columns]
         df_gen.to_feather(path.with_suffix(".gen"))
 
-        df_eva = pd.DataFrame(np.array(self.evaluomes))
-        df_eva.reset_index(drop=True, inplace=True)
-        df_eva.columns = [str(c) for c in df_eva.columns]
-        df_eva.to_feather(path.with_suffix(".eva"))
+        df_phe = pd.DataFrame(np.array(self.phenomes))
+        df_phe.reset_index(drop=True, inplace=True)
+        df_phe.columns = [str(c) for c in df_phe.columns]
+        df_phe.to_feather(path.with_suffix(".phe"))
 
-        dem_attrs = self.attrs - {"genomes"}
+        dem_attrs = self.attrs - {"genomes", "phenomes"}
         demo = {attr: getattr(self, attr) for attr in dem_attrs}
         df_dem = pd.DataFrame(demo, columns=dem_attrs)
         df_dem.reset_index(drop=True, inplace=True)
-        df_dem["pid"] = df_dem.pid.astype(
-            float
-        )  # fix double origination, TODO: can i simplify
+        df_dem["pid"] = df_dem.pid.astype(float)
         df_dem.to_feather(path.with_suffix(".dem"))
 
-        self.record_for_vizport(df_gen, df_eva, df_dem)
+        self.record_for_vizport(df_gen, df_phe, df_dem)
 
         # empty attrs
         self._reinit()
