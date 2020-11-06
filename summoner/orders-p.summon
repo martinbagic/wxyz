@@ -1,0 +1,1250 @@
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_CONST_muta": 1e-05}' p_mutation_probability_0 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_CONST_muta": 2e-05}' p_mutation_probability_1 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_CONST_muta": 4e-05}' p_mutation_probability_2 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_CONST_muta": 7e-05}' p_mutation_probability_3 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_CONST_muta": 0.0001}' p_mutation_probability_4 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_CONST_muta": 0.0002}' p_mutation_probability_5 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_CONST_muta": 0.0004}' p_mutation_probability_6 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_CONST_muta": 0.0007}' p_mutation_probability_7 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_CONST_muta": 0.001}' p_mutation_probability_8 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_CONST_muta": 0.002}' p_mutation_probability_9 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_CONST_muta": 0.004}' p_mutation_probability_10 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_CONST_muta": 0.007}' p_mutation_probability_11 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_CONST_muta": 0.01}' p_mutation_probability_12 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_CONST_muta": 1e-05}' p_mutation_probability_13 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_CONST_muta": 2e-05}' p_mutation_probability_14 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_CONST_muta": 4e-05}' p_mutation_probability_15 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_CONST_muta": 7e-05}' p_mutation_probability_16 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_CONST_muta": 0.0001}' p_mutation_probability_17 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_CONST_muta": 0.0002}' p_mutation_probability_18 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_CONST_muta": 0.0004}' p_mutation_probability_19 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_CONST_muta": 0.0007}' p_mutation_probability_20 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_CONST_muta": 0.001}' p_mutation_probability_21 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_CONST_muta": 0.002}' p_mutation_probability_22 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_CONST_muta": 0.004}' p_mutation_probability_23 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_CONST_muta": 0.007}' p_mutation_probability_24 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_CONST_muta": 0.01}' p_mutation_probability_25 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_CONST_muta": 1e-05}' p_mutation_probability_26 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_CONST_muta": 2e-05}' p_mutation_probability_27 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_CONST_muta": 4e-05}' p_mutation_probability_28 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_CONST_muta": 7e-05}' p_mutation_probability_29 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_CONST_muta": 0.0001}' p_mutation_probability_30 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_CONST_muta": 0.0002}' p_mutation_probability_31 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_CONST_muta": 0.0004}' p_mutation_probability_32 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_CONST_muta": 0.0007}' p_mutation_probability_33 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_CONST_muta": 0.001}' p_mutation_probability_34 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_CONST_muta": 0.002}' p_mutation_probability_35 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_CONST_muta": 0.004}' p_mutation_probability_36 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_CONST_muta": 0.007}' p_mutation_probability_37 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_CONST_muta": 0.01}' p_mutation_probability_38 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_CONST_muta": 1e-05}' p_mutation_probability_39 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_CONST_muta": 2e-05}' p_mutation_probability_40 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_CONST_muta": 4e-05}' p_mutation_probability_41 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_CONST_muta": 7e-05}' p_mutation_probability_42 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_CONST_muta": 0.0001}' p_mutation_probability_43 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_CONST_muta": 0.0002}' p_mutation_probability_44 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_CONST_muta": 0.0004}' p_mutation_probability_45 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_CONST_muta": 0.0007}' p_mutation_probability_46 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_CONST_muta": 0.001}' p_mutation_probability_47 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_CONST_muta": 0.002}' p_mutation_probability_48 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_CONST_muta": 0.004}' p_mutation_probability_49 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_CONST_muta": 0.007}' p_mutation_probability_50 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_CONST_muta": 0.01}' p_mutation_probability_51 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_CONST_muta": 1e-05}' p_mutation_probability_52 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_CONST_muta": 2e-05}' p_mutation_probability_53 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_CONST_muta": 4e-05}' p_mutation_probability_54 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_CONST_muta": 7e-05}' p_mutation_probability_55 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_CONST_muta": 0.0001}' p_mutation_probability_56 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_CONST_muta": 0.0002}' p_mutation_probability_57 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_CONST_muta": 0.0004}' p_mutation_probability_58 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_CONST_muta": 0.0007}' p_mutation_probability_59 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_CONST_muta": 0.001}' p_mutation_probability_60 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_CONST_muta": 0.002}' p_mutation_probability_61 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_CONST_muta": 0.004}' p_mutation_probability_62 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_CONST_muta": 0.007}' p_mutation_probability_63 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_CONST_muta": 0.01}' p_mutation_probability_64 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_2": 0}' p_surv_boundlo_0 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_2": 0.5}' p_surv_boundlo_1 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_2": 0.7}' p_surv_boundlo_2 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_2": 0.75}' p_surv_boundlo_3 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_2": 0.8}' p_surv_boundlo_4 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_2": 0.85}' p_surv_boundlo_5 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_2": 0.875}' p_surv_boundlo_6 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_2": 0.9}' p_surv_boundlo_7 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_2": 0.91}' p_surv_boundlo_8 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_2": 0.92}' p_surv_boundlo_9 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_2": 0.93}' p_surv_boundlo_10 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_2": 0.94}' p_surv_boundlo_11 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_2": 0.95}' p_surv_boundlo_12 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_2": 0}' p_surv_boundlo_13 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_2": 0.5}' p_surv_boundlo_14 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_2": 0.7}' p_surv_boundlo_15 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_2": 0.75}' p_surv_boundlo_16 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_2": 0.8}' p_surv_boundlo_17 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_2": 0.85}' p_surv_boundlo_18 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_2": 0.875}' p_surv_boundlo_19 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_2": 0.9}' p_surv_boundlo_20 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_2": 0.91}' p_surv_boundlo_21 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_2": 0.92}' p_surv_boundlo_22 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_2": 0.93}' p_surv_boundlo_23 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_2": 0.94}' p_surv_boundlo_24 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_2": 0.95}' p_surv_boundlo_25 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_2": 0}' p_surv_boundlo_26 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_2": 0.5}' p_surv_boundlo_27 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_2": 0.7}' p_surv_boundlo_28 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_2": 0.75}' p_surv_boundlo_29 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_2": 0.8}' p_surv_boundlo_30 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_2": 0.85}' p_surv_boundlo_31 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_2": 0.875}' p_surv_boundlo_32 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_2": 0.9}' p_surv_boundlo_33 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_2": 0.91}' p_surv_boundlo_34 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_2": 0.92}' p_surv_boundlo_35 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_2": 0.93}' p_surv_boundlo_36 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_2": 0.94}' p_surv_boundlo_37 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_2": 0.95}' p_surv_boundlo_38 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_2": 0}' p_surv_boundlo_39 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_2": 0.5}' p_surv_boundlo_40 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_2": 0.7}' p_surv_boundlo_41 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_2": 0.75}' p_surv_boundlo_42 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_2": 0.8}' p_surv_boundlo_43 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_2": 0.85}' p_surv_boundlo_44 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_2": 0.875}' p_surv_boundlo_45 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_2": 0.9}' p_surv_boundlo_46 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_2": 0.91}' p_surv_boundlo_47 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_2": 0.92}' p_surv_boundlo_48 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_2": 0.93}' p_surv_boundlo_49 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_2": 0.94}' p_surv_boundlo_50 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_2": 0.95}' p_surv_boundlo_51 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_2": 0}' p_surv_boundlo_52 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_2": 0.5}' p_surv_boundlo_53 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_2": 0.7}' p_surv_boundlo_54 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_2": 0.75}' p_surv_boundlo_55 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_2": 0.8}' p_surv_boundlo_56 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_2": 0.85}' p_surv_boundlo_57 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_2": 0.875}' p_surv_boundlo_58 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_2": 0.9}' p_surv_boundlo_59 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_2": 0.91}' p_surv_boundlo_60 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_2": 0.92}' p_surv_boundlo_61 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_2": 0.93}' p_surv_boundlo_62 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_2": 0.94}' p_surv_boundlo_63 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_2": 0.95}' p_surv_boundlo_64 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_3": 1}' p_surv_boundhi_0 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_3": 0.995}' p_surv_boundhi_1 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_3": 0.99}' p_surv_boundhi_2 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_3": 0.98}' p_surv_boundhi_3 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_3": 0.97}' p_surv_boundhi_4 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_3": 0.96}' p_surv_boundhi_5 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_3": 0.95}' p_surv_boundhi_6 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_3": 0.94}' p_surv_boundhi_7 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_3": 0.93}' p_surv_boundhi_8 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_3": 0.92}' p_surv_boundhi_9 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_3": 0.91}' p_surv_boundhi_10 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_3": 0.9}' p_surv_boundhi_11 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_3": 0.85}' p_surv_boundhi_12 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_3": 0.8}' p_surv_boundhi_13 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_surv_3": 0.7}' p_surv_boundhi_14 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_3": 1}' p_surv_boundhi_15 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_3": 0.995}' p_surv_boundhi_16 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_3": 0.99}' p_surv_boundhi_17 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_3": 0.98}' p_surv_boundhi_18 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_3": 0.97}' p_surv_boundhi_19 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_3": 0.96}' p_surv_boundhi_20 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_3": 0.95}' p_surv_boundhi_21 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_3": 0.94}' p_surv_boundhi_22 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_3": 0.93}' p_surv_boundhi_23 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_3": 0.92}' p_surv_boundhi_24 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_3": 0.91}' p_surv_boundhi_25 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_3": 0.9}' p_surv_boundhi_26 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_3": 0.85}' p_surv_boundhi_27 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_3": 0.8}' p_surv_boundhi_28 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_surv_3": 0.7}' p_surv_boundhi_29 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_3": 1}' p_surv_boundhi_30 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_3": 0.995}' p_surv_boundhi_31 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_3": 0.99}' p_surv_boundhi_32 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_3": 0.98}' p_surv_boundhi_33 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_3": 0.97}' p_surv_boundhi_34 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_3": 0.96}' p_surv_boundhi_35 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_3": 0.95}' p_surv_boundhi_36 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_3": 0.94}' p_surv_boundhi_37 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_3": 0.93}' p_surv_boundhi_38 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_3": 0.92}' p_surv_boundhi_39 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_3": 0.91}' p_surv_boundhi_40 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_3": 0.9}' p_surv_boundhi_41 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_3": 0.85}' p_surv_boundhi_42 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_3": 0.8}' p_surv_boundhi_43 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_surv_3": 0.7}' p_surv_boundhi_44 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_3": 1}' p_surv_boundhi_45 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_3": 0.995}' p_surv_boundhi_46 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_3": 0.99}' p_surv_boundhi_47 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_3": 0.98}' p_surv_boundhi_48 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_3": 0.97}' p_surv_boundhi_49 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_3": 0.96}' p_surv_boundhi_50 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_3": 0.95}' p_surv_boundhi_51 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_3": 0.94}' p_surv_boundhi_52 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_3": 0.93}' p_surv_boundhi_53 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_3": 0.92}' p_surv_boundhi_54 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_3": 0.91}' p_surv_boundhi_55 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_3": 0.9}' p_surv_boundhi_56 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_3": 0.85}' p_surv_boundhi_57 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_3": 0.8}' p_surv_boundhi_58 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_surv_3": 0.7}' p_surv_boundhi_59 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_3": 1}' p_surv_boundhi_60 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_3": 0.995}' p_surv_boundhi_61 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_3": 0.99}' p_surv_boundhi_62 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_3": 0.98}' p_surv_boundhi_63 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_3": 0.97}' p_surv_boundhi_64 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_3": 0.96}' p_surv_boundhi_65 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_3": 0.95}' p_surv_boundhi_66 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_3": 0.94}' p_surv_boundhi_67 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_3": 0.93}' p_surv_boundhi_68 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_3": 0.92}' p_surv_boundhi_69 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_3": 0.91}' p_surv_boundhi_70 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_3": 0.9}' p_surv_boundhi_71 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_3": 0.85}' p_surv_boundhi_72 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_3": 0.8}' p_surv_boundhi_73 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_surv_3": 0.7}' p_surv_boundhi_74 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_2": 0, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_0 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_2": 0.1, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_1 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_2": 0.2, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_2 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_2": 0.3, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_3 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_2": 0.4, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_4 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_2": 0.5, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_5 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_2": 0.55, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_6 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_2": 0.6, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_7 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_2": 0.65, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_8 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_2": 0.7, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_9 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_2": 0.75, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_10 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_2": 0.8, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_11 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_2": 0.85, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_12 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_2": 0.9, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_13 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_2": 0.95, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_14 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_2": 1, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_15 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_2": 0, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_16 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_2": 0.1, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_17 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_2": 0.2, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_18 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_2": 0.3, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_19 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_2": 0.4, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_20 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_2": 0.5, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_21 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_2": 0.55, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_22 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_2": 0.6, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_23 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_2": 0.65, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_24 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_2": 0.7, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_25 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_2": 0.75, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_26 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_2": 0.8, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_27 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_2": 0.85, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_28 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_2": 0.9, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_29 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_2": 0.95, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_30 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_2": 1, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_31 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_2": 0, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_32 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_2": 0.1, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_33 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_2": 0.2, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_34 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_2": 0.3, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_35 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_2": 0.4, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_36 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_2": 0.5, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_37 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_2": 0.55, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_38 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_2": 0.6, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_39 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_2": 0.65, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_40 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_2": 0.7, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_41 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_2": 0.75, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_42 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_2": 0.8, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_43 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_2": 0.85, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_44 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_2": 0.9, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_45 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_2": 0.95, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_46 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_2": 1, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_47 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_2": 0, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_48 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_2": 0.1, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_49 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_2": 0.2, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_50 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_2": 0.3, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_51 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_2": 0.4, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_52 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_2": 0.5, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_53 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_2": 0.55, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_54 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_2": 0.6, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_55 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_2": 0.65, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_56 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_2": 0.7, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_57 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_2": 0.75, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_58 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_2": 0.8, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_59 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_2": 0.85, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_60 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_2": 0.9, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_61 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_2": 0.95, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_62 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_2": 1, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_63 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_2": 0, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_64 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_2": 0.1, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_65 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_2": 0.2, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_66 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_2": 0.3, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_67 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_2": 0.4, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_68 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_2": 0.5, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_69 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_2": 0.55, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_70 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_2": 0.6, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_71 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_2": 0.65, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_72 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_2": 0.7, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_73 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_2": 0.75, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_74 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_2": 0.8, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_75 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_2": 0.85, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_76 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_2": 0.9, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_77 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_2": 0.95, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_78 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_2": 1, "GENOME_STRUCT_repr_3": 1}' p_repr_boundlo_79 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_3": 1}' p_repr_boundhi_0 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_3": 0.9}' p_repr_boundhi_1 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_3": 0.8}' p_repr_boundhi_2 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_3": 0.7}' p_repr_boundhi_3 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_3": 0.6}' p_repr_boundhi_4 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_3": 0.5}' p_repr_boundhi_5 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_3": 0.4}' p_repr_boundhi_6 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_3": 0.35}' p_repr_boundhi_7 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_3": 0.3}' p_repr_boundhi_8 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_3": 0.25}' p_repr_boundhi_9 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_3": 0.2}' p_repr_boundhi_10 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_3": 0.18}' p_repr_boundhi_11 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_3": 0.16}' p_repr_boundhi_12 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_3": 0.14}' p_repr_boundhi_13 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_3": 0.12}' p_repr_boundhi_14 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "GENOME_STRUCT_repr_3": 0.1}' p_repr_boundhi_15 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_3": 1}' p_repr_boundhi_16 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_3": 0.9}' p_repr_boundhi_17 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_3": 0.8}' p_repr_boundhi_18 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_3": 0.7}' p_repr_boundhi_19 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_3": 0.6}' p_repr_boundhi_20 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_3": 0.5}' p_repr_boundhi_21 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_3": 0.4}' p_repr_boundhi_22 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_3": 0.35}' p_repr_boundhi_23 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_3": 0.3}' p_repr_boundhi_24 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_3": 0.25}' p_repr_boundhi_25 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_3": 0.2}' p_repr_boundhi_26 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_3": 0.18}' p_repr_boundhi_27 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_3": 0.16}' p_repr_boundhi_28 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_3": 0.14}' p_repr_boundhi_29 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_3": 0.12}' p_repr_boundhi_30 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "GENOME_STRUCT_repr_3": 0.1}' p_repr_boundhi_31 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_3": 1}' p_repr_boundhi_32 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_3": 0.9}' p_repr_boundhi_33 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_3": 0.8}' p_repr_boundhi_34 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_3": 0.7}' p_repr_boundhi_35 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_3": 0.6}' p_repr_boundhi_36 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_3": 0.5}' p_repr_boundhi_37 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_3": 0.4}' p_repr_boundhi_38 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_3": 0.35}' p_repr_boundhi_39 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_3": 0.3}' p_repr_boundhi_40 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_3": 0.25}' p_repr_boundhi_41 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_3": 0.2}' p_repr_boundhi_42 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_3": 0.18}' p_repr_boundhi_43 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_3": 0.16}' p_repr_boundhi_44 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_3": 0.14}' p_repr_boundhi_45 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_3": 0.12}' p_repr_boundhi_46 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "GENOME_STRUCT_repr_3": 0.1}' p_repr_boundhi_47 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_3": 1}' p_repr_boundhi_48 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_3": 0.9}' p_repr_boundhi_49 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_3": 0.8}' p_repr_boundhi_50 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_3": 0.7}' p_repr_boundhi_51 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_3": 0.6}' p_repr_boundhi_52 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_3": 0.5}' p_repr_boundhi_53 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_3": 0.4}' p_repr_boundhi_54 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_3": 0.35}' p_repr_boundhi_55 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_3": 0.3}' p_repr_boundhi_56 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_3": 0.25}' p_repr_boundhi_57 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_3": 0.2}' p_repr_boundhi_58 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_3": 0.18}' p_repr_boundhi_59 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_3": 0.16}' p_repr_boundhi_60 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_3": 0.14}' p_repr_boundhi_61 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_3": 0.12}' p_repr_boundhi_62 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "GENOME_STRUCT_repr_3": 0.1}' p_repr_boundhi_63 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_3": 1}' p_repr_boundhi_64 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_3": 0.9}' p_repr_boundhi_65 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_3": 0.8}' p_repr_boundhi_66 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_3": 0.7}' p_repr_boundhi_67 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_3": 0.6}' p_repr_boundhi_68 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_3": 0.5}' p_repr_boundhi_69 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_3": 0.4}' p_repr_boundhi_70 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_3": 0.35}' p_repr_boundhi_71 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_3": 0.3}' p_repr_boundhi_72 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_3": 0.25}' p_repr_boundhi_73 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_3": 0.2}' p_repr_boundhi_74 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_3": 0.18}' p_repr_boundhi_75 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_3": 0.16}' p_repr_boundhi_76 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_3": 0.14}' p_repr_boundhi_77 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_3": 0.12}' p_repr_boundhi_78 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "GENOME_STRUCT_repr_3": 0.1}' p_repr_boundhi_79 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MUTATION_RATIO": 0.01}' p_mutation_ratio_0 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MUTATION_RATIO": 0.02}' p_mutation_ratio_1 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MUTATION_RATIO": 0.04}' p_mutation_ratio_2 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MUTATION_RATIO": 0.08}' p_mutation_ratio_3 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MUTATION_RATIO": 0.016}' p_mutation_ratio_4 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MUTATION_RATIO": 0.032}' p_mutation_ratio_5 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MUTATION_RATIO": 0.064}' p_mutation_ratio_6 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MUTATION_RATIO": 0.128}' p_mutation_ratio_7 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MUTATION_RATIO": 0.256}' p_mutation_ratio_8 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MUTATION_RATIO": 0.512}' p_mutation_ratio_9 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MUTATION_RATIO": 0.9}' p_mutation_ratio_10 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MUTATION_RATIO": 1}' p_mutation_ratio_11 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MUTATION_RATIO": 1.1}' p_mutation_ratio_12 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MUTATION_RATIO": 2}' p_mutation_ratio_13 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MUTATION_RATIO": 4}' p_mutation_ratio_14 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MUTATION_RATIO": 8}' p_mutation_ratio_15 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MUTATION_RATIO": 16}' p_mutation_ratio_16 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MUTATION_RATIO": 0.01}' p_mutation_ratio_17 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MUTATION_RATIO": 0.02}' p_mutation_ratio_18 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MUTATION_RATIO": 0.04}' p_mutation_ratio_19 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MUTATION_RATIO": 0.08}' p_mutation_ratio_20 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MUTATION_RATIO": 0.016}' p_mutation_ratio_21 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MUTATION_RATIO": 0.032}' p_mutation_ratio_22 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MUTATION_RATIO": 0.064}' p_mutation_ratio_23 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MUTATION_RATIO": 0.128}' p_mutation_ratio_24 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MUTATION_RATIO": 0.256}' p_mutation_ratio_25 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MUTATION_RATIO": 0.512}' p_mutation_ratio_26 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MUTATION_RATIO": 0.9}' p_mutation_ratio_27 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MUTATION_RATIO": 1}' p_mutation_ratio_28 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MUTATION_RATIO": 1.1}' p_mutation_ratio_29 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MUTATION_RATIO": 2}' p_mutation_ratio_30 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MUTATION_RATIO": 4}' p_mutation_ratio_31 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MUTATION_RATIO": 8}' p_mutation_ratio_32 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MUTATION_RATIO": 16}' p_mutation_ratio_33 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MUTATION_RATIO": 0.01}' p_mutation_ratio_34 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MUTATION_RATIO": 0.02}' p_mutation_ratio_35 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MUTATION_RATIO": 0.04}' p_mutation_ratio_36 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MUTATION_RATIO": 0.08}' p_mutation_ratio_37 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MUTATION_RATIO": 0.016}' p_mutation_ratio_38 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MUTATION_RATIO": 0.032}' p_mutation_ratio_39 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MUTATION_RATIO": 0.064}' p_mutation_ratio_40 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MUTATION_RATIO": 0.128}' p_mutation_ratio_41 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MUTATION_RATIO": 0.256}' p_mutation_ratio_42 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MUTATION_RATIO": 0.512}' p_mutation_ratio_43 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MUTATION_RATIO": 0.9}' p_mutation_ratio_44 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MUTATION_RATIO": 1}' p_mutation_ratio_45 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MUTATION_RATIO": 1.1}' p_mutation_ratio_46 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MUTATION_RATIO": 2}' p_mutation_ratio_47 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MUTATION_RATIO": 4}' p_mutation_ratio_48 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MUTATION_RATIO": 8}' p_mutation_ratio_49 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MUTATION_RATIO": 16}' p_mutation_ratio_50 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MUTATION_RATIO": 0.01}' p_mutation_ratio_51 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MUTATION_RATIO": 0.02}' p_mutation_ratio_52 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MUTATION_RATIO": 0.04}' p_mutation_ratio_53 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MUTATION_RATIO": 0.08}' p_mutation_ratio_54 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MUTATION_RATIO": 0.016}' p_mutation_ratio_55 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MUTATION_RATIO": 0.032}' p_mutation_ratio_56 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MUTATION_RATIO": 0.064}' p_mutation_ratio_57 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MUTATION_RATIO": 0.128}' p_mutation_ratio_58 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MUTATION_RATIO": 0.256}' p_mutation_ratio_59 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MUTATION_RATIO": 0.512}' p_mutation_ratio_60 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MUTATION_RATIO": 0.9}' p_mutation_ratio_61 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MUTATION_RATIO": 1}' p_mutation_ratio_62 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MUTATION_RATIO": 1.1}' p_mutation_ratio_63 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MUTATION_RATIO": 2}' p_mutation_ratio_64 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MUTATION_RATIO": 4}' p_mutation_ratio_65 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MUTATION_RATIO": 8}' p_mutation_ratio_66 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MUTATION_RATIO": 16}' p_mutation_ratio_67 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MUTATION_RATIO": 0.01}' p_mutation_ratio_68 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MUTATION_RATIO": 0.02}' p_mutation_ratio_69 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MUTATION_RATIO": 0.04}' p_mutation_ratio_70 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MUTATION_RATIO": 0.08}' p_mutation_ratio_71 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MUTATION_RATIO": 0.016}' p_mutation_ratio_72 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MUTATION_RATIO": 0.032}' p_mutation_ratio_73 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MUTATION_RATIO": 0.064}' p_mutation_ratio_74 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MUTATION_RATIO": 0.128}' p_mutation_ratio_75 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MUTATION_RATIO": 0.256}' p_mutation_ratio_76 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MUTATION_RATIO": 0.512}' p_mutation_ratio_77 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MUTATION_RATIO": 0.9}' p_mutation_ratio_78 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MUTATION_RATIO": 1}' p_mutation_ratio_79 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MUTATION_RATIO": 1.1}' p_mutation_ratio_80 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MUTATION_RATIO": 2}' p_mutation_ratio_81 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MUTATION_RATIO": 4}' p_mutation_ratio_82 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MUTATION_RATIO": 8}' p_mutation_ratio_83 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MUTATION_RATIO": 16}' p_mutation_ratio_84 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MATURATION_AGE": 1}' p_maturation_age_0 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MATURATION_AGE": 2}' p_maturation_age_1 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MATURATION_AGE": 4}' p_maturation_age_2 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MATURATION_AGE": 8}' p_maturation_age_3 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MATURATION_AGE": 16}' p_maturation_age_4 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MATURATION_AGE": 18}' p_maturation_age_5 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MATURATION_AGE": 20}' p_maturation_age_6 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MATURATION_AGE": 22}' p_maturation_age_7 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MATURATION_AGE": 24}' p_maturation_age_8 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MATURATION_AGE": 26}' p_maturation_age_9 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MATURATION_AGE": 28}' p_maturation_age_10 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MATURATION_AGE": 30}' p_maturation_age_11 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MATURATION_AGE": 32}' p_maturation_age_12 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MATURATION_AGE": 34}' p_maturation_age_13 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MATURATION_AGE": 36}' p_maturation_age_14 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MATURATION_AGE": 38}' p_maturation_age_15 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MATURATION_AGE": 40}' p_maturation_age_16 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MATURATION_AGE": 1}' p_maturation_age_17 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MATURATION_AGE": 2}' p_maturation_age_18 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MATURATION_AGE": 4}' p_maturation_age_19 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MATURATION_AGE": 8}' p_maturation_age_20 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MATURATION_AGE": 16}' p_maturation_age_21 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MATURATION_AGE": 18}' p_maturation_age_22 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MATURATION_AGE": 20}' p_maturation_age_23 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MATURATION_AGE": 22}' p_maturation_age_24 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MATURATION_AGE": 24}' p_maturation_age_25 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MATURATION_AGE": 26}' p_maturation_age_26 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MATURATION_AGE": 28}' p_maturation_age_27 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MATURATION_AGE": 30}' p_maturation_age_28 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MATURATION_AGE": 32}' p_maturation_age_29 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MATURATION_AGE": 34}' p_maturation_age_30 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MATURATION_AGE": 36}' p_maturation_age_31 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MATURATION_AGE": 38}' p_maturation_age_32 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MATURATION_AGE": 40}' p_maturation_age_33 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MATURATION_AGE": 1}' p_maturation_age_34 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MATURATION_AGE": 2}' p_maturation_age_35 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MATURATION_AGE": 4}' p_maturation_age_36 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MATURATION_AGE": 8}' p_maturation_age_37 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MATURATION_AGE": 16}' p_maturation_age_38 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MATURATION_AGE": 18}' p_maturation_age_39 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MATURATION_AGE": 20}' p_maturation_age_40 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MATURATION_AGE": 22}' p_maturation_age_41 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MATURATION_AGE": 24}' p_maturation_age_42 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MATURATION_AGE": 26}' p_maturation_age_43 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MATURATION_AGE": 28}' p_maturation_age_44 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MATURATION_AGE": 30}' p_maturation_age_45 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MATURATION_AGE": 32}' p_maturation_age_46 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MATURATION_AGE": 34}' p_maturation_age_47 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MATURATION_AGE": 36}' p_maturation_age_48 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MATURATION_AGE": 38}' p_maturation_age_49 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MATURATION_AGE": 40}' p_maturation_age_50 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MATURATION_AGE": 1}' p_maturation_age_51 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MATURATION_AGE": 2}' p_maturation_age_52 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MATURATION_AGE": 4}' p_maturation_age_53 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MATURATION_AGE": 8}' p_maturation_age_54 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MATURATION_AGE": 16}' p_maturation_age_55 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MATURATION_AGE": 18}' p_maturation_age_56 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MATURATION_AGE": 20}' p_maturation_age_57 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MATURATION_AGE": 22}' p_maturation_age_58 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MATURATION_AGE": 24}' p_maturation_age_59 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MATURATION_AGE": 26}' p_maturation_age_60 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MATURATION_AGE": 28}' p_maturation_age_61 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MATURATION_AGE": 30}' p_maturation_age_62 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MATURATION_AGE": 32}' p_maturation_age_63 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MATURATION_AGE": 34}' p_maturation_age_64 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MATURATION_AGE": 36}' p_maturation_age_65 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MATURATION_AGE": 38}' p_maturation_age_66 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MATURATION_AGE": 40}' p_maturation_age_67 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MATURATION_AGE": 1}' p_maturation_age_68 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MATURATION_AGE": 2}' p_maturation_age_69 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MATURATION_AGE": 4}' p_maturation_age_70 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MATURATION_AGE": 8}' p_maturation_age_71 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MATURATION_AGE": 16}' p_maturation_age_72 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MATURATION_AGE": 18}' p_maturation_age_73 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MATURATION_AGE": 20}' p_maturation_age_74 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MATURATION_AGE": 22}' p_maturation_age_75 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MATURATION_AGE": 24}' p_maturation_age_76 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MATURATION_AGE": 26}' p_maturation_age_77 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MATURATION_AGE": 28}' p_maturation_age_78 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MATURATION_AGE": 30}' p_maturation_age_79 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MATURATION_AGE": 32}' p_maturation_age_80 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MATURATION_AGE": 34}' p_maturation_age_81 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MATURATION_AGE": 36}' p_maturation_age_82 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MATURATION_AGE": 38}' p_maturation_age_83 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MATURATION_AGE": 40}' p_maturation_age_84 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MAX_LIFESPAN": 11}' p_max_lifespan_0 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MAX_LIFESPAN": 12}' p_max_lifespan_1 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MAX_LIFESPAN": 13}' p_max_lifespan_2 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MAX_LIFESPAN": 14}' p_max_lifespan_3 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MAX_LIFESPAN": 15}' p_max_lifespan_4 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MAX_LIFESPAN": 16}' p_max_lifespan_5 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MAX_LIFESPAN": 17}' p_max_lifespan_6 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MAX_LIFESPAN": 18}' p_max_lifespan_7 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MAX_LIFESPAN": 19}' p_max_lifespan_8 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MAX_LIFESPAN": 20}' p_max_lifespan_9 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MAX_LIFESPAN": 21}' p_max_lifespan_10 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MAX_LIFESPAN": 22}' p_max_lifespan_11 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MAX_LIFESPAN": 23}' p_max_lifespan_12 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MAX_LIFESPAN": 24}' p_max_lifespan_13 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MAX_LIFESPAN": 25}' p_max_lifespan_14 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MAX_LIFESPAN": 30}' p_max_lifespan_15 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MAX_LIFESPAN": 35}' p_max_lifespan_16 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MAX_LIFESPAN": 40}' p_max_lifespan_17 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "MAX_LIFESPAN": 50}' p_max_lifespan_18 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MAX_LIFESPAN": 11}' p_max_lifespan_19 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MAX_LIFESPAN": 12}' p_max_lifespan_20 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MAX_LIFESPAN": 13}' p_max_lifespan_21 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MAX_LIFESPAN": 14}' p_max_lifespan_22 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MAX_LIFESPAN": 15}' p_max_lifespan_23 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MAX_LIFESPAN": 16}' p_max_lifespan_24 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MAX_LIFESPAN": 17}' p_max_lifespan_25 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MAX_LIFESPAN": 18}' p_max_lifespan_26 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MAX_LIFESPAN": 19}' p_max_lifespan_27 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MAX_LIFESPAN": 20}' p_max_lifespan_28 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MAX_LIFESPAN": 21}' p_max_lifespan_29 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MAX_LIFESPAN": 22}' p_max_lifespan_30 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MAX_LIFESPAN": 23}' p_max_lifespan_31 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MAX_LIFESPAN": 24}' p_max_lifespan_32 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MAX_LIFESPAN": 25}' p_max_lifespan_33 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MAX_LIFESPAN": 30}' p_max_lifespan_34 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MAX_LIFESPAN": 35}' p_max_lifespan_35 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MAX_LIFESPAN": 40}' p_max_lifespan_36 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "MAX_LIFESPAN": 50}' p_max_lifespan_37 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MAX_LIFESPAN": 11}' p_max_lifespan_38 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MAX_LIFESPAN": 12}' p_max_lifespan_39 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MAX_LIFESPAN": 13}' p_max_lifespan_40 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MAX_LIFESPAN": 14}' p_max_lifespan_41 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MAX_LIFESPAN": 15}' p_max_lifespan_42 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MAX_LIFESPAN": 16}' p_max_lifespan_43 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MAX_LIFESPAN": 17}' p_max_lifespan_44 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MAX_LIFESPAN": 18}' p_max_lifespan_45 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MAX_LIFESPAN": 19}' p_max_lifespan_46 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MAX_LIFESPAN": 20}' p_max_lifespan_47 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MAX_LIFESPAN": 21}' p_max_lifespan_48 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MAX_LIFESPAN": 22}' p_max_lifespan_49 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MAX_LIFESPAN": 23}' p_max_lifespan_50 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MAX_LIFESPAN": 24}' p_max_lifespan_51 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MAX_LIFESPAN": 25}' p_max_lifespan_52 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MAX_LIFESPAN": 30}' p_max_lifespan_53 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MAX_LIFESPAN": 35}' p_max_lifespan_54 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MAX_LIFESPAN": 40}' p_max_lifespan_55 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "MAX_LIFESPAN": 50}' p_max_lifespan_56 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MAX_LIFESPAN": 11}' p_max_lifespan_57 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MAX_LIFESPAN": 12}' p_max_lifespan_58 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MAX_LIFESPAN": 13}' p_max_lifespan_59 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MAX_LIFESPAN": 14}' p_max_lifespan_60 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MAX_LIFESPAN": 15}' p_max_lifespan_61 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MAX_LIFESPAN": 16}' p_max_lifespan_62 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MAX_LIFESPAN": 17}' p_max_lifespan_63 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MAX_LIFESPAN": 18}' p_max_lifespan_64 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MAX_LIFESPAN": 19}' p_max_lifespan_65 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MAX_LIFESPAN": 20}' p_max_lifespan_66 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MAX_LIFESPAN": 21}' p_max_lifespan_67 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MAX_LIFESPAN": 22}' p_max_lifespan_68 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MAX_LIFESPAN": 23}' p_max_lifespan_69 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MAX_LIFESPAN": 24}' p_max_lifespan_70 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MAX_LIFESPAN": 25}' p_max_lifespan_71 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MAX_LIFESPAN": 30}' p_max_lifespan_72 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MAX_LIFESPAN": 35}' p_max_lifespan_73 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MAX_LIFESPAN": 40}' p_max_lifespan_74 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "MAX_LIFESPAN": 50}' p_max_lifespan_75 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MAX_LIFESPAN": 11}' p_max_lifespan_76 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MAX_LIFESPAN": 12}' p_max_lifespan_77 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MAX_LIFESPAN": 13}' p_max_lifespan_78 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MAX_LIFESPAN": 14}' p_max_lifespan_79 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MAX_LIFESPAN": 15}' p_max_lifespan_80 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MAX_LIFESPAN": 16}' p_max_lifespan_81 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MAX_LIFESPAN": 17}' p_max_lifespan_82 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MAX_LIFESPAN": 18}' p_max_lifespan_83 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MAX_LIFESPAN": 19}' p_max_lifespan_84 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MAX_LIFESPAN": 20}' p_max_lifespan_85 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MAX_LIFESPAN": 21}' p_max_lifespan_86 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MAX_LIFESPAN": 22}' p_max_lifespan_87 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MAX_LIFESPAN": 23}' p_max_lifespan_88 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MAX_LIFESPAN": 24}' p_max_lifespan_89 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MAX_LIFESPAN": 25}' p_max_lifespan_90 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MAX_LIFESPAN": 30}' p_max_lifespan_91 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MAX_LIFESPAN": 35}' p_max_lifespan_92 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MAX_LIFESPAN": 40}' p_max_lifespan_93 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "MAX_LIFESPAN": 50}' p_max_lifespan_94 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.01}' p_sexual_0 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.02}' p_sexual_1 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.03}' p_sexual_2 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.04}' p_sexual_3 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.05}' p_sexual_4 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.06}' p_sexual_5 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.07}' p_sexual_6 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.08}' p_sexual_7 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.09}' p_sexual_8 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.1}' p_sexual_9 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.15}' p_sexual_10 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.2}' p_sexual_11 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.25}' p_sexual_12 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.3}' p_sexual_13 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.4}' p_sexual_14 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.5}' p_sexual_15 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.6}' p_sexual_16 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.7}' p_sexual_17 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.8}' p_sexual_18 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.9}' p_sexual_19 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.01}' p_sexual_20 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.02}' p_sexual_21 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.03}' p_sexual_22 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.04}' p_sexual_23 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.05}' p_sexual_24 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.06}' p_sexual_25 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.07}' p_sexual_26 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.08}' p_sexual_27 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.09}' p_sexual_28 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.1}' p_sexual_29 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.15}' p_sexual_30 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.2}' p_sexual_31 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.25}' p_sexual_32 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.3}' p_sexual_33 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.4}' p_sexual_34 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.5}' p_sexual_35 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.6}' p_sexual_36 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.7}' p_sexual_37 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.8}' p_sexual_38 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.9}' p_sexual_39 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.01}' p_sexual_40 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.02}' p_sexual_41 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.03}' p_sexual_42 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.04}' p_sexual_43 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.05}' p_sexual_44 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.06}' p_sexual_45 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.07}' p_sexual_46 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.08}' p_sexual_47 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.09}' p_sexual_48 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.1}' p_sexual_49 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.15}' p_sexual_50 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.2}' p_sexual_51 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.25}' p_sexual_52 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.3}' p_sexual_53 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.4}' p_sexual_54 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.5}' p_sexual_55 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.6}' p_sexual_56 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.7}' p_sexual_57 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.8}' p_sexual_58 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.9}' p_sexual_59 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.01}' p_sexual_60 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.02}' p_sexual_61 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.03}' p_sexual_62 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.04}' p_sexual_63 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.05}' p_sexual_64 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.06}' p_sexual_65 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.07}' p_sexual_66 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.08}' p_sexual_67 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.09}' p_sexual_68 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.1}' p_sexual_69 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.15}' p_sexual_70 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.2}' p_sexual_71 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.25}' p_sexual_72 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.3}' p_sexual_73 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.4}' p_sexual_74 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.5}' p_sexual_75 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.6}' p_sexual_76 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.7}' p_sexual_77 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.8}' p_sexual_78 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.9}' p_sexual_79 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.01}' p_sexual_80 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.02}' p_sexual_81 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.03}' p_sexual_82 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.04}' p_sexual_83 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.05}' p_sexual_84 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.06}' p_sexual_85 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.07}' p_sexual_86 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.08}' p_sexual_87 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.09}' p_sexual_88 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.1}' p_sexual_89 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.15}' p_sexual_90 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.2}' p_sexual_91 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.25}' p_sexual_92 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.3}' p_sexual_93 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.4}' p_sexual_94 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.5}' p_sexual_95 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.6}' p_sexual_96 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.7}' p_sexual_97 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.8}' p_sexual_98 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "REPR_MODE": "sexual", "RECOMBINATION_RATE": 0.9}' p_sexual_99 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 300, "OVERSHOOT_EVENT": "starvation"}' p_overshoot_0 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 300, "OVERSHOOT_EVENT": "treadmill_random"}' p_overshoot_1 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 300, "OVERSHOOT_EVENT": "treadmill_boomer"}' p_overshoot_2 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 300, "OVERSHOOT_EVENT": "treadmill_zoomer"}' p_overshoot_3 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "starvation"}' p_overshoot_4 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "treadmill_random"}' p_overshoot_5 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "treadmill_boomer"}' p_overshoot_6 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "treadmill_zoomer"}' p_overshoot_7 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 500, "OVERSHOOT_EVENT": "starvation"}' p_overshoot_8 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 500, "OVERSHOOT_EVENT": "treadmill_random"}' p_overshoot_9 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 500, "OVERSHOOT_EVENT": "treadmill_boomer"}' p_overshoot_10 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 500, "OVERSHOOT_EVENT": "treadmill_zoomer"}' p_overshoot_11 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 600, "OVERSHOOT_EVENT": "starvation"}' p_overshoot_12 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 600, "OVERSHOOT_EVENT": "treadmill_random"}' p_overshoot_13 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 600, "OVERSHOOT_EVENT": "treadmill_boomer"}' p_overshoot_14 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 600, "OVERSHOOT_EVENT": "treadmill_zoomer"}' p_overshoot_15 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 700, "OVERSHOOT_EVENT": "starvation"}' p_overshoot_16 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 700, "OVERSHOOT_EVENT": "treadmill_random"}' p_overshoot_17 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 700, "OVERSHOOT_EVENT": "treadmill_boomer"}' p_overshoot_18 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 700, "OVERSHOOT_EVENT": "treadmill_zoomer"}' p_overshoot_19 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "starvation"}' p_overshoot_20 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "treadmill_random"}' p_overshoot_21 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "treadmill_boomer"}' p_overshoot_22 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "treadmill_zoomer"}' p_overshoot_23 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 900, "OVERSHOOT_EVENT": "starvation"}' p_overshoot_24 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 900, "OVERSHOOT_EVENT": "treadmill_random"}' p_overshoot_25 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 900, "OVERSHOOT_EVENT": "treadmill_boomer"}' p_overshoot_26 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 900, "OVERSHOOT_EVENT": "treadmill_zoomer"}' p_overshoot_27 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1000, "OVERSHOOT_EVENT": "starvation"}' p_overshoot_28 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1000, "OVERSHOOT_EVENT": "treadmill_random"}' p_overshoot_29 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1000, "OVERSHOOT_EVENT": "treadmill_boomer"}' p_overshoot_30 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1000, "OVERSHOOT_EVENT": "treadmill_zoomer"}' p_overshoot_31 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1200, "OVERSHOOT_EVENT": "starvation"}' p_overshoot_32 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1200, "OVERSHOOT_EVENT": "treadmill_random"}' p_overshoot_33 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1200, "OVERSHOOT_EVENT": "treadmill_boomer"}' p_overshoot_34 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1200, "OVERSHOOT_EVENT": "treadmill_zoomer"}' p_overshoot_35 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1400, "OVERSHOOT_EVENT": "starvation"}' p_overshoot_36 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1400, "OVERSHOOT_EVENT": "treadmill_random"}' p_overshoot_37 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1400, "OVERSHOOT_EVENT": "treadmill_boomer"}' p_overshoot_38 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1400, "OVERSHOOT_EVENT": "treadmill_zoomer"}' p_overshoot_39 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "starvation"}' p_overshoot_40 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "treadmill_random"}' p_overshoot_41 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "treadmill_boomer"}' p_overshoot_42 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "treadmill_zoomer"}' p_overshoot_43 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1800, "OVERSHOOT_EVENT": "starvation"}' p_overshoot_44 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1800, "OVERSHOOT_EVENT": "treadmill_random"}' p_overshoot_45 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1800, "OVERSHOOT_EVENT": "treadmill_boomer"}' p_overshoot_46 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1800, "OVERSHOOT_EVENT": "treadmill_zoomer"}' p_overshoot_47 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 2000, "OVERSHOOT_EVENT": "starvation"}' p_overshoot_48 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 2000, "OVERSHOOT_EVENT": "treadmill_random"}' p_overshoot_49 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 2000, "OVERSHOOT_EVENT": "treadmill_boomer"}' p_overshoot_50 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 2000, "OVERSHOOT_EVENT": "treadmill_zoomer"}' p_overshoot_51 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 2500, "OVERSHOOT_EVENT": "starvation"}' p_overshoot_52 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 2500, "OVERSHOOT_EVENT": "treadmill_random"}' p_overshoot_53 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 2500, "OVERSHOOT_EVENT": "treadmill_boomer"}' p_overshoot_54 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 2500, "OVERSHOOT_EVENT": "treadmill_zoomer"}' p_overshoot_55 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3000, "OVERSHOOT_EVENT": "starvation"}' p_overshoot_56 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3000, "OVERSHOOT_EVENT": "treadmill_random"}' p_overshoot_57 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3000, "OVERSHOOT_EVENT": "treadmill_boomer"}' p_overshoot_58 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3000, "OVERSHOOT_EVENT": "treadmill_zoomer"}' p_overshoot_59 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.01}' p_cliff_0 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.02}' p_cliff_1 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.03}' p_cliff_2 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.04}' p_cliff_3 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.05}' p_cliff_4 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.06}' p_cliff_5 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.07}' p_cliff_6 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.08}' p_cliff_7 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.09}' p_cliff_8 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.1}' p_cliff_9 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.2}' p_cliff_10 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.3}' p_cliff_11 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.4}' p_cliff_12 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.5}' p_cliff_13 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.6}' p_cliff_14 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.7}' p_cliff_15 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.8}' p_cliff_16 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.9}' p_cliff_17 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.01}' p_cliff_18 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.02}' p_cliff_19 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.03}' p_cliff_20 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.04}' p_cliff_21 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.05}' p_cliff_22 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.06}' p_cliff_23 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.07}' p_cliff_24 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.08}' p_cliff_25 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.09}' p_cliff_26 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.1}' p_cliff_27 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.2}' p_cliff_28 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.3}' p_cliff_29 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.4}' p_cliff_30 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.5}' p_cliff_31 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.6}' p_cliff_32 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.7}' p_cliff_33 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.8}' p_cliff_34 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.9}' p_cliff_35 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.01}' p_cliff_36 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.02}' p_cliff_37 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.03}' p_cliff_38 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.04}' p_cliff_39 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.05}' p_cliff_40 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.06}' p_cliff_41 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.07}' p_cliff_42 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.08}' p_cliff_43 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.09}' p_cliff_44 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.1}' p_cliff_45 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.2}' p_cliff_46 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.3}' p_cliff_47 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.4}' p_cliff_48 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.5}' p_cliff_49 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.6}' p_cliff_50 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.7}' p_cliff_51 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.8}' p_cliff_52 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.9}' p_cliff_53 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.01}' p_cliff_54 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.02}' p_cliff_55 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.03}' p_cliff_56 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.04}' p_cliff_57 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.05}' p_cliff_58 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.06}' p_cliff_59 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.07}' p_cliff_60 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.08}' p_cliff_61 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.09}' p_cliff_62 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.1}' p_cliff_63 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.2}' p_cliff_64 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.3}' p_cliff_65 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.4}' p_cliff_66 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.5}' p_cliff_67 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.6}' p_cliff_68 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.7}' p_cliff_69 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.8}' p_cliff_70 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.9}' p_cliff_71 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.01}' p_cliff_72 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.02}' p_cliff_73 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.03}' p_cliff_74 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.04}' p_cliff_75 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.05}' p_cliff_76 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.06}' p_cliff_77 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.07}' p_cliff_78 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.08}' p_cliff_79 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.09}' p_cliff_80 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.1}' p_cliff_81 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.2}' p_cliff_82 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.3}' p_cliff_83 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.4}' p_cliff_84 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.5}' p_cliff_85 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.6}' p_cliff_86 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.7}' p_cliff_87 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.8}' p_cliff_88 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "OVERSHOOT_EVENT": "cliff", "CLIFF_SURVIVORSHIP": 0.9}' p_cliff_89 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 300, "DISCRETE_GENERATIONS": 50, "OVERSHOOT_EVENT": "treadmill_random"}' p_discrete_0 MAp -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "DISCRETE_GENERATIONS": 50, "OVERSHOOT_EVENT": "treadmill_random"}' p_discrete_1 MAp -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 500, "DISCRETE_GENERATIONS": 50, "OVERSHOOT_EVENT": "treadmill_random"}' p_discrete_2 MAp -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 600, "DISCRETE_GENERATIONS": 50, "OVERSHOOT_EVENT": "treadmill_random"}' p_discrete_3 MAp -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 700, "DISCRETE_GENERATIONS": 50, "OVERSHOOT_EVENT": "treadmill_random"}' p_discrete_4 MAp -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "DISCRETE_GENERATIONS": 50, "OVERSHOOT_EVENT": "treadmill_random"}' p_discrete_5 MAp -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 900, "DISCRETE_GENERATIONS": 50, "OVERSHOOT_EVENT": "treadmill_random"}' p_discrete_6 MAp -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1000, "DISCRETE_GENERATIONS": 50, "OVERSHOOT_EVENT": "treadmill_random"}' p_discrete_7 MAp -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1200, "DISCRETE_GENERATIONS": 50, "OVERSHOOT_EVENT": "treadmill_random"}' p_discrete_8 MAp -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1400, "DISCRETE_GENERATIONS": 50, "OVERSHOOT_EVENT": "treadmill_random"}' p_discrete_9 MAp -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "DISCRETE_GENERATIONS": 50, "OVERSHOOT_EVENT": "treadmill_random"}' p_discrete_10 MAp -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1800, "DISCRETE_GENERATIONS": 50, "OVERSHOOT_EVENT": "treadmill_random"}' p_discrete_11 MAp -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000, "DISCRETE_GENERATIONS": 50, "OVERSHOOT_EVENT": "treadmill_random"}' p_discrete_12 MAp -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2500, "DISCRETE_GENERATIONS": 50, "OVERSHOOT_EVENT": "treadmill_random"}' p_discrete_13 MAp -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 3000, "DISCRETE_GENERATIONS": 50, "OVERSHOOT_EVENT": "treadmill_random"}' p_discrete_14 MAp -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 1}' p_interpreter_binary_0 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 2}' p_interpreter_binary_1 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 3}' p_interpreter_binary_2 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 4}' p_interpreter_binary_3 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 5}' p_interpreter_binary_4 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 6}' p_interpreter_binary_5 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 7}' p_interpreter_binary_6 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 8}' p_interpreter_binary_7 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 9}' p_interpreter_binary_8 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 10}' p_interpreter_binary_9 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 11}' p_interpreter_binary_10 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 12}' p_interpreter_binary_11 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 13}' p_interpreter_binary_12 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 14}' p_interpreter_binary_13 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 15}' p_interpreter_binary_14 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 20}' p_interpreter_binary_15 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 25}' p_interpreter_binary_16 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 1}' p_interpreter_binary_17 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 2}' p_interpreter_binary_18 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 3}' p_interpreter_binary_19 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 4}' p_interpreter_binary_20 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 5}' p_interpreter_binary_21 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 6}' p_interpreter_binary_22 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 7}' p_interpreter_binary_23 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 8}' p_interpreter_binary_24 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 9}' p_interpreter_binary_25 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 10}' p_interpreter_binary_26 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 11}' p_interpreter_binary_27 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 12}' p_interpreter_binary_28 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 13}' p_interpreter_binary_29 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 14}' p_interpreter_binary_30 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 15}' p_interpreter_binary_31 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 20}' p_interpreter_binary_32 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 25}' p_interpreter_binary_33 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 1}' p_interpreter_binary_34 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 2}' p_interpreter_binary_35 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 3}' p_interpreter_binary_36 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 4}' p_interpreter_binary_37 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 5}' p_interpreter_binary_38 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 6}' p_interpreter_binary_39 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 7}' p_interpreter_binary_40 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 8}' p_interpreter_binary_41 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 9}' p_interpreter_binary_42 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 10}' p_interpreter_binary_43 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 11}' p_interpreter_binary_44 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 12}' p_interpreter_binary_45 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 13}' p_interpreter_binary_46 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 14}' p_interpreter_binary_47 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 15}' p_interpreter_binary_48 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 20}' p_interpreter_binary_49 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 25}' p_interpreter_binary_50 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 1}' p_interpreter_binary_51 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 2}' p_interpreter_binary_52 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 3}' p_interpreter_binary_53 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 4}' p_interpreter_binary_54 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 5}' p_interpreter_binary_55 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 6}' p_interpreter_binary_56 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 7}' p_interpreter_binary_57 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 8}' p_interpreter_binary_58 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 9}' p_interpreter_binary_59 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 10}' p_interpreter_binary_60 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 11}' p_interpreter_binary_61 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 12}' p_interpreter_binary_62 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 13}' p_interpreter_binary_63 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 14}' p_interpreter_binary_64 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 15}' p_interpreter_binary_65 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 20}' p_interpreter_binary_66 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 25}' p_interpreter_binary_67 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 1}' p_interpreter_binary_68 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 2}' p_interpreter_binary_69 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 3}' p_interpreter_binary_70 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 4}' p_interpreter_binary_71 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 5}' p_interpreter_binary_72 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 6}' p_interpreter_binary_73 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 7}' p_interpreter_binary_74 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 8}' p_interpreter_binary_75 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 9}' p_interpreter_binary_76 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 10}' p_interpreter_binary_77 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 11}' p_interpreter_binary_78 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 12}' p_interpreter_binary_79 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 13}' p_interpreter_binary_80 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 14}' p_interpreter_binary_81 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 15}' p_interpreter_binary_82 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 20}' p_interpreter_binary_83 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 25}' p_interpreter_binary_84 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 1, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_0 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 2, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_1 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 3, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_2 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 4, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_3 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 5, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_4 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 6, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_5 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 7, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_6 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 8, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_7 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 9, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_8 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 10, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_9 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 11, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_10 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 12, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_11 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 13, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_12 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 14, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_13 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 15, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_14 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 20, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_15 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 25, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_16 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 1, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_17 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 2, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_18 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 3, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_19 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 4, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_20 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 5, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_21 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 6, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_22 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 7, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_23 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 8, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_24 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 9, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_25 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 10, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_26 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 11, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_27 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 12, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_28 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 13, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_29 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 14, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_30 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 15, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_31 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 20, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_32 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 25, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_33 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 1, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_34 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 2, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_35 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 3, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_36 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 4, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_37 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 5, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_38 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 6, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_39 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 7, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_40 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 8, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_41 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 9, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_42 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 10, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_43 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 11, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_44 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 12, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_45 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 13, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_46 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 14, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_47 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 15, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_48 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 20, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_49 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 25, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_50 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 1, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_51 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 2, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_52 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 3, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_53 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 4, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_54 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 5, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_55 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 6, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_56 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 7, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_57 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 8, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_58 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 9, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_59 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 10, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_60 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 11, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_61 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 12, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_62 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 13, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_63 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 14, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_64 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 15, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_65 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 20, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_66 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 25, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_67 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 1, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_68 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 2, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_69 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 3, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_70 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 4, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_71 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 5, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_72 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 6, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_73 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 7, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_74 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 8, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_75 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 9, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_76 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 10, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_77 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 11, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_78 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 12, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_79 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 13, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_80 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 14, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_81 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 15, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_82 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 20, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_83 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 25, "GENOME_STRUCT_surv_1": "uniform", "GENOME_STRUCT_repr_1": "uniform"}' p_interpreter_uniform_84 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 1, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_0 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 2, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_1 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 3, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_2 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 4, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_3 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 5, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_4 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 6, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_5 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 7, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_6 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 8, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_7 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 9, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_8 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 10, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_9 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 11, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_10 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 12, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_11 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 13, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_12 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 14, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_13 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 15, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_14 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 20, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_15 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 25, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_16 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 30, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_17 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 40, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_18 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 50, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_19 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 1, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_20 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 2, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_21 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 3, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_22 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 4, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_23 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 5, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_24 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 6, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_25 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 7, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_26 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 8, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_27 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 9, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_28 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 10, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_29 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 11, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_30 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 12, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_31 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 13, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_32 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 14, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_33 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 15, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_34 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 20, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_35 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 25, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_36 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 30, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_37 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 40, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_38 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 50, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_39 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 1, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_40 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 2, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_41 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 3, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_42 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 4, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_43 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 5, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_44 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 6, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_45 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 7, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_46 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 8, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_47 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 9, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_48 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 10, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_49 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 11, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_50 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 12, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_51 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 13, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_52 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 14, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_53 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 15, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_54 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 20, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_55 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 25, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_56 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 30, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_57 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 40, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_58 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 50, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_59 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 1, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_60 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 2, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_61 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 3, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_62 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 4, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_63 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 5, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_64 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 6, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_65 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 7, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_66 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 8, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_67 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 9, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_68 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 10, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_69 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 11, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_70 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 12, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_71 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 13, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_72 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 14, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_73 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 15, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_74 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 20, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_75 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 25, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_76 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 30, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_77 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 40, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_78 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 50, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_79 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 1, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_80 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 2, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_81 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 3, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_82 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 4, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_83 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 5, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_84 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 6, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_85 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 7, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_86 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 8, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_87 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 9, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_88 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 10, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_89 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 11, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_90 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 12, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_91 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 13, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_92 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 14, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_93 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 15, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_94 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 20, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_95 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 25, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_96 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 30, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_97 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 40, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_98 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 50, "GENOME_STRUCT_surv_1": "switch", "GENOME_STRUCT_repr_1": "switch"}' p_interpreter_switch_99 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 1, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_0 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 2, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_1 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 3, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_2 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 4, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_3 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 5, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_4 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 6, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_5 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 7, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_6 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 8, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_7 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 9, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_8 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 10, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_9 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 11, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_10 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 12, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_11 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 13, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_12 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 14, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_13 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 15, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_14 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 20, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_15 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 200, "BITS_PER_LOCUS": 25, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_16 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 1, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_17 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 2, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_18 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 3, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_19 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 4, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_20 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 5, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_21 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 6, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_22 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 7, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_23 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 8, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_24 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 9, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_25 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 10, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_26 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 11, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_27 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 12, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_28 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 13, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_29 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 14, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_30 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 15, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_31 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 20, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_32 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 400, "BITS_PER_LOCUS": 25, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_33 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 1, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_34 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 2, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_35 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 3, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_36 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 4, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_37 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 5, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_38 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 6, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_39 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 7, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_40 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 8, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_41 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 9, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_42 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 10, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_43 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 11, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_44 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 12, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_45 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 13, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_46 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 14, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_47 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 15, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_48 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 20, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_49 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 800, "BITS_PER_LOCUS": 25, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_50 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 1, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_51 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 2, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_52 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 3, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_53 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 4, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_54 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 5, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_55 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 6, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_56 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 7, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_57 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 8, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_58 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 9, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_59 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 10, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_60 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 11, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_61 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 12, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_62 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 13, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_63 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 14, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_64 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 15, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_65 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 20, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_66 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 1600, "BITS_PER_LOCUS": 25, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_67 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 1, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_68 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 2, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_69 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 3, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_70 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 4, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_71 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 5, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_72 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 6, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_73 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 7, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_74 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 8, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_75 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 9, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_76 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 10, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_77 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 11, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_78 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 12, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_79 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 13, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_80 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 14, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_81 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 15, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_82 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 20, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_83 MAp  
+python3 main.py '{"MAX_POPULATION_SIZE": 3200, "BITS_PER_LOCUS": 25, "GENOME_STRUCT_surv_1": "binary_switch", "GENOME_STRUCT_repr_1": "binary_switch"}' p_interpreter_binaryswitch_84 MAp  

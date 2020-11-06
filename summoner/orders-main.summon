@@ -1,0 +1,23 @@
+python3 main.py '{"MAX_POPULATION_SIZE": 300}' d_0 MA  
+python3 main.py '{"MAX_POPULATION_SIZE": 3000}' d_1 MA  
+python3 main.py '{"MAX_POPULATION_SIZE": 300}' u_0 MA -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 3000}' u_1 MA -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' Dplus_0 AP -c AP_matrixD+.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' Dminus_0 AP -c AP_matrixD-.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' Dequal_0 AP -c AP_matrixD=.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' out_0 AP -c AP_matrixout.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 300}' strength binaryswitchdn.yml_0 AP -c AP_strength.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' strength binaryswitchdn.yml_1 AP -c AP_strength.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 4000}' strength binaryswitchdn.yml_2 AP -c AP_strength.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 300}' number_0 AP -c AP_number.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' number_1 AP -c AP_number.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 4000}' number_2 AP -c AP_number.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 300}' flip2_0 AP -c AP_flip2.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' flip2_1 AP -c AP_flip2.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 4000}' flip2_2 AP -c AP_flip2.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 300}' flip4_0 AP -c AP_flip4.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' flip4_1 AP -c AP_flip4.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 4000}' flip4_2 AP -c AP_flip4.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 300}' flip4up_0 AP -c AP_flip4up.yml switchup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' flip4up_1 AP -c AP_flip4up.yml switchup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 4000}' flip4up_2 AP -c AP_flip4up.yml switchup.yml 
