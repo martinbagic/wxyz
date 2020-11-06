@@ -1,5 +1,5 @@
 # MA parametrization
-- experiment_dir: MA
+- experiment_dir: MAp
   experiment_name: p_mutation_probability
   c:
   r:
@@ -8,7 +8,7 @@
     # GENOME_CONST_muta: [0.001, 0.002, 0.003, 0.004, 0.005, 0.0008, 0.0005, 0.0002, 0.0001, 0.00005, 0.00001]
     GENOME_CONST_muta: [0.00001, 0.00002, 0.00004, 0.00007, 0.0001, 0.0002, 0.0004, 0.0007, 0.001, 0.002, 0.004, 0.007, 0.01]
 
-- experiment_dir: MA
+- experiment_dir: MAp
   experiment_name: p_surv_boundlo
   c:
   r:
@@ -16,7 +16,7 @@
     MAX_POPULATION_SIZE: [200, 400, 800, 1600, 3200]
     GENOME_STRUCT_surv_2: [0, 0.5, 0.7, 0.75, 0.8, 0.85, 0.875, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95]
 
-- experiment_dir: MA
+- experiment_dir: MAp
   experiment_name: p_surv_boundhi
   c:
   r:
@@ -24,7 +24,7 @@
     MAX_POPULATION_SIZE: [200, 400, 800, 1600, 3200]
     GENOME_STRUCT_surv_3: [1, 0.995, 0.99, 0.98, 0.97, 0.96, 0.95, 0.94, 0.93, 0.92, 0.91, 0.9, 0.85, 0.8, 0.7]
 
-- experiment_dir: MA
+- experiment_dir: MAp
   experiment_name: p_repr_boundlo
   c:
   r:
@@ -34,7 +34,7 @@
     # GENOME_STRUCT_repr_2: [0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.12, 0.14, 0.16, 0.18, 0.2, 0.25, 0.3, 0.35, 0.4]
     GENOME_STRUCT_repr_3: [1]
 
-- experiment_dir: MA
+- experiment_dir: MAp
   experiment_name: p_repr_boundhi
   c:
   r:
@@ -42,7 +42,7 @@
     MAX_POPULATION_SIZE: [200, 400, 800, 1600, 3200]
     GENOME_STRUCT_repr_3: [1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.35, 0.3, 0.25, 0.2, 0.18, 0.16, 0.14, 0.12, 0.1]
 
-- experiment_dir: MA
+- experiment_dir: MAp
   experiment_name: p_mutation_ratio
   c:
   r:
@@ -51,7 +51,7 @@
     MUTATION_RATIO: [0.01, 0.02, 0.04, 0.08, 0.016, 0.032, 0.064, 0.128, 0.256, 0.512, 0.9, 1, 1.1, 2, 4, 8, 16]
     # MUTATION_RATIO: [0.01, 0.025, 0.05, 0.075, 0.1, 0.2, 0.4, 0.6, 0.8, 0.9, 0.95, 0.99, 1, 1.1, 1.2, 1.5]
 
-- experiment_dir: MA
+- experiment_dir: MAp
   experiment_name: p_maturation_age
   c:
   r:
@@ -60,7 +60,7 @@
     # MATURATION_AGE: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 20, 25, 30]
     MATURATION_AGE: [1, 2, 4, 8, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40]
 
-- experiment_dir: MA
+- experiment_dir: MAp
   experiment_name: p_max_lifespan
   c:
   r:
@@ -68,7 +68,7 @@
     MAX_POPULATION_SIZE: [200, 400, 800, 1600, 3200]
     MAX_LIFESPAN: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 30, 35, 40, 50]
 
-- experiment_dir: MA
+- experiment_dir: MAp
   experiment_name: p_sexual
   c:
   r:
@@ -78,7 +78,7 @@
     RECOMBINATION_RATE: [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
 
 # overshoot scenarios
-- experiment_dir: MA
+- experiment_dir: MAp
   experiment_name: p_overshoot
   c:
   r:
@@ -86,7 +86,7 @@
     MAX_POPULATION_SIZE: [300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800, 2000, 2500, 3000]
     OVERSHOOT_EVENT: ["starvation", "treadmill_random", "treadmill_boomer", "treadmill_zoomer"]
 
-- experiment_dir: MA
+- experiment_dir: MAp
   experiment_name: p_cliff
   c:
   r:
@@ -97,7 +97,7 @@
     CLIFF_SURVIVORSHIP: [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
 
 # discrete generations
-- experiment_dir: MA
+- experiment_dir: MAp
   experiment_name: p_discrete
   c: binaryup.yml
   r:
@@ -108,7 +108,7 @@
 
 # interpreters
 
-- experiment_dir: MA
+- experiment_dir: MAp
   experiment_name: p_interpreter_binary
   c:
   r:
@@ -116,7 +116,7 @@
     MAX_POPULATION_SIZE: [200, 400, 800, 1600, 3200]
     BITS_PER_LOCUS: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 20, 25]
 
-- experiment_dir: MA
+- experiment_dir: MAp
   experiment_name: p_interpreter_uniform
   c:
   r:
@@ -126,7 +126,7 @@
     GENOME_STRUCT_surv_1: ["uniform"]
     GENOME_STRUCT_repr_1: ["uniform"]
 
-- experiment_dir: MA
+- experiment_dir: MAp
   experiment_name: p_interpreter_switch
   c:
   r:
@@ -136,7 +136,7 @@
     GENOME_STRUCT_surv_1: ["switch"]
     GENOME_STRUCT_repr_1: ["switch"]
 
-- experiment_dir: MA
+- experiment_dir: MAp
   experiment_name: p_interpreter_binaryswitch
   c:
   r:
