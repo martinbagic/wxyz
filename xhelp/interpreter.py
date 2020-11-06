@@ -39,6 +39,7 @@ class Interpreter:
     def _binary_switch(self, loci):
         """Fundamentally a binary interpreter with switch loci that turn on or completely turn off the gene."""
         where_on = loci[:, :, -1:] == 1
+        where_on = where_on.reshape(loci.shape[:-1])
         # assert all(loci[0, 0, -2:]) == where_on[0, 0]
         values = np.zeros(loci.shape[:-1], float)
         values[where_on] = (

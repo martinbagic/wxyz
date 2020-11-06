@@ -1,0 +1,94 @@
+###
+# MA
+###
+- experiment_dir: MA
+  experiment_name: d
+  c:
+  r:
+  params:
+    MAX_POPULATION_SIZE: [300, 3000]
+
+# upvolution
+- experiment_dir: MA
+  experiment_name: u
+  c: binaryup.yml
+  r:
+  params:
+    MAX_POPULATION_SIZE: [300, 3000]
+
+# parameter swap
+# missing
+
+###
+# AP
+###
+
+# + - =
+- experiment_dir: AP
+  experiment_name: Dplus
+  c: AP_matrixD+.yml switchdn.yml
+  r:
+  params:
+    MAX_POPULATION_SIZE: [2000]
+
+- experiment_dir: AP
+  experiment_name: Dminus
+  c: AP_matrixD-.yml switchdn.yml
+  r:
+  params:
+    MAX_POPULATION_SIZE: [2000]
+
+- experiment_dir: AP
+  experiment_name: Dequal
+  c: AP_matrixD=.yml switchdn.yml
+  r:
+  params:
+    MAX_POPULATION_SIZE: [2000]
+
+- experiment_dir: AP
+  experiment_name: out
+  c: AP_matrixout.yml switchdn.yml
+  r:
+  params:
+    MAX_POPULATION_SIZE: [2000]
+
+# selection strength
+
+- experiment_dir: AP
+  experiment_name: strength binaryswitchdn.yml
+  c: AP_strength.yml
+  r:
+  params:
+    MAX_POPULATION_SIZE: [300, 2000, 4000]
+
+# selection number
+
+- experiment_dir: AP
+  experiment_name: number
+  c: AP_number.yml switchdn.yml
+  r:
+  params:
+    MAX_POPULATION_SIZE: [300, 2000, 4000]
+
+# reversal
+
+- experiment_dir: AP
+  experiment_name: flip2
+  c: AP_flip2.yml switchdn.yml
+  r:
+  params:
+    MAX_POPULATION_SIZE: [300, 2000, 4000]
+
+- experiment_dir: AP
+  experiment_name: flip4
+  c: AP_flip4.yml switchdn.yml
+  r:
+  params:
+    MAX_POPULATION_SIZE: [300, 2000, 4000]
+
+- experiment_dir: AP
+  experiment_name: flip4up
+  c: AP_flip4up.yml switchup.yml
+  r:
+  params:
+    MAX_POPULATION_SIZE: [300, 2000, 4000]

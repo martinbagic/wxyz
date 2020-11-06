@@ -55,7 +55,7 @@ class Recorder:
         self.phenomes = []
         self.births = []
         self.popid = []
-
+        
         self.batch_number = 0
         self.FLUSH_RATE = FLUSH_RATE
         self.MAX_LIFESPAN = MAX_LIFESPAN
@@ -84,6 +84,7 @@ class Recorder:
             "death_end": [],
             # "births": [],
             "params": params,
+            "extinct": False,
         }
 
     # @measure
@@ -146,7 +147,9 @@ class Recorder:
     # @measure
     def flush(self):
         """Write data to *.gen and *.dem files and erase all data from self."""
-        # logging.info(f"Flushing {len(self.genomes)} records")
+        if len(self) == 0:
+            return
+        logging.info(f"Flushing {len(self.genomes)} records")
 
         # write .gen and .dem
         path = self.opath / str(self.batch_number)

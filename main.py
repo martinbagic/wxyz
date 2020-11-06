@@ -107,6 +107,7 @@ def main():
 
         if len(biosys) == 0:
             logging.info("Biosystem went extinct")
+            aux.recorder.vizport_data["extinct"] = True  # record going extinct
             break
 
         if aux.stage % (aux.LOGGING_RATE * 10) == 0:
@@ -125,7 +126,6 @@ def main():
             )
 
     aux.recorder.pickle_pop(biosys, aux.stage)
-    # kill and record the rest
     mask_kill = np.ones(len(biosys.pop), bool)
     biosys._kill(mask_kill, "end_of_sim")
     aux.recorder.flush()
