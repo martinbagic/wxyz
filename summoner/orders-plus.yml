@@ -1,0 +1,9 @@
+# discrete generations
+- experiment_dir: MAp
+  experiment_name: p_discrete_dn
+  c:
+  r:
+  params:
+    MAX_POPULATION_SIZE: [300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800, 2000, 2500, 3000]
+    DISCRETE_GENERATIONS: [50]
+    OVERSHOOT_EVENT: ["treadmill_random"]
