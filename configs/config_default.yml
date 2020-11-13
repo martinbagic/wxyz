@@ -34,9 +34,9 @@ CYCLE_NUM: 2000000 # run ? cycles
 LOGGING_RATE: 1000 # log every ? stages
 
 # RECORDING
-REC_EVERY_NTH: 50 # record every ?-th individual
+REC_EVERY_NTH: 100 # record every ?-th individual
 FLUSH_RATE: 20000 # flush once ? individuals have been saved
-PICKLE_RATE: 50000 # pickle population every ? stages
+PICKLE_RATE: 500000 # pickle population every ? stages
 
 # PHENOMAP
 PHENOMAP_PLUS: [] # [[geno index, pheno index, weight], ...]

@@ -147,21 +147,10 @@ function load(filename) {
       .attr("height", plotArea.node().getBBox().height + 50)
       .attr("width", 1000);
 
-    // makeDownloader(filename);
+    // d3.select("#download").on("click", function () {
+    //   download(d3.select("svg"));
+    // });
   });
-}
-
-function makeDownloader(filename) {
-  let obj = svg.select("g:nth-child(2)").node().outerHTML;
-
-  // let svgBlob = new Blob([obj], { type: "image/svg+xml;charset=utf-8" });
-  // let svgUrl = URL.createObjectURL(svgBlob);
-  // let downloadLink = document.createElement("a");
-  // downloadLink.href = svgUrl;
-  // downloadLink.download = "newesttree.svg";
-  // document.body.appendChild(downloadLink);
-  // downloadLink.click();
-  // document.body.removeChild(downloadLink);
 }
 
 class Slider {
@@ -394,7 +383,7 @@ function plotKM(frame, i) {
 
 d3.select("#refreshme").on("click", function () {
   let removem = svg.selectAll("g");
-  console.log(d3.select("input#filename").node().value)
+  console.log(d3.select("input#filename").node().value);
   load(d3.select("input#filename").node().value);
   removem.remove();
 });

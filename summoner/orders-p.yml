@@ -48,7 +48,7 @@
   r:
   params:
     MAX_POPULATION_SIZE: [200, 400, 800, 1600, 3200]
-    MUTATION_RATIO: [0.01, 0.02, 0.04, 0.08, 0.016, 0.032, 0.064, 0.128, 0.256, 0.512, 0.9, 1, 1.1, 2, 4, 8, 16]
+    MUTATION_RATIO: [0.01, 0.02, 0.04, 0.08, 0.016, 0.032, 0.064, 0.128, 0.256, 0.512, 0.9, 1, 1.1, 2, 4, 8, 16, 32, 64]
     # MUTATION_RATIO: [0.01, 0.025, 0.05, 0.075, 0.1, 0.2, 0.4, 0.6, 0.8, 0.9, 0.95, 0.99, 1, 1.1, 1.2, 1.5]
 
 - experiment_dir: MAp
@@ -77,14 +77,25 @@
     REPR_MODE: ["sexual"]
     RECOMBINATION_RATE: [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
 
-# overshoot scenarios
+# overshoot scenarios downvolution
 - experiment_dir: MAp
-  experiment_name: p_overshoot
+  experiment_name: p_overshoot_dn
   c:
   r:
   params:
     MAX_POPULATION_SIZE: [300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800, 2000, 2500, 3000]
-    OVERSHOOT_EVENT: ["starvation", "treadmill_random", "treadmill_boomer", "treadmill_zoomer"]
+    OVERSHOOT_EVENT: ["starvation", "treadmill_random", "cliff", "treadmill_boomer", "treadmill_zoomer"]
+    CLIFF_SURVIVORSHIP: [0.1]
+
+# overshoot scenarios upvolution
+- experiment_dir: MAp
+  experiment_name: p_overshoot_up
+  c: binaryup.yml
+  r:
+  params:
+    MAX_POPULATION_SIZE: [300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800, 2000, 2500, 3000]
+    OVERSHOOT_EVENT: ["starvation", "treadmill_random", "cliff", "treadmill_boomer", "treadmill_zoomer"]
+    CLIFF_SURVIVORSHIP: [0.1]
 
 - experiment_dir: MAp
   experiment_name: p_cliff
@@ -94,15 +105,25 @@
     MAX_POPULATION_SIZE: [200, 400, 800, 1600, 3200]
     OVERSHOOT_EVENT: ["cliff"]
     # CLIFF_SURVIVORSHIP: [0.5, 0.4, 0.3, 0.2, 0.1, 0.05, 0.01]
-    CLIFF_SURVIVORSHIP: [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+    CLIFF_SURVIVORSHIP: [0.005, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95]
 
-# discrete generations
+# discrete generations upvolution
 - experiment_dir: MAp
-  experiment_name: p_discrete
+  experiment_name: p_discrete_up
   c: binaryup.yml
   r:
   params:
-    MAX_POPULATION_SIZE: [300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800, 2000, 2500, 3000]
+    MAX_POPULATION_SIZE: [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800, 2000, 2500, 3000]
+    DISCRETE_GENERATIONS: [50]
+    OVERSHOOT_EVENT: ["treadmill_random"]
+
+# discrete generations downvolution
+- experiment_dir: MAp
+  experiment_name: p_discrete_dn
+  c:
+  r:
+  params:
+    MAX_POPULATION_SIZE: [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800, 2000, 2500, 3000]
     DISCRETE_GENERATIONS: [50]
     OVERSHOOT_EVENT: ["treadmill_random"]
 

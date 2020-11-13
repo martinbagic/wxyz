@@ -55,8 +55,8 @@
 # selection strength
 
 - experiment_dir: AP
-  experiment_name: strength binaryswitchdn.yml
-  c: AP_strength.yml
+  experiment_name: strength
+  c: AP_strength.yml binaryswitchdn.yml
   r:
   params:
     MAX_POPULATION_SIZE: [300, 2000, 4000]
@@ -80,6 +80,20 @@
     MAX_POPULATION_SIZE: [300, 2000, 4000]
 
 - experiment_dir: AP
+  experiment_name: flip2inv
+  c: AP_flip2_inv.yml switchdn.yml
+  r:
+  params:
+    MAX_POPULATION_SIZE: [300, 2000, 4000]
+
+- experiment_dir: AP
+  experiment_name: flip2up
+  c: AP_flip2.yml switchup.yml
+  r:
+  params:
+    MAX_POPULATION_SIZE: [300, 2000, 4000]
+
+- experiment_dir: AP
   experiment_name: flip4
   c: AP_flip4.yml switchdn.yml
   r:
@@ -87,8 +101,15 @@
     MAX_POPULATION_SIZE: [300, 2000, 4000]
 
 - experiment_dir: AP
+  experiment_name: flip4inv
+  c: AP_flip4_inv.yml switchdn.yml
+  r:
+  params:
+    MAX_POPULATION_SIZE: [300, 2000, 4000]
+
+- experiment_dir: AP
   experiment_name: flip4up
-  c: AP_flip4up.yml switchup.yml
+  c: AP_flip4.yml switchup.yml
   r:
   params:
     MAX_POPULATION_SIZE: [300, 2000, 4000]
