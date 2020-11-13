@@ -102,7 +102,13 @@ def main():
     for _ in range(aux.CYCLE_NUM):
 
         aux.stage += 1
-
+        
+        if aux.stage % aux.recorder.JSON_RATE == 0:
+            aux.recorder.rec_json_flag = True
+        
+        if aux.stage % (aux.recorder.JSON_RATE * aux.recorder.REC_RATE) == 0:
+            aux.recorder.rec_flush_flag = True
+        
         biosys.cycle()
 
         if len(biosys) == 0:

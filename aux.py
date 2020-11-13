@@ -44,7 +44,6 @@ class Aux:
         self.CYCLE_NUM = params["CYCLE_NUM"]
         self.LOGGING_RATE = params["LOGGING_RATE"]
         self.REC_EVERY_NTH = params["REC_EVERY_NTH"]
-        self.FLUSH_RATE = params["FLUSH_RATE"]
         self.PICKLE_RATE = params["PICKLE_RATE"]
 
         # simulation variables
@@ -59,8 +58,6 @@ class Aux:
         self.recorder = Recorder(
             recpath,
             params,
-            self.FLUSH_RATE,
-            params["MAX_LIFESPAN"],
             config.loci_pos,
             config.BITS_PER_LOCUS,
             config.MATURATION_AGE,

@@ -37,14 +37,7 @@ class Recorder:
     }
 
     def __init__(
-        self,
-        opath,
-        params,
-        FLUSH_RATE,
-        MAX_LIFESPAN,
-        LOCI_POS,
-        BITS_PER_LOCUS,
-        MATURATION_AGE,
+        self, opath, params, LOCI_POS, BITS_PER_LOCUS, MATURATION_AGE,
     ):
         self.sid = []
         self.pid = []
@@ -55,10 +48,13 @@ class Recorder:
         self.phenomes = []
         self.births = []
         self.popid = []
-        
+
         self.batch_number = 0
-        self.FLUSH_RATE = FLUSH_RATE
-        self.MAX_LIFESPAN = MAX_LIFESPAN
+        self.FLUSH_RATE = params["FLUSH_RATE"]
+        self.MAX_LIFESPAN = params["MAX_LIFESPAN"]
+        self.JSON_RATE = params["JSON_RATE"]
+        self.REC_RATE = params["REC_RATE"]
+
         self.LOCI_POS = LOCI_POS
         self.BITS_PER_LOCUS = BITS_PER_LOCUS
         self.opath = opath
@@ -68,6 +64,9 @@ class Recorder:
             self.opath.parents[2] / "vizport" / "csvs" / f"{self.opath.stem}.json",
         ]
         # self.vizport_paths.append(self.vizport_paths[-1].parent / "vizport.json")
+
+        self.rec_json_flag = False
+        self.rec_flush_flag = False
 
         self.vizport_data = {
             "bitsperlocus": self.BITS_PER_LOCUS,
@@ -90,28 +89,61 @@ class Recorder:
     # @measure
     def rec(self, pop, causeofdeath, popid):
         """Add population data to self. Flush if too many individuals recorded."""
-        # add values to self
-        self.sid.extend(pop.uids)
-        self.pid.extend(pop.origins)
-        self.bday.extend(pop.birthdays)
-        self.age.extend(pop.ages)
-        self.genomes.extend(pop.genomes.reshape(len(pop), -1))  # flatten each genome
-        self.causeofdeath.extend([causeofdeath] * len(pop))
-        self.popid.extend([popid] * len(pop))
-        self.phenomes.extend(pop.phenomes)
-        self.births.extend(pop.births)
 
-        # if record limit reached, flush
-        if len(self) > self.FLUSH_RATE:
-            self.flush()
+        if self.rec_flush_flag or self.rec_json_flag:
+            # add values to self
+            self.sid.extend(pop.uids)
+            self.pid.extend(pop.origins)
+            self.bday.extend(pop.birthdays)
+            self.age.extend(pop.ages)
+            self.genomes.extend(
+                pop.genomes.reshape(len(pop), -1)
+            )  # flatten each genome
+            self.causeofdeath.extend([causeofdeath] * len(pop))
+            self.popid.extend([popid] * len(pop))
+            self.phenomes.extend(pop.phenomes)
+            self.births.extend(pop.births)
 
-    # @measure
-    def pickle_pop(self, obj, stage):
-        """Pickle given population."""
-        logging.info(f"Pickling the population at stage {stage}.")
-        path = self.opath / f"{stage}.pickle"
-        with open(path, "wb") as ofile:
-            pickle.dump(obj, ofile)
+            if len(self) > self.FLUSH_RATE:
+
+                df_gen, df_phe, df_dem = self.dfize()
+
+                if self.rec_flush_flag:
+                    self.flush(df_gen, df_phe, df_dem)
+
+                if self.rec_json_flag:
+                    self.record_for_vizport(df_gen, df_phe, df_dem)
+
+                self.rec_flush_flag = False
+                self.rec_json_flag = False
+
+                self._reinit()  # empty attrs
+                self.batch_number += 1  # progress batch
+
+    def dfize(self):
+        """Rewrite data into three pandas dataframes."""
+        df_gen = pd.DataFrame(np.array(self.genomes))
+        df_gen.reset_index(drop=True, inplace=True)
+        df_gen.columns = [str(c) for c in df_gen.columns]
+
+        df_phe = pd.DataFrame(np.array(self.phenomes))
+        df_phe.reset_index(drop=True, inplace=True)
+        df_phe.columns = [str(c) for c in df_phe.columns]
+
+        dem_attrs = self.attrs - {"genomes", "phenomes"}
+        demo = {attr: getattr(self, attr) for attr in dem_attrs}
+        df_dem = pd.DataFrame(demo, columns=dem_attrs)
+        df_dem.reset_index(drop=True, inplace=True)
+        df_dem["pid"] = df_dem.pid.astype(float)
+
+        return df_gen, df_phe, df_dem
+
+    def flush(self, df_gen, df_phe, df_dem):
+        """Write data to *.gen and *.dem files and erase all data from self."""
+        path = self.opath / str(self.batch_number)
+        df_gen.to_feather(path.with_suffix(".gen"))
+        df_phe.to_feather(path.with_suffix(".phe"))
+        df_dem.to_feather(path.with_suffix(".dem"))
 
     def record_for_vizport(self, gen, phe, dem):
         def get_deaths(death_kind):
@@ -144,40 +176,12 @@ class Recorder:
             with open(path, "w") as ofile:
                 json.dump(self.vizport_data, ofile)
 
-    # @measure
-    def flush(self):
-        """Write data to *.gen and *.dem files and erase all data from self."""
-        if len(self) == 0:
-            return
-        logging.info(f"Flushing {len(self.genomes)} records")
-
-        # write .gen and .dem
-        path = self.opath / str(self.batch_number)
-
-        df_gen = pd.DataFrame(np.array(self.genomes))
-        df_gen.reset_index(drop=True, inplace=True)
-        df_gen.columns = [str(c) for c in df_gen.columns]
-        df_gen.to_feather(path.with_suffix(".gen"))
-
-        df_phe = pd.DataFrame(np.array(self.phenomes))
-        df_phe.reset_index(drop=True, inplace=True)
-        df_phe.columns = [str(c) for c in df_phe.columns]
-        df_phe.to_feather(path.with_suffix(".phe"))
-
-        dem_attrs = self.attrs - {"genomes", "phenomes"}
-        demo = {attr: getattr(self, attr) for attr in dem_attrs}
-        df_dem = pd.DataFrame(demo, columns=dem_attrs)
-        df_dem.reset_index(drop=True, inplace=True)
-        df_dem["pid"] = df_dem.pid.astype(float)
-        df_dem.to_feather(path.with_suffix(".dem"))
-
-        self.record_for_vizport(df_gen, df_phe, df_dem)
-
-        # empty attrs
-        self._reinit()
-
-        # progress batch
-        self.batch_number += 1
+    def pickle_pop(self, obj, stage):
+        """Pickle given population."""
+        logging.info(f"Pickling the population at stage {stage}.")
+        path = self.opath / f"{stage}.pickle"
+        with open(path, "wb") as ofile:
+            pickle.dump(obj, ofile)
 
     def __len__(self):
         """Return number of saved individuals."""
