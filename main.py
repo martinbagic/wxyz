@@ -134,7 +134,8 @@ def main():
     aux.recorder.pickle_pop(biosys, aux.stage)
     mask_kill = np.ones(len(biosys.pop), bool)
     biosys._kill(mask_kill, "end_of_sim")
-    aux.recorder.flush()
+    aux.recorder.save(force=True)
+    aux.recorder.write_to_vizport()
     logging.info("Simulation finished")
 
 

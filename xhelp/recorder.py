@@ -105,20 +105,22 @@ class Recorder:
             self.births.extend(pop.births)
 
             if len(self) > self.FLUSH_RATE:
+                self.save()
 
-                df_gen, df_phe, df_dem = self.dfize()
+    def save(self, force=False):
+        df_gen, df_phe, df_dem = self.dfize()
 
-                if self.rec_flush_flag:
-                    self.flush(df_gen, df_phe, df_dem)
+        if self.rec_flush_flag or force:
+            self.flush(df_gen, df_phe, df_dem)
 
-                if self.rec_json_flag:
-                    self.record_for_vizport(df_gen, df_phe, df_dem)
+        if self.rec_json_flag or force:
+            self.record_for_vizport(df_gen, df_phe, df_dem)
 
-                self.rec_flush_flag = False
-                self.rec_json_flag = False
+        self.rec_flush_flag = False
+        self.rec_json_flag = False
 
-                self._reinit()  # empty attrs
-                self.batch_number += 1  # progress batch
+        self._reinit()  # empty attrs
+        self.batch_number += 1  # progress batch
 
     def dfize(self):
         """Rewrite data into three pandas dataframes."""
@@ -172,6 +174,7 @@ class Recorder:
         for k, v in data.items():
             self.vizport_data[k].append(v)
 
+    def write_to_vizport(self):
         for path in self.vizport_paths:
             with open(path, "w") as ofile:
                 json.dump(self.vizport_data, ofile)

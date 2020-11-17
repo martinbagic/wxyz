@@ -6,7 +6,7 @@
   c:
   r:
   params:
-    MAX_POPULATION_SIZE: [300, 3000]
+    MAX_POPULATION_SIZE: [250, 500, 1000, 1500, 2000, 2500, 3000, 4000]
 
 # upvolution
 - experiment_dir: MA
@@ -14,7 +14,7 @@
   c: binaryup.yml
   r:
   params:
-    MAX_POPULATION_SIZE: [300, 3000]
+    MAX_POPULATION_SIZE: [250, 500, 1000, 1500, 2000, 2500, 3000, 4000]
 
 # parameter swap
 # missing
@@ -54,13 +54,12 @@
 
 # selection strength
 
-# TODO repeat because 300 is too low ..., 13th locus didnt really get selected
 - experiment_dir: AP
   experiment_name: strength
   c: AP_strength.yml binaryswitchdn.yml
   r:
   params:
-    MAX_POPULATION_SIZE: [300, 2000, 4000]
+    MAX_POPULATION_SIZE: [250, 500, 1000, 1500, 2000, 2500, 3000, 4000]
 
 # selection number
 
@@ -69,7 +68,7 @@
   c: AP_number.yml switchdn.yml
   r:
   params:
-    MAX_POPULATION_SIZE: [300, 2000, 4000]
+    MAX_POPULATION_SIZE: [250, 500, 1000, 1500, 2000, 2500, 3000, 4000]
 
 # reversal
 
@@ -78,39 +77,39 @@
   c: AP_flip2.yml switchdn.yml
   r:
   params:
-    MAX_POPULATION_SIZE: [300, 2000, 4000]
+    MAX_POPULATION_SIZE: [250, 500, 1000, 1500, 2000, 2500, 3000, 4000]
 
 - experiment_dir: AP
   experiment_name: flip2inv
   c: AP_flip2_inv.yml switchdn.yml
   r:
   params:
-    MAX_POPULATION_SIZE: [300, 2000, 4000]
+    MAX_POPULATION_SIZE: [250, 500, 1000, 1500, 2000, 2500, 3000, 4000]
 
 - experiment_dir: AP
   experiment_name: flip2up
   c: AP_flip2.yml switchup.yml
   r:
   params:
-    MAX_POPULATION_SIZE: [300, 2000, 4000]
+    MAX_POPULATION_SIZE: [250, 500, 1000, 1500, 2000, 2500, 3000, 4000]
 
 - experiment_dir: AP
   experiment_name: flip4
   c: AP_flip4.yml switchdn.yml
   r:
   params:
-    MAX_POPULATION_SIZE: [300, 2000, 4000]
+    MAX_POPULATION_SIZE: [250, 500, 1000, 1500, 2000, 2500, 3000, 4000]
 
 - experiment_dir: AP
   experiment_name: flip4inv
   c: AP_flip4_inv.yml switchdn.yml
   r:
   params:
-    MAX_POPULATION_SIZE: [300, 2000, 4000]
+    MAX_POPULATION_SIZE: [250, 500, 1000, 1500, 2000, 2500, 3000, 4000]
 
 - experiment_dir: AP
   experiment_name: flip4up
   c: AP_flip4.yml switchup.yml
   r:
   params:
-    MAX_POPULATION_SIZE: [300, 2000, 4000]
+    MAX_POPULATION_SIZE: [250, 500, 1000, 1500, 2000, 2500, 3000, 4000]
