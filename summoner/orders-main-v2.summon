@@ -1,0 +1,84 @@
+python3 main.py '{"MAX_POPULATION_SIZE": 250}' d_0 MA  
+python3 main.py '{"MAX_POPULATION_SIZE": 500}' d_1 MA  
+python3 main.py '{"MAX_POPULATION_SIZE": 1000}' d_2 MA  
+python3 main.py '{"MAX_POPULATION_SIZE": 1500}' d_3 MA  
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' d_4 MA  
+python3 main.py '{"MAX_POPULATION_SIZE": 2500}' d_5 MA  
+python3 main.py '{"MAX_POPULATION_SIZE": 3000}' d_6 MA  
+python3 main.py '{"MAX_POPULATION_SIZE": 4000}' d_7 MA  
+python3 main.py '{"MAX_POPULATION_SIZE": 250}' u_0 MA -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 500}' u_1 MA -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1000}' u_2 MA -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1500}' u_3 MA -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' u_4 MA -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2500}' u_5 MA -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 3000}' u_6 MA -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 4000}' u_7 MA -c binaryup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' Dplus_0 AP -c AP_matrixD+.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' Dminus_0 AP -c AP_matrixD-.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' Dequal_0 AP -c AP_matrixD=.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' out_0 AP -c AP_matrixout.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 250}' strength_0 AP -c AP_strength.yml binaryswitchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 500}' strength_1 AP -c AP_strength.yml binaryswitchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1000}' strength_2 AP -c AP_strength.yml binaryswitchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1500}' strength_3 AP -c AP_strength.yml binaryswitchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' strength_4 AP -c AP_strength.yml binaryswitchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2500}' strength_5 AP -c AP_strength.yml binaryswitchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 3000}' strength_6 AP -c AP_strength.yml binaryswitchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 4000}' strength_7 AP -c AP_strength.yml binaryswitchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 250}' number_0 AP -c AP_number.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 500}' number_1 AP -c AP_number.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1000}' number_2 AP -c AP_number.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1500}' number_3 AP -c AP_number.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' number_4 AP -c AP_number.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2500}' number_5 AP -c AP_number.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 3000}' number_6 AP -c AP_number.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 4000}' number_7 AP -c AP_number.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 250}' flip2_0 AP -c AP_flip2.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 500}' flip2_1 AP -c AP_flip2.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1000}' flip2_2 AP -c AP_flip2.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1500}' flip2_3 AP -c AP_flip2.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' flip2_4 AP -c AP_flip2.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2500}' flip2_5 AP -c AP_flip2.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 3000}' flip2_6 AP -c AP_flip2.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 4000}' flip2_7 AP -c AP_flip2.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 250}' flip2inv_0 AP -c AP_flip2_inv.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 500}' flip2inv_1 AP -c AP_flip2_inv.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1000}' flip2inv_2 AP -c AP_flip2_inv.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1500}' flip2inv_3 AP -c AP_flip2_inv.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' flip2inv_4 AP -c AP_flip2_inv.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2500}' flip2inv_5 AP -c AP_flip2_inv.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 3000}' flip2inv_6 AP -c AP_flip2_inv.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 4000}' flip2inv_7 AP -c AP_flip2_inv.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 250}' flip2up_0 AP -c AP_flip2.yml switchup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 500}' flip2up_1 AP -c AP_flip2.yml switchup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1000}' flip2up_2 AP -c AP_flip2.yml switchup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1500}' flip2up_3 AP -c AP_flip2.yml switchup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' flip2up_4 AP -c AP_flip2.yml switchup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2500}' flip2up_5 AP -c AP_flip2.yml switchup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 3000}' flip2up_6 AP -c AP_flip2.yml switchup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 4000}' flip2up_7 AP -c AP_flip2.yml switchup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 250}' flip4_0 AP -c AP_flip4.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 500}' flip4_1 AP -c AP_flip4.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1000}' flip4_2 AP -c AP_flip4.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1500}' flip4_3 AP -c AP_flip4.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' flip4_4 AP -c AP_flip4.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2500}' flip4_5 AP -c AP_flip4.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 3000}' flip4_6 AP -c AP_flip4.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 4000}' flip4_7 AP -c AP_flip4.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 250}' flip4inv_0 AP -c AP_flip4_inv.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 500}' flip4inv_1 AP -c AP_flip4_inv.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1000}' flip4inv_2 AP -c AP_flip4_inv.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1500}' flip4inv_3 AP -c AP_flip4_inv.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' flip4inv_4 AP -c AP_flip4_inv.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2500}' flip4inv_5 AP -c AP_flip4_inv.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 3000}' flip4inv_6 AP -c AP_flip4_inv.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 4000}' flip4inv_7 AP -c AP_flip4_inv.yml switchdn.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 250}' flip4up_0 AP -c AP_flip4.yml switchup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 500}' flip4up_1 AP -c AP_flip4.yml switchup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1000}' flip4up_2 AP -c AP_flip4.yml switchup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 1500}' flip4up_3 AP -c AP_flip4.yml switchup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2000}' flip4up_4 AP -c AP_flip4.yml switchup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 2500}' flip4up_5 AP -c AP_flip4.yml switchup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 3000}' flip4up_6 AP -c AP_flip4.yml switchup.yml 
+python3 main.py '{"MAX_POPULATION_SIZE": 4000}' flip4up_7 AP -c AP_flip4.yml switchup.yml 
