@@ -9,8 +9,15 @@ class Interpreter:
         self.binary_max = self.binary_weights.sum()
 
         self.binary_switch_weights = self.binary_weights.copy()
-        self.binary_switch_weights[-1:] = 0
+        self.binary_switch_weights[-1] = 0
         self.binary_switch_max = self.binary_switch_weights.sum()
+
+        # self.nonuniform_weights = np.arange(BITS_PER_LOCUS // self.ploidy)[::-1] ** 2
+        # self.nonuniform_max = self.nonuniform_weights.sum()
+
+        # self.nonuniform_switch_weights = self.nonuniform_weights.copy()
+        # self.nonuniform_switch_weights[-1] = 0
+        # self.nonuniform_switch_max = self.nonuniform_switch_weights.sum()
 
         self.interpreter_map = {
             "uniform": self._uniform,
@@ -19,6 +26,9 @@ class Interpreter:
             "binary_exp": self._binary_exp,
             "binary_switch": self._binary_switch,
             "switch": self._switch,
+            # "nonuniform": self._nonuniform,
+            # "nonuniform_switch": self._nonuniform_switch,
+            # "counter": self._counter,
             # "simple_1": self._simple_1,
         }
 
@@ -27,6 +37,25 @@ class Interpreter:
     #     print(loci[:,0])
     #     print(loci[:, 0] == True)
     #     return loci[:, 0] == 1
+
+    # def _counter(self, loci):
+    #     sums = loci.mean(2)
+    #     return np.select([sums <= 0.5, sums > 0.5], [0, 1])
+
+    # def _nonuniform(self, loci):
+    #     return loci.dot(self.nonuniform_weights) / self.nonuniform_max
+
+    # def _nonuniform_switch(self, loci):
+    #     where_on = loci[:, :, -1] == 1
+    #     values = np.zeros(loci.shape[:-1], float)
+    #     values[where_on] = (
+    #         loci[where_on].dot(self.nonuniform_switch_weights)
+    #         / self.nonuniform_switch_max
+    #     )
+    #     return values
+
+    def _binary(self, loci):  # applicable to surv, repr
+        return loci.dot(self.binary_weights) / self.binary_max
 
     def _switch(self, loci):
         """Locus is evaluated as 0, 1 or randomly evaluated as 0 or 1."""
@@ -38,8 +67,9 @@ class Interpreter:
 
     def _binary_switch(self, loci):
         """Fundamentally a binary interpreter with switch loci that turn on or completely turn off the gene."""
-        where_on = loci[:, :, -1:] == 1
-        where_on = where_on.reshape(loci.shape[:-1])
+        where_on = loci[:, :, -1] == 1 
+        # where_off = loci[:, :, -2] == 0
+        # where_on = where_on.reshape(loci.shape[:-1])
         # assert all(loci[0, 0, -2:]) == where_on[0, 0]
         values = np.zeros(loci.shape[:-1], float)
         values[where_on] = (

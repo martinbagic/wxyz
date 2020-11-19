@@ -173,6 +173,8 @@ class Recorder:
 
         for k, v in data.items():
             self.vizport_data[k].append(v)
+            
+        self.write_to_vizport()
 
     def write_to_vizport(self):
         for path in self.vizport_paths:
