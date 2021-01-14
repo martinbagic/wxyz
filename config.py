@@ -27,6 +27,7 @@ class Config:
         self.ENVMAP_RATE = params["ENVMAP_RATE"]
         self.PHENOMAP_PLUS = params["PHENOMAP_PLUS"]
         self.CLIFF_SURVIVORSHIP = params["CLIFF_SURVIVORSHIP"]
+        # self.TRAUMA_RATE = params["TRAUMA_RATE"]
 
         self.loci_n = {
             attr: [1, self.MAX_LIFESPAN][vals[0]]

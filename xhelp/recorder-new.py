@@ -28,7 +28,7 @@ class Recorder:
         self.rec_json_flag = False
         self.rec_flush_flag = False
 
-        self.vizport_data = {
+        self.visor_data = {
             "params": params,
             "extinct": False,
             "gensurv": [],
@@ -44,7 +44,7 @@ class Recorder:
     def compile(self, obj):
         pop
 
-    def record_for_vizport(self, gen, phe, dem):
+    def record_for_visor(self, gen, phe, dem):
         def get_deaths(death_kind):
             deaths = dem[dem.causeofdeath == death_kind].age.value_counts()
             return [int(deaths.get(age, 0)) for age in range(self.MAX_LIFESPAN + 1)]
@@ -69,20 +69,20 @@ class Recorder:
         }
 
         for k, v in data.items():
-            self.vizport_data[k].append(v)
+            self.visor_data[k].append(v)
 
     def write_json(self):
 
-        vizport_paths = [
+        visor_paths = [
             self.path_dir / f"{self.path_dir.stem}.json",
             self.path_dir.parents[2]
-            / "vizport"
+            / "visor"
             / "csvs"
             / f"{self.path_dir.stem}.json",
         ]
-        for path in vizport_paths:
+        for path in visor_paths:
             with open(path, "w") as ofile:
-                json.dump(self.vizport_data, ofile)
+                json.dump(self.visor_data, ofile)
 
     def make_pickle(self, obj, stage):
         """Pickle given population."""
@@ -103,7 +103,7 @@ class Recorder:
 #         "causeofdeath",
 #         "genomes",
 #         "popid",
-#         "phenomes",
+#         "phenotypes",
 #         "births",
 #     }
 
@@ -116,7 +116,7 @@ class Recorder:
 #         self.age = []
 #         self.causeofdeath = []
 #         self.genomes = []
-#         self.phenomes = []
+#         self.phenotypes = []
 #         self.births = []
 #         self.popid = []
 
@@ -130,16 +130,16 @@ class Recorder:
 #         self.BITS_PER_LOCUS = BITS_PER_LOCUS
 #         self.opath = opath
 
-#         self.vizport_paths = [
+#         self.visor_paths = [
 #             self.opath / f"{self.opath.stem}.json",
-#             self.opath.parents[2] / "vizport" / "csvs" / f"{self.opath.stem}.json",
+#             self.opath.parents[2] / "visor" / "csvs" / f"{self.opath.stem}.json",
 #         ]
-#         # self.vizport_paths.append(self.vizport_paths[-1].parent / "vizport.json")
+#         # self.visor_paths.append(self.visor_paths[-1].parent / "visor.json")
 
 #         self.rec_json_flag = False
 #         self.rec_flush_flag = False
 
-#         self.vizport_data = {
+#         self.visor_data = {
 #             "bitsperlocus": self.BITS_PER_LOCUS,
 #             "survloc": self.LOCI_POS["surv"],
 #             "reprloc": self.LOCI_POS["repr"],
@@ -172,7 +172,7 @@ class Recorder:
 #             )  # flatten each genome
 #             self.causeofdeath.extend([causeofdeath] * len(pop))
 #             self.popid.extend([popid] * len(pop))
-#             self.phenomes.extend(pop.phenomes)
+#             self.phenotypes.extend(pop.phenotypes)
 #             self.births.extend(pop.births)
 
 #             if len(self) > self.FLUSH_RATE:
@@ -183,7 +183,7 @@ class Recorder:
 #                     self.flush(df_gen, df_phe, df_dem)
 
 #                 if self.rec_json_flag:
-#                     self.record_for_vizport(df_gen, df_phe, df_dem)
+#                     self.record_for_visor(df_gen, df_phe, df_dem)
 
 #                 self.rec_flush_flag = False
 #                 self.rec_json_flag = False
@@ -197,11 +197,11 @@ class Recorder:
 #         df_gen.reset_index(drop=True, inplace=True)
 #         df_gen.columns = [str(c) for c in df_gen.columns]
 
-#         df_phe = pd.DataFrame(np.array(self.phenomes))
+#         df_phe = pd.DataFrame(np.array(self.phenotypes))
 #         df_phe.reset_index(drop=True, inplace=True)
 #         df_phe.columns = [str(c) for c in df_phe.columns]
 
-#         dem_attrs = self.attrs - {"genomes", "phenomes"}
+#         dem_attrs = self.attrs - {"genomes", "phenotypes"}
 #         demo = {attr: getattr(self, attr) for attr in dem_attrs}
 #         df_dem = pd.DataFrame(demo, columns=dem_attrs)
 #         df_dem.reset_index(drop=True, inplace=True)
@@ -216,7 +216,7 @@ class Recorder:
 #         df_phe.to_feather(path.with_suffix(".phe"))
 #         df_dem.to_feather(path.with_suffix(".dem"))
 
-#     def record_for_vizport(self, gen, phe, dem):
+#     def record_for_visor(self, gen, phe, dem):
 #         def get_deaths(death_kind):
 #             deaths = dem[dem.causeofdeath == death_kind].age.value_counts()
 #             return [int(deaths.get(age, 0)) for age in range(self.MAX_LIFESPAN + 1)]
@@ -241,11 +241,11 @@ class Recorder:
 #         }
 
 #         for k, v in data.items():
-#             self.vizport_data[k].append(v)
+#             self.visor_data[k].append(v)
 
-#         for path in self.vizport_paths:
+#         for path in self.visor_paths:
 #             with open(path, "w") as ofile:
-#                 json.dump(self.vizport_data, ofile)
+#                 json.dump(self.visor_data, ofile)
 
 #     def pickle_pop(self, obj, stage):
 #         """Pickle given population."""

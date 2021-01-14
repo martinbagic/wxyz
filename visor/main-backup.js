@@ -1,11 +1,14 @@
 let DATA; // gensurv, genrepr, phesurv, pherepr, deaths
 
+const konst = {};
+let varia = {};
+
 let lifespan,
   bitsperlocus,
   maturationage,
   refresher,
   survivorship = [],
-  svg = d3.select("svg"),
+  svg = d3.select("svg#svg1"),
   rectSize = 12,
   colorant = d3.scaleSequential(d3.interpolateSpectral).domain([0, 1]),
   blockGap = 10,
@@ -38,119 +41,109 @@ let lifespan,
 //   ],
 // };
 
-function transpose(a) {
-  return Object.keys(a[0]).map(function (c) {
-    return a.map(function (r) {
-      return r[c];
-    });
-  });
-}
+const transpose = (a) => Object.keys(a[0]).map((c) => a.map((r) => r[c]));
 
-let stack = d3
+const stack = d3
   .stack()
   .keys(d3.range(3))
   .order(d3.stackOrderNone)
   .offset(d3.stackOffsetNone);
 
-function getStack(n) {
-  let d = transpose([DATA.deatheco[n], DATA.deathgen[n], DATA.deathend[n]]);
-  return stack(d);
-}
+const getStack = (n) =>
+  stack(transpose([DATA.deatheco[n], DATA.deathgen[n], DATA.deathend[n]]));
 
-function load(filename) {
-  d3.json(`csvs/${filename}`, d3.autoType).then(function (d) {
-    DATA = {
-      gensurv: transpose(d.gensurv),
-      genrepr: transpose(d.genrepr),
-      phesurv: transpose(d.phesurv),
-      pherepr: transpose(d.pherepr),
-      deatheco: d.death_eco,
-      deathend: d.death_end,
-      deathgen: d.death_gen,
-    };
-    console.log(DATA);
 
-    lifespan = d.lifespan;
-    bitsperlocus = d.bitsperlocus;
-    maturationage = d.maturationage;
+async function load(filename) {
+  let d = await d3.json(`csvs/${filename}`, d3.autoType);
 
-    recordNum = DATA.deatheco.length - 1; // default record to display is the last one
+  DATA = {
+    gensurv: transpose(d.gensurv),
+    genrepr: transpose(d.genrepr),
+    phesurv: transpose(d.phesurv),
+    pherepr: transpose(d.pherepr),
+    deatheco: d.death_eco,
+    deathend: d.death_end,
+    deathgen: d.death_gen,
+  };
+  console.log("DATA", DATA);
 
-    let sliderArea = svg.append("g").attr("transform", `translate(50,25)`);
-    let plotArea = svg.append("g").attr("transform", `translate(50,50)`);
+  // konst.lifespan = d.lifespan;
+  // konst.bitsperlocus = d.bitsperlocus;
+  // konst.maturationage = d.maturationage;
 
-    frames = {
-      gensurv: plotArea.append("g"),
-      phesurv: plotArea
-        .append("g")
-        .attr(
-          "transform",
-          `translate(${rectSize * bitsperlocus + blockGap} 0)`
-        ),
-      pherepr: plotArea
-        .append("g")
-        .attr(
-          "transform",
-          `translate(${rectSize * (bitsperlocus + 1) + blockGap * 2} 0)`
-        ),
-      genrepr: plotArea
-        .append("g")
-        .attr(
-          "transform",
-          `translate(${rectSize * (bitsperlocus + 2) + blockGap * 3} 0)`
-        ),
-      deaths: plotArea
-        .append("g")
-        .attr(
-          "transform",
-          `translate(${rectSize * (bitsperlocus * 2 + 2) + blockGap * 4} 0)`
-        ),
-      kaplanmeier: plotArea
-        .append("g")
-        .attr(
-          "transform",
-          `translate(${rectSize * (bitsperlocus * 2 + 2) + blockGap * 4} 0)`
-        ),
-    };
+  let {lifespan, bitsperlocus, maturationage} = d;
 
-    plotHeat(frames.gensurv, DATA.gensurv, bitsperlocus, recordNum);
-    plotHeat(frames.phesurv, DATA.phesurv, 1, recordNum);
-    plotHeat(frames.pherepr, DATA.pherepr, 1, recordNum);
-    plotHeat(frames.genrepr, DATA.genrepr, bitsperlocus, recordNum);
+  recordNum = DATA.deatheco.length - 1; // default record to display is the last one
 
-    let slider = new Slider(
-      sliderArea,
-      rectSize * (bitsperlocus * 2 + 2) + blockGap * 3,
-      recordNum
-    );
+  let sliderArea = svg.append("g").attr("transform", `translate(50,25)`);
+  let plotArea = svg.append("g").attr("transform", `translate(50,50)`);
 
-    plotBars(frames.deaths, getStack(recordNum));
-    console.log(DATA);
+  frames = {
+    gensurv: plotArea.append("g"),
+    phesurv: plotArea
+      .append("g")
+      .attr("transform", `translate(${rectSize * bitsperlocus + blockGap} 0)`),
+    pherepr: plotArea
+      .append("g")
+      .attr(
+        "transform",
+        `translate(${rectSize * (bitsperlocus + 1) + blockGap * 2} 0)`
+      ),
+    genrepr: plotArea
+      .append("g")
+      .attr(
+        "transform",
+        `translate(${rectSize * (bitsperlocus + 2) + blockGap * 3} 0)`
+      ),
+    deaths: plotArea
+      .append("g")
+      .attr(
+        "transform",
+        `translate(${rectSize * (bitsperlocus * 2 + 2) + blockGap * 4} 0)`
+      ),
+    kaplanmeier: plotArea
+      .append("g")
+      .attr(
+        "transform",
+        `translate(${rectSize * (bitsperlocus * 2 + 2) + blockGap * 4} 0)`
+      ),
+  };
 
-    // let deaths = transpose([DATA.deatheco, DATA.deathend, DATA.deathgen].map(a => a.map(x => d3.sum(x)))).map(x => d3.sum(x))
-    // console.log(deaths);
-    // let deaths;
-    let deaths = transpose([
-      DATA.deathgen,
-      DATA.deatheco,
-      DATA.deathend,
-    ]).map((a) => transpose(a).map((x) => d3.sum(x)));
-    for (let x of deaths) {
-      let total = d3.sum(x);
-      let cumsum = Array.from(d3.cumsum(x));
-      cumsum.unshift(1);
-      survivorship.push(cumsum.map((_) => (total - _) / total));
-    }
-    // plotKM(frames.kaplanmeier, recordNum);
+  plotHeat(frames.gensurv, DATA.gensurv, bitsperlocus, recordNum);
+  plotHeat(frames.phesurv, DATA.phesurv, 1, recordNum);
+  plotHeat(frames.pherepr, DATA.pherepr, 1, recordNum);
+  plotHeat(frames.genrepr, DATA.genrepr, bitsperlocus, recordNum);
 
-    svg
-      .attr("height", plotArea.node().getBBox().height + 50)
-      .attr("width", 1000);
+  let slider = new Slider(
+    sliderArea,
+    rectSize * (bitsperlocus * 2 + 2) + blockGap * 3,
+    recordNum
+  );
 
-    // d3.select("#download").on("click", function () {
-    //   download(d3.select("svg"));
-    // });
-  });
+  plotBars(frames.deaths, getStack(recordNum));
+
+  // let deaths = transpose([DATA.deatheco, DATA.deathend, DATA.deathgen].map(a => a.map(x => d3.sum(x)))).map(x => d3.sum(x))
+  // console.log(deaths);
+  // let deaths;
+  let deaths = transpose([
+    DATA.deathgen,
+    DATA.deatheco,
+    DATA.deathend,
+  ]).map((a) => transpose(a).map((x) => d3.sum(x)));
+  for (let x of deaths) {
+    let total = d3.sum(x);
+    let cumsum = Array.from(d3.cumsum(x));
+    cumsum.unshift(1);
+    survivorship.push(cumsum.map((_) => (total - _) / total));
+  }
+  plotKM(frames.kaplanmeier, recordNum);
+
+  svg.attr("height", plotArea.node().getBBox().height + 50).attr("width", 1000);
+
+  // d3.select("#download").on("click", function () {
+  //   download(d3.select("svg"));
+  // });
+  // }//);
 }
 
 class Slider {
@@ -191,23 +184,24 @@ class Slider {
       .attr("width", this.knobSize)
       .attr("fill", "red")
       .attr("cursor", "pointer")
-      .on("click", function () {
+      .on("click", (event) => {
         if (slider.playing) {
           slider.playing = false;
           slider.timer.stop();
-          d3.select(this).attr("fill", "green");
+          d3.select(event.target).attr("fill", "green");
         } else {
           slider.playing = true;
           slider.timer = d3.timer(updateValue, 1000); //slider.updateValue
-          d3.select(this).attr("fill", "red");
+          d3.select(event.target).attr("fill", "red");
         }
       });
 
     this.knob = frame
       .append("rect")
-      .attr("x", this.scale.invertExtent(this.value)[0])
+      .attr("x", this.scale.invertExtent(this.value)[0] - this.knobSize)
       .attr("y", -this.knobSize / 2)
-      .attr("width", this.scale.invertExtent(0)[1])
+      // .attr("width", this.scale.invertExtent(0)[1])
+      .attr("width", this.knobSize)
       .attr("height", this.knobSize)
       .attr("fill", "rgb(0,68,222,0.8)")
       .attr("cursor", "grab")
@@ -245,7 +239,7 @@ function updatePlots(recordNum) {
   }
 
   plotBars(frames.deaths, getStack(recordNum));
-  // plotKM(frames.kaplanmeier, recordNum);
+  plotKM(frames.kaplanmeier, recordNum);
 }
 
 function plotHeat(frame, data, bitsperlocus, recordNum) {
@@ -388,11 +382,11 @@ d3.select("#refreshme").on("click", function () {
   removem.remove();
 });
 
-// load("vizport.json");
+// load("visor.json");
 
 // refresher = setInterval(function () {
 //   let removem = svg.selectAll("g");
-//   load("vizport.json");
+//   load("visor.json");
 //   removem.remove();
 // }, 1000 * 10);
 // clearInterval(refresher)

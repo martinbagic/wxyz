@@ -32,7 +32,7 @@ class Recorder:
         "causeofdeath",
         "genomes",
         "popid",
-        "phenomes",
+        "phenotypes",
         "births",
     }
 
@@ -45,7 +45,7 @@ class Recorder:
         self.age = []
         self.causeofdeath = []
         self.genomes = []
-        self.phenomes = []
+        self.phenotypes = []
         self.births = []
         self.popid = []
 
@@ -59,16 +59,16 @@ class Recorder:
         self.BITS_PER_LOCUS = BITS_PER_LOCUS
         self.opath = opath
 
-        self.vizport_paths = [
+        self.visor_paths = [
             self.opath / f"{self.opath.stem}.json",
-            self.opath.parents[2] / "vizport" / "csvs" / f"{self.opath.stem}.json",
+            self.opath.parents[2] / "visor" / "csvs" / f"{self.opath.stem}.json",
         ]
-        # self.vizport_paths.append(self.vizport_paths[-1].parent / "vizport.json")
+        # self.visor_paths.append(self.visor_paths[-1].parent / "visor.json")
 
-        self.rec_json_flag = False
-        self.rec_flush_flag = False
+        self.rec_json_flag = True
+        self.rec_flush_flag = True
 
-        self.vizport_data = {
+        self.visor_data = {
             "bitsperlocus": self.BITS_PER_LOCUS,
             "survloc": self.LOCI_POS["surv"],
             "reprloc": self.LOCI_POS["repr"],
@@ -101,44 +101,43 @@ class Recorder:
             )  # flatten each genome
             self.causeofdeath.extend([causeofdeath] * len(pop))
             self.popid.extend([popid] * len(pop))
-            self.phenomes.extend(pop.phenomes)
+            self.phenotypes.extend(pop.phenotypes)
             self.births.extend(pop.births)
 
             if len(self) > self.FLUSH_RATE:
                 self.save()
 
     def save(self, force=False):
-        df_gen, df_phe, df_dem = self.dfize()
+        def dfize():
+            """Rewrite data into three pandas dataframes."""
+            df_gen = pd.DataFrame(np.array(self.genomes))
+            df_gen.reset_index(drop=True, inplace=True)
+            df_gen.columns = [str(c) for c in df_gen.columns]
+
+            df_phe = pd.DataFrame(np.array(self.phenotypes))
+            df_phe.reset_index(drop=True, inplace=True)
+            df_phe.columns = [str(c) for c in df_phe.columns]
+
+            dem_attrs = self.attrs - {"genomes", "phenotypes"}
+            demo = {attr: getattr(self, attr) for attr in dem_attrs}
+            df_dem = pd.DataFrame(demo, columns=dem_attrs)
+            df_dem.reset_index(drop=True, inplace=True)
+            df_dem["pid"] = df_dem.pid.astype(float)
+            return df_gen, df_phe, df_dem
+
+        df_gen, df_phe, df_dem = dfize()
 
         if self.rec_flush_flag or force:
             self.flush(df_gen, df_phe, df_dem)
 
         if self.rec_json_flag or force:
-            self.record_for_vizport(df_gen, df_phe, df_dem)
+            self.record_for_visor(df_gen, df_phe, df_dem)
 
         self.rec_flush_flag = False
         self.rec_json_flag = False
 
         self._reinit()  # empty attrs
         self.batch_number += 1  # progress batch
-
-    def dfize(self):
-        """Rewrite data into three pandas dataframes."""
-        df_gen = pd.DataFrame(np.array(self.genomes))
-        df_gen.reset_index(drop=True, inplace=True)
-        df_gen.columns = [str(c) for c in df_gen.columns]
-
-        df_phe = pd.DataFrame(np.array(self.phenomes))
-        df_phe.reset_index(drop=True, inplace=True)
-        df_phe.columns = [str(c) for c in df_phe.columns]
-
-        dem_attrs = self.attrs - {"genomes", "phenomes"}
-        demo = {attr: getattr(self, attr) for attr in dem_attrs}
-        df_dem = pd.DataFrame(demo, columns=dem_attrs)
-        df_dem.reset_index(drop=True, inplace=True)
-        df_dem["pid"] = df_dem.pid.astype(float)
-
-        return df_gen, df_phe, df_dem
 
     def flush(self, df_gen, df_phe, df_dem):
         """Write data to *.gen and *.dem files and erase all data from self."""
@@ -147,7 +146,11 @@ class Recorder:
         df_phe.to_feather(path.with_suffix(".phe"))
         df_dem.to_feather(path.with_suffix(".dem"))
 
-    def record_for_vizport(self, gen, phe, dem):
+    def record_for_visor(self, gen, phe, dem):
+        def get_bits(loci_kind, array, bitsperlocus=self.BITS_PER_LOCUS):
+            pos = self.LOCI_POS[loci_kind]
+            return array.iloc[:, pos[0] * bitsperlocus : pos[1] * bitsperlocus]
+
         def get_deaths(death_kind):
             deaths = dem[dem.causeofdeath == death_kind].age.value_counts()
             return [int(deaths.get(age, 0)) for age in range(self.MAX_LIFESPAN + 1)]
@@ -155,10 +158,6 @@ class Recorder:
         # def get_births():
         #     births = dem.births
         #     return [int(births.get(age, 0)) for age in range(self.MAX_LIFESPAN + 1)]
-
-        def get_bits(loci_kind, array, bitsperlocus=self.BITS_PER_LOCUS):
-            pos = self.LOCI_POS[loci_kind]
-            return array.iloc[:, pos[0] * bitsperlocus : pos[1] * bitsperlocus]
 
         data = {
             "gensurv": get_bits("surv", gen).mean(0).astype(float).tolist(),
@@ -172,14 +171,14 @@ class Recorder:
         }
 
         for k, v in data.items():
-            self.vizport_data[k].append(v)
-            
-        self.write_to_vizport()
+            self.visor_data[k].append(v)
 
-    def write_to_vizport(self):
-        for path in self.vizport_paths:
+        self.write_to_visor()
+
+    def write_to_visor(self):
+        for path in self.visor_paths:
             with open(path, "w") as ofile:
-                json.dump(self.vizport_data, ofile)
+                json.dump(self.visor_data, ofile)
 
     def pickle_pop(self, obj, stage):
         """Pickle given population."""

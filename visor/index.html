@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<head>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="SaveSVG.min.js"></script>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" />
+  <title>AEGIS visor</title>
+</head>
+
+<body>
+  <!-- <div class="reload">reload</div> -->
+  <div style="margin-left: 50px">
+    <a class="button" id="download">download PNG</a>
+    <input type="text" id="filename" value="example.json" />
+    <a class="button" id="refreshme">load me</a>
+    <a class="button" id="keepRefreshing">keep refreshing</a>
+  </div>
+  <div class="tooltip" style="opacity: 0"></div>
+  <div class="locuser" style="opacity: 0"></div>
+
+  <div>
+    <svg id="svg1"></svg>
+  </div>
+  <div id="locusTimelineWrapper">
+    <div class="deleteAll"><span class="button">Delete All</span></div>
+    <div class="locusTimelines"></div>
+    <br />
+    <hr />
+    <br />
+    <div class="locusTimelinesSaved"></div>
+  </div>
+  <!-- <div><svg id="svg2"></svg></div> -->
+  <script src="main.js"></script>
+  <!-- <script src="new.js"></script> -->
+</body>

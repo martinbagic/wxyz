@@ -3,6 +3,7 @@ MAX_POPULATION_SIZE: 300
 OVERSHOOT_EVENT: starvation # starvation, cliff, treadmill_random, treadmill_zoomer, treadmill_boomer
 CLIFF_SURVIVORSHIP: False
 DISCRETE_GENERATIONS: False
+# TRAUMA_RATE: 0.02
 
 # GENOTYPE
 MAX_LIFESPAN: 50

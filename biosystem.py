@@ -57,8 +57,8 @@ class Biosystem:
                 uids = self.conf.get_uids(num)
                 births = np.zeros(num, int)
                 birthdays = np.zeros(num, int)
-                phenomes = self._get_phenome(genomes)
-                return Pop(genomes, ages, origins, uids, births, birthdays, phenomes)
+                phenotypes = self._get_phenotype(genomes)
+                return Pop(genomes, ages, origins, uids, births, birthdays, phenotypes)
             else:
                 return pop
 
@@ -133,6 +133,10 @@ class Biosystem:
         """Make individuals reproduce."""
 
         def _recombine(genomes):
+
+            if self.conf.RECOMBINATION_RATE == 0:
+                return genomes
+
             # make recombined genomes
             flat_genomes = genomes.reshape(len(genomes), -1)
             chromosomes1 = flat_genomes[:, ::2]
@@ -140,7 +144,9 @@ class Biosystem:
 
             # make choice array: when to take recombined and when to take original loci
             # -1 means synapse; +1 means clear
-            rr = self.conf.RECOMBINATION_RATE / 2
+            rr = (
+                self.conf.RECOMBINATION_RATE / 2
+            )  # / 2 because you are generating two random vectors (fwd and bkd)
             reco_fwd = (np.random.random(chromosomes1.shape) < rr) * -2 + 1
             reco_bkd = (np.random.random(chromosomes2.shape) < rr) * -2 + 1
 
@@ -149,16 +155,15 @@ class Biosystem:
             reco_bkd_cum = np.cumprod(reco_bkd[:, ::-1], axis=1)[:, ::-1]
 
             # recombine if both recombining
-            reco_final = reco_fwd_cum * reco_bkd_cum
-            reco_final = reco_final == -1  # True if both recombining
+            reco_final = (reco_fwd_cum + reco_bkd_cum) == -2
 
             # choose bits from first or second chromosome
-            recombined = np.empty(flat_genomes.shape, dtype=bool)
+            recombined = np.empty(flat_genomes.shape, bool)
             recombined[:, ::2] = np.choose(reco_final, [chromosomes1, chromosomes2])
             recombined[:, 1::2] = np.choose(reco_final, [chromosomes2, chromosomes1])
             recombined = recombined.reshape(genomes.shape)
 
-            # assure on one example that bits are recombining
+            # check on one example that bits are recombining
             if reco_final[0, 0]:
                 assert (
                     recombined[0, 0, 0] == chromosomes2[0, 0]
@@ -179,30 +184,32 @@ class Biosystem:
             # [  x   x   x   x] => 2nd chromosome
 
             # extract parent indices twice, and shuffle
-            order = np.repeat(
-                np.arange(len(genomes)), 2
-            )  # every parent sends off two chromosomes into two children
+            order = np.repeat(np.arange(len(genomes)), 2)
             np.random.shuffle(order)
 
             # check for selfing
-            selfed = np.where(order[::2] == order[1::2])[0] * 2
+            # selfing when pair contains equal parent indices
+            selfed = (order[::2] == order[1::2]).nonzero()[0] * 2
+
             if len(selfed) == 1:
-                # switch first selfed chromosome with the first chromosome of the previous or next pair
+                # if one parent index pair is selfed
+                # swap first selfed chromosome with the first chromosome of the previous or next pair
                 offset = -2 if selfed[0] > 0 else 2
                 order[selfed], order[selfed + offset] = (
                     order[selfed + offset],
                     order[selfed],
                 )
             elif len(selfed) > 1:
+                # if multiple parent index pairs are selfed
                 # shift first chromosomes of selfed pairs
                 order[selfed] = order[np.roll(selfed, 1)]
 
             assorted = genomes[order]
 
-            # take first chromosomes of first parents and second chromosomes of second parents
+            # children chromosomes are at positions [::2]
+            # copy second chromosome of second parent onto the second chromosome of the children
+            # thus, children have the first chromosomes from the first parents and the second chromosomes from the second parents
             assorted[::2, :, 1::2] = assorted[1::2, :, 1::2]
-
-            # children have chromosomes at positions [::2]
             assorted = assorted[::2]
 
             return assorted, order
@@ -272,7 +279,7 @@ class Biosystem:
             uids=self.conf.get_uids(n),
             births=np.zeros(n, int),
             birthdays=np.zeros(n, int) + self.aux.stage,
-            phenomes=self._get_phenome(genomes),
+            phenotypes=self._get_phenotype(genomes),
         )
 
         # save as eggs if generations are nonoverlapping/discrete
@@ -293,7 +300,7 @@ class Biosystem:
     # HELPER FUNCS #
     ################
 
-    def _get_phenome(self, genomes):
+    def _get_phenotype(self, genomes):
         def _get_interpretome(omes):
             interpretome = np.zeros(shape=omes.shape[:2])
 
@@ -319,15 +326,15 @@ class Biosystem:
 
         envgenomes = self.conf.envmap(genomes)
         interpretome = _get_interpretome(envgenomes)
-        phenomes = self.conf.phenomap(interpretome)
-        bounded_phenome = _bound(phenomes)
+        phenotypes = self.conf.phenomap(interpretome)
+        bounded_phenotypes = _bound(phenotypes)
 
         # if not self.aux.stage % 100:
         #     print(
-        #         np.round(interpretome[0][:10], 2), np.round(bounded_phenome[0][:10], 2)
+        #         np.round(interpretome[0][:10], 2), np.round(bounded_phenotype[0][:10], 2)
         #     )
 
-        return bounded_phenome
+        return bounded_phenotypes
 
     def _get_evaluation(self, attr, part=None):
 
@@ -347,7 +354,7 @@ class Biosystem:
             if agespec:
                 which_loci += self.pop.ages[which_individuals]
 
-            probs = self.pop.phenomes[which_individuals, which_loci]
+            probs = self.pop.phenotypes[which_individuals, which_loci]
 
             # envgenomes = self.conf.envmap(self.pop.genomes)
             # loci = envgenomes[which_individuals, which_loci]

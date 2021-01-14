@@ -1,0 +1,60 @@
+* {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 14px;
+}
+div.tooltip,
+div.locuser {
+  text-align: center;
+  /* width: 50px; */
+  padding-left: 3px;
+  padding-right: 3px;
+  line-height: 30px;
+  height: 19px;
+  font: 15px sans-serif;
+  font-weight: bold;
+  position: absolute;
+  /* background: rgba(255, 255, 255, 0.9); */
+  background: #333;
+  /* border: 1px #666 solid; */
+  border-radius: 4px;
+  pointer-events: none;
+  color: #642300;
+}
+.button,
+a.button {
+  border: 1px solid #333;
+  color: white;
+  background-color: #333;
+  padding: 2px 3px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.button:hover,
+a.button:hover {
+  background-color: white;
+  color: #333;
+}
+
+.button:active,
+a.buttonOn,
+a.button:active {
+  background-color: #999;
+  color: #333;
+  box-shadow: 0 0 2px #333 inset;
+}
+
+input {
+  border: 1px solid #333;
+  padding: 2px 3px;
+  margin: 0;
+}
+
+.locusTimeline {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+}
+.locusTimeline > svg {
+  border: 0.1rem solid red;
+}
